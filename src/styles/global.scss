@@ -1,0 +1,18 @@
+@import "variables";
+
+*, 
+body{
+    box-sizing: border-box;
+    margin: 0;
+
+    color: white; 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.greenBody{
+    background-color: $green;
+}
+
+.orangeBody{
+    background-color: $orange;
+}
