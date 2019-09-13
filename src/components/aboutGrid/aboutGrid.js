@@ -1,54 +1,71 @@
-// import { Link } from "gatsby"
-// import PropTypes from "prop-types"
+import { Link } from "gatsby"
 import React from "react"
 
 import componentStyles from "./aboutGrid.module.scss" 
-
-// const imageStyle = {
-//     grid-column: 3 / span 2;
-// };
 
 const AboutGrid = () => (
 
   <section className={componentStyles.grid}>
 
         <div>
-            <h2 className={componentStyles.underline}>ABOUT</h2>
-            <p>fjdlfjdsljfksjfkjdskfjsd</p>
+            <h3 className={componentStyles.underline}>ABOUT</h3>
+            <p className={componentStyles.content}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
         </div>
 
-        <div className={componentStyles.yellow}>
-            <h2>OPEN WORKSHOPS</h2>
-        </div>
+        <Link 
+            to="/workshops" 
+            className={`${componentStyles.yellow} ${componentStyles.centered}`}>
+            <h3>
+                <span style={{"font-size": "7vw"}}>OPEN</span>
+                {/* &nbsp; */}
+                <br/>
+                <span 
+                    className={componentStyles.light}
+                    style={{"font-size": "3vw"}}>
+                        WORKSHOPS
+                </span>
+            </h3>
+        </Link>
 
         {/* WHITE LINES */}
         <div></div>
 
 
-
-        <div className={`${componentStyles.white} ${componentStyles.tall}`}>
-            <h2>CLASS CONTENT</h2>
-        </div>
+        <Link 
+            to="/workshops"
+            className={`${componentStyles.white} ${componentStyles.tall}`}>
+            <div>
+                <h3>
+                    <span style={{"font-size": "4vw"}}>CLASS</span>
+                    {/* &nbsp; */}
+                    <br/>
+                    <span className={componentStyles.light}>CONTENT</span>
+                </h3>
+            </div>
+            
+        </Link>
 
         {/* IMAGE */}
         <div className={componentStyles.image}></div>
 
         <div className={componentStyles.white}>
-            <h2>PUBLICATION</h2>
+            <h3>PUBLICATION</h3>
         </div>
 
 
 
         <div className={componentStyles.tall}>
-            <h2 className={componentStyles.alt}>PARTNERS</h2>
+            <h3 className={componentStyles.alt}>
+                PARTNERS
+            </h3>
         </div>
 
 
-        <div>
-            <h2 className={componentStyles.alt}>CONTACT</h2>
-        </div>
-
-
+        <a className={componentStyles.green} href="mailto:me@caitlinhaaf.com">
+            <h3>CONTACT</h3>
+        </a>
 
   </section>
 )

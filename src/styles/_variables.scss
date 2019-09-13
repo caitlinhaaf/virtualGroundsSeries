@@ -4,3 +4,16 @@ COLOUR PALETTE
 $green: #307574;
 $yellow: #fcea75;
 $orange: #fd865a;
+
+$transparentYellow: rgba(252, 234, 117, 0);
+
+$whiteBorder: 5px solid white;
+$greenBorder: 5px solid $green;
+
+/*
+FONT
+*/
+@import url("https://fonts.googleapis.com/css?family=Dosis:500,800|Fira+Sans:200,400&display=swap");
+$bodyFont: normal 400 1rem/1em 'Fira Sans', sans-serif;
+$hdrFont: normal 800 1rem/1em 'Dosis', sans-serif;
+$hdrLight: normal 500 1rem/1em 'Dosis', sans-serif;

@@ -1,6 +1,26 @@
 @import "../../styles/_variables";
 
 .nav{
-    padding: 2.5rem 2rem 1.5rem 2rem;
-    border-bottom: 5px solid white; 
+
+    padding: 2.5em 2em 1.5rem 2em;
+    border-bottom: $whiteBorder; 
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .2s border;
+
+    &.altBorder{
+        border-bottom: $greenBorder;
+    }
+
+    h1{
+        font-size: 1.5em;
+    }
+
+    .link{
+      font-weight: 200;
+      text-decoration: none; 
+      padding: 1em; 
+    }
 }

@@ -4,25 +4,25 @@ import BodyClassName from 'react-body-classname'
 
 import componentStyles from "./layout.module.scss" 
 
-// import Header from "../header"
 import Nav from "../nav/nav"
+import Footer from "../footer/footer"
 
 const Layout = ({ bodyClass, children }) => {
+
   return (
     <BodyClassName className={bodyClass}>
       <div>
-        <Nav />
+        <Nav altBorder={
+          (bodyClass !== "greenBody") ? true : false
+        }/>
 
         <main 
           className={componentStyles.siteBody}>
           {children}
         </main>
 
-        <footer>
-          &copy; {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <Footer />
+
       </div>
     </BodyClassName>
   )

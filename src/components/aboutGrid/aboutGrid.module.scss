@@ -1,17 +1,14 @@
 @import '../../styles/variables';
 
 .grid{
-    width: auto;
+    width: 90%;
     max-width: 1000px;
     margin: 3rem auto;
     display: grid;
-    border-top: 5px solid white;
-    border-left: 5px solid white;
-
-    // grid-template-rows: auto;
+    border-top: $whiteBorder;
+    border-left: $whiteBorder;
     grid-template-columns: calc(100%/3) 1fr calc(100%/3);
     justify-items: stretch;
-    // align-items: center;
 
     // TODO: return to this concept
     // grid-template-areas: 
@@ -19,40 +16,83 @@
     //     "main main . sidebar"
     //     "footer footer footer footer";
 
+    // .item{
+    //      grid-area: footer;
+    // }
+
     > *{
-        border-bottom: 5px solid white;
-        border-right: 5px solid white;
+        border-bottom: $whiteBorder;
+        border-right: $whiteBorder;
 
         padding: 1rem 0;
+        text-decoration: none;
+    }
+    .centered{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    h2, h3{
+    h3, h4{
         padding: .25em 1em;
-        font-size: 2.25em;
+        font-size: 3vw;
         text-align: center;
+
+        > *{
+            font-weight: 800;
+        }
 
         &.alt{
             color: $yellow;
         }
         &.underline{
-            border-bottom: 5px solid white; 
+            border-bottom: $whiteBorder; 
+        }
+        .light{
+            font: $hdrLight;
+            font-size: 2.5vw;
         }
     }
 
-    // .item{
-    //      grid-area: footer;
-    // }
-
+    
+    // LINK STYLES
     .yellow *,
     .white *{
         color: $green; 
     }
+    .green *{
+        color: $yellow;
+    }
     .yellow{
         background-color: $yellow;
+        &:focus{
+            outline: 0;
+            background-color: $transparentYellow;
+            *{
+                color: $yellow;
+            } 
+        }
     }
     .white{
         background-color: white;
+        &:focus{
+            outline: 0;
+            background-color: rgba(255, 255, 255, 0);
+            *{
+                color: white;
+            } 
+        }
     }
+    .green{
+        &:focus{
+            outline: 0;
+            background-color: $yellow;
+            *{
+                color: $green;
+            } 
+        } 
+    }
+
 
     .image{
         grid-row: span 3;
@@ -60,5 +100,8 @@
 
     .tall{
         grid-row: span 2;
+    }
+    .content{
+        margin: 1em 1em 0 1em;
     }
 }
