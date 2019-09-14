@@ -1,9 +1,13 @@
 import { Link } from "gatsby"
+// import { graphql } from "gatsby"
 import React from "react"
+// import Img from "gatsby-image"
+
+import Lines from '../lines/lines'
 
 import componentStyles from "./aboutGrid.module.scss" 
 
-const AboutGrid = () => (
+const AboutGrid = ({data}) => (
 
   <section className={componentStyles.grid}>
 
@@ -29,9 +33,9 @@ const AboutGrid = () => (
             </h3>
         </Link>
 
-        {/* WHITE LINES */}
-        <div></div>
-
+        <div className={componentStyles.lines}>
+            <Lines color="white"/>
+        </div>
 
         <Link 
             to="/workshops"
@@ -54,15 +58,17 @@ const AboutGrid = () => (
             <h3>PUBLICATION</h3>
         </div>
 
-
-
-        <div className={componentStyles.tall}>
+        <div style={{ "grid-row": "span 3"}}>
             <h3 className={componentStyles.alt}>
                 PARTNERS
             </h3>
         </div>
 
 
+        {/* WHITE LINES */}
+        <div className={componentStyles.lines}>
+            <Lines color="yellow"/>
+        </div>
         <a className={componentStyles.green} href="mailto:me@caitlinhaaf.com">
             <h3>CONTACT</h3>
         </a>
