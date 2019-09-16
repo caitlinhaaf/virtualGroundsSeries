@@ -27,7 +27,8 @@ const AboutGrid = ({data}) => (
                 <br/>
                 <span 
                     className={componentStyles.light}
-                    style={{"font-size": "3vw"}}>
+                    // style={{"font-size": "3vw"}}
+                    >
                         WORKSHOPS
                 </span>
             </h3>
@@ -43,7 +44,6 @@ const AboutGrid = ({data}) => (
             <div>
                 <h3>
                     <span style={{"font-size": "4vw"}}>CLASS</span>
-                    {/* &nbsp; */}
                     <br/>
                     <span className={componentStyles.light}>CONTENT</span>
                 </h3>
@@ -54,9 +54,9 @@ const AboutGrid = ({data}) => (
         {/* IMAGE */}
         <div className={componentStyles.image}></div>
 
-        <div className={componentStyles.white}>
+        <Link to="/workshops" className={componentStyles.white}>
             <h3>PUBLICATION</h3>
-        </div>
+        </Link>
 
         <div style={{ "grid-row": "span 3"}}>
             <h3 className={componentStyles.alt}>

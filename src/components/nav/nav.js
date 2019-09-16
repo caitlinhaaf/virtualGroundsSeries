@@ -12,10 +12,22 @@ const Nav = ({altBorder}) => {
       <h1>VIRTUAL GROUNDS</h1>
 
       <div>
-        <Link to="/" className={componentStyles.link}>ABOUT</Link>
-        <Link to="/workshops" className={componentStyles.link}>WORKSHOPS</Link>
-        <Link to="/workshops" className={componentStyles.link}>CLASS CONTENT</Link>
-        <Link to="/workshops" className={componentStyles.link}>PUBLICATION</Link>
+        <Link to="/" className={componentStyles.link} activeClassName={componentStyles.active}>
+          ABOUT
+        </Link>
+
+        <Link to="/workshops" className={componentStyles.link} activeClassName={componentStyles.active}>
+          WORKSHOPS
+        </Link>
+
+        <Link to="/classContent" className={componentStyles.link} activeClassName={componentStyles.active}>
+          CLASS CONTENT
+        </Link>
+
+        <Link to="/publication" className={componentStyles.link} activeClassName={componentStyles.active}>
+          PUBLICATION
+        </Link>
+
       </div>
 
     </nav>

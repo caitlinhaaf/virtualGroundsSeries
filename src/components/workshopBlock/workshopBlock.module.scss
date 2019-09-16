@@ -1,0 +1,37 @@
+@import '../../styles/variables';
+
+.workshopRow{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+
+    > :first-child{
+        margin-right: 3rem;
+    }
+
+    h4,
+    h4 *{
+        color: $green;
+        font-size: 5vw;
+        margin-bottom: 1rem;
+    }
+}
+
+.light{
+    font-weight: 300;
+}
+
+a{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.workshopRow:nth-child(even){
+    flex-direction: row-reverse;
+    > :first-child{
+        margin-right: 0;
+    }
+    > :last-child{
+        margin-right: 3em;
+    }
+}
