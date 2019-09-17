@@ -3,7 +3,7 @@
 .workshopRow{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
 
     > :first-child{
         margin-right: 3rem;
@@ -44,4 +44,15 @@
     > :last-child{
         margin-right: 3em;
     }
+}
+
+.lineOffset
+.lineOffset > *{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+  top: 5%;
+  left: 5%;
 }

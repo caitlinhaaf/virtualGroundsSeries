@@ -7,73 +7,107 @@ import Lines from '../lines/lines'
 
 import componentStyles from "./aboutGrid.module.scss" 
 
-const AboutGrid = () => (
+const AboutGrid = () => {
+    // console.log(`DATA: `,data)
 
-  <section className={componentStyles.grid}>
+    return(
+        <section className={componentStyles.grid}>
 
-        <div>
-            <h3 className={componentStyles.underline}>ABOUT</h3>
-            <p className={componentStyles.content}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            </p>
-        </div>
-
-        <Link 
-            to="/workshops" 
-            className={`${componentStyles.yellow} ${componentStyles.centered}`}>
-            <h3>
-                <span style={{"font-size": "7vw"}}>OPEN</span>
-                {/* &nbsp; */}
-                <br/>
-                <span 
-                    className={componentStyles.light}
-                    // style={{"font-size": "3vw"}}
-                    >
-                        WORKSHOPS
-                </span>
-            </h3>
-        </Link>
-
-        <div className={componentStyles.lines}>
-            <Lines color="white"/>
-        </div>
-
-        <Link 
-            to="/classContent"
-            className={`${componentStyles.white} ${componentStyles.tall}`}>
             <div>
-                <h3>
-                    <span style={{"font-size": "4vw"}}>CLASS</span>
-                    <br/>
-                    <span className={componentStyles.light}>CONTENT</span>
-                </h3>
+                <h3 className={componentStyles.underline}>ABOUT</h3>
+                <p className={componentStyles.content}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
             </div>
-            
-        </Link>
 
-        {/* IMAGE */}
-        <div className={componentStyles.image}></div>
+            <Link 
+                to="/workshops" 
+                className={`${componentStyles.yellow} ${componentStyles.centered}`}>
+                <h3>
+                    <span style={{"font-size": "7vw"}}>OPEN</span>
+                    {/* &nbsp; */}
+                    <br/>
+                    <span 
+                        className={componentStyles.light}
+                        // style={{"font-size": "3vw"}}
+                        >
+                            WORKSHOPS
+                    </span>
+                </h3>
+            </Link>
 
-        <Link to="/publication" className={componentStyles.white}>
-            <h3>PUBLICATION</h3>
-        </Link>
+            <div className={componentStyles.lines}>
+                <Lines color="white"/>
+            </div>
 
-        <div style={{ "grid-row": "span 3"}}>
-            <h3 className={componentStyles.alt}>
-                PARTNERS
-            </h3>
-        </div>
+            <Link 
+                to="/classContent"
+                className={`${componentStyles.white} ${componentStyles.tall} ${componentStyles.centered}`}>
+                <div>
+                    <h3>
+                        <span style={{"font-size": "4vw"}}>CLASS</span>
+                        <br/>
+                        <span className={componentStyles.light}>CONTENT</span>
+                    </h3>
+                </div>
+                
+            </Link>
+
+            {/* IMAGE */}
+            <div className={componentStyles.image}>
+            {/* <Img
+                fixed={data.file.childImageSharp.fluid}
+                // objectFit="cover"
+                // objectPosition="50% 50%"
+                alt=""
+                /> */}
+                <img src={'womanWithTech.png'} alt="Logo" />
+            </div>
+
+            <Link 
+                to="/publication" 
+                className={`${componentStyles.white} ${componentStyles.centered}`}>
+                <h3>PUBLICATION</h3>
+            </Link>
+
+            <div style={{ "grid-row": "span 3"}}>
+                <h3 className={componentStyles.alt}>
+                    PARTNERS
+                </h3>
+                <img 
+                    style={{"width":"100%"}}
+                    src={'djlLogos.png'} 
+                    alt="Logo" />
+            </div>
 
 
-        {/* WHITE LINES */}
-        <div className={componentStyles.lines}>
-            <Lines color="yellow"/>
-        </div>
-        <a className={componentStyles.green} href="mailto:me@caitlinhaaf.com">
-            <h3>CONTACT</h3>
-        </a>
+            {/* WHITE LINES */}
+            <div className={componentStyles.lines}>
+                <Lines color="yellow"/>
+            </div>
 
-  </section>
-)
+            <a 
+                className={`${componentStyles.green} ${componentStyles.centered}`}
+                href="mailto:me@caitlinhaaf.com">
+                <h3>CONTACT</h3>
+            </a>
+
+    </section>
+  )
+}
 
 export default AboutGrid
+
+// export const query = graphql`
+//   query {
+//     file(relativePath: { eq: "images/womanWithTech.png" }) {
+//       childImageSharp {
+//         # Specify the image processing specifications right in the query.
+//         # Makes it trivial to update as your page's design changes.
+//         fluid{
+//             # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
+//             ...GatsbyImageSharpFluid_noBase64
+//         }
+//       }
+//     }
+//   }`

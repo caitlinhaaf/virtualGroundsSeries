@@ -19,8 +19,25 @@ const WorkshopBlock = ({workshopNum}) => {
                 </div>
             </div>
 
-            <div>
-                <Lines color={lineColor}/>
+            <div
+                style={{"min-width": "300px", "position": "relative"}}>
+                <div className={componentStyles.lineOffset}
+                    style={{
+                        "width": "100%;", 
+                        "position": "absolute", 
+                        "z-index": "-1",
+                        "bottom": "-1rem",
+                        "right": "-1rem"}}>
+                    <Lines 
+                        color={lineColor}/>
+                </div>
+                
+
+                <img 
+                    style={{"width":"100%", "z-index": "10"}}
+                    src={'workshop.png'} 
+                    alt="Logo" />
+
                 {/* pass image in as child or query? */}
             </div>
         </section>
