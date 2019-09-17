@@ -7,7 +7,7 @@ import Lines from '../lines/lines'
 
 import componentStyles from "./aboutGrid.module.scss" 
 
-const AboutGrid = ({data}) => (
+const AboutGrid = () => (
 
   <section className={componentStyles.grid}>
 
@@ -39,7 +39,7 @@ const AboutGrid = ({data}) => (
         </div>
 
         <Link 
-            to="/workshops"
+            to="/classContent"
             className={`${componentStyles.white} ${componentStyles.tall}`}>
             <div>
                 <h3>
@@ -54,7 +54,7 @@ const AboutGrid = ({data}) => (
         {/* IMAGE */}
         <div className={componentStyles.image}></div>
 
-        <Link to="/workshops" className={componentStyles.white}>
+        <Link to="/publication" className={componentStyles.white}>
             <h3>PUBLICATION</h3>
         </Link>
 

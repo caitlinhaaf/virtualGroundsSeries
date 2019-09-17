@@ -12,18 +12,28 @@
     h4,
     h4 *{
         color: $green;
-        font-size: 5vw;
+        font-size: 7vw;
         margin-bottom: 1rem;
+    }
+
+    a{
+        text-decoration: none;
+        font-weight: bold;
+        padding: 1em 0;
+        transition: .3s all;
+        &:hover,
+        &:focus{
+            color: $green;
+            outline: none;
+        }
+        &:focus{
+            border-bottom: $greenBorder;
+        }
     }
 }
 
 .light{
     font-weight: 300;
-}
-
-a{
-    text-decoration: none;
-    font-weight: bold;
 }
 
 .workshopRow:nth-child(even){
