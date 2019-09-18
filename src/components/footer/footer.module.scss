@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+.root{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 2em;
+
+    a{
+        text-decoration: none;
+        line-height: 1.5;
+        display: block; 
+        padding: .5em 1em; 
+        border: 1px solid rgba(255, 255, 255, 0); 
+        transition: .2s border;
+
+        *{
+            color: white;
+        }
+
+        &:focus{
+            outline: none;
+            border: 1px solid white;
+            * {
+                color: $yellow;
+            }
+        }
+
+        &:hover{
+            *{
+                color: $yellow;
+                transition: .3s color;
+            } 
+        }
+    }
+
+
+    em{
+        font-weight: 700;
+    }
+}

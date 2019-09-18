@@ -1,0 +1,48 @@
+@import "../../styles/_variables";
+
+.nav{
+
+    padding: 2.5em 5vw 1.5rem 5vw;
+    border-bottom: $whiteBorder; 
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .2s border;
+
+    h1{
+        font-size: 2em;
+    }
+
+    .link{
+      font-weight: 200;
+      text-decoration: none; 
+      padding: 1em 3.5vw; 
+      border: 1px solid rgba(255, 255, 255, 0);
+      transition: .3s all; 
+
+    //   &.active{
+    //       font-weight: bold;
+    //   }
+
+      &:hover,
+      &:focus{
+          color: $yellow;
+      }
+      &:focus{
+        outline: none;
+        border: 1px solid white;
+      }
+    }
+
+    &.altBorder{
+        border-bottom: $greenBorder;
+
+        .link{
+            &:hover,
+            &:focus{
+                color: $green;
+            }
+        }
+    }
+}

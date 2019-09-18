@@ -1,0 +1,58 @@
+@import '../../styles/variables';
+
+.workshopRow{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+
+    > :first-child{
+        margin-right: 3rem;
+    }
+
+    h4,
+    h4 *{
+        color: $green;
+        font-size: 7vw;
+        margin-bottom: 1rem;
+    }
+
+    a{
+        text-decoration: none;
+        font-weight: bold;
+        padding: 1em 0;
+        transition: .3s all;
+        &:hover,
+        &:focus{
+            color: $green;
+            outline: none;
+        }
+        &:focus{
+            border-bottom: $greenBorder;
+        }
+    }
+}
+
+.light{
+    font-weight: 300;
+}
+
+.workshopRow:nth-child(even){
+    flex-direction: row-reverse;
+    > :first-child{
+        margin-right: 0;
+    }
+    > :last-child{
+        margin-right: 3em;
+    }
+}
+
+.lineOffset
+.lineOffset > *{
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  
+  top: 5%;
+  left: 5%;
+}

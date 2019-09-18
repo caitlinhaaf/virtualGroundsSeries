@@ -1,14 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
-    author: `Kyle Mathews`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    title: `Virtual Grounds`,
+    description: `A feminist technolgy workshop series hosted by Digital Justice Labs and Trinity Square Video`,
+    author: `@caitlinhaaf`,
+    siteUrl: `https://virtualgrounds.ca/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `caitlinhaaf`,
     },
   },
   plugins: [
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-source-filesystem`,
