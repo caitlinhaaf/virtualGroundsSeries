@@ -13,22 +13,6 @@
       "stripes2 img partners"
       "contact img partners";
 
-      @include md {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: 
-        "about about"
-        "wrkshps img"
-        "stripes1 img"
-        "partners classCnt"
-        "partners stripes2"
-        "contact contact";
-        
-        h3, h4{
-            padding: .25em 1em;
-            font-size: vw;
-        }
-      }
-
     > *{
         border-bottom: $whiteBorder;
         border-right: $whiteBorder;
@@ -63,14 +47,30 @@
         }
     }
 
+    @include md {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: 
+        "about about"
+        "wrkshps img"
+        "stripes1 img"
+        "partners classCnt"
+        "partners stripes2"
+        "contact contact";
+        
+        h3, h4{
+            padding: .25em 1em;
+            font-size: 5vw;
+        }
+        .light{
+            font-size: 5.5vw;
+        }
+      }
+
     
     // LINK STYLES
     .yellow *,
     .white *{
         color: $green; 
-    }
-    .green *{
-        color: $yellow;
     }
     .yellow{
         background-color: $yellow;
@@ -99,6 +99,9 @@
         }
     }
     .green{
+        *{
+            color: $yellow;
+        }
         &:focus{
             background-color: $green;
             outline: 0;

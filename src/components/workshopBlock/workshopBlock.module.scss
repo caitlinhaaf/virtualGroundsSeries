@@ -14,6 +14,7 @@
         color: $green;
         font-size: 7vw;
         margin-bottom: 1rem;
+        letter-spacing: .2rem;
     }
 
     a{
@@ -30,6 +31,10 @@
             border-bottom: $greenBorder;
         }
     }
+
+    @include md {
+        flex-direction: column;
+    }
 }
 
 .light{
@@ -43,6 +48,10 @@
     }
     > :last-child{
         margin-right: 3em;
+    }
+
+    @include md {
+        flex-direction: column;
     }
 }
 
