@@ -10,6 +10,14 @@
     align-items: center;
     transition: .2s border;
 
+    @include sm {
+      flex-direction: column;
+      h1{
+        font-size: 4em;
+        margin-bottom: 1em;
+      }
+    }
+
     h1{
         font-size: 2em;
     }
@@ -21,6 +29,7 @@
       border: 1px solid rgba(255, 255, 255, 0);
       transition: .3s all; 
 
+    // TODO return to this and add an active nav link style?
     //   &.active{
     //       font-weight: bold;
     //   }
