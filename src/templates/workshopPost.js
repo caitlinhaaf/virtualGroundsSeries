@@ -24,6 +24,7 @@ class WorkshopPostTemplate extends React.Component {
 
         <article>
           <header>
+
             <h1
               style={{
                 marginTop: rhythm(1),
@@ -32,6 +33,7 @@ class WorkshopPostTemplate extends React.Component {
             >
               {post.frontmatter.title}
             </h1>
+
             <p
               style={{
                 ...scale(-1 / 5),
@@ -41,7 +43,14 @@ class WorkshopPostTemplate extends React.Component {
             >
               {post.frontmatter.date}
             </p>
+
           </header>
+
+          <section>
+            {post.frontmatter.description}
+          </section>
+
+
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
           <hr
             style={{
@@ -89,23 +98,23 @@ class WorkshopPostTemplate extends React.Component {
 
 export default WorkshopPostTemplate
 
-// export const pageQuery = graphql`
-//   query BlogPostBySlug($slug: String!) {
-//     site {
-//       siteMetadata {
-//         title
-//         author
-//       }
-//     }
-//     markdownRemark(fields: { slug: { eq: $slug } }) {
-//       id
-//       excerpt(pruneLength: 160)
-//       html
-//       frontmatter {
-//         title
-//         date(formatString: "MMMM DD, YYYY")
-//         description
-//       }
-//     }
-//   }
-// `
+export const pageQuery = graphql`
+  query WorkshopPostBySlug($slug: String!) {
+    site {
+      siteMetadata {
+        title
+        author
+      }
+    }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
+      excerpt(pruneLength: 160)
+      html
+      frontmatter {
+        title
+        date(formatString: "MMMM DD, YYYY")
+        description
+      }
+    }
+  }
+`
