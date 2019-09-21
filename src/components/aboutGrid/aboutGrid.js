@@ -1,7 +1,5 @@
 import { Link } from "gatsby"
-// import { graphql } from "gatsby"
 import React from "react"
-// import Img from "gatsby-image"
 
 import Lines from '../lines/lines'
 import FemmeUsingPhone from '../images/femmeUsingPhone'
@@ -46,8 +44,7 @@ const AboutGrid = () => {
                         <br/>
                         <span className={componentStyles.light}>CONTENT</span>
                     </h3>
-                </div>
-                
+                </div>     
             </Link>
 
             <div 
@@ -94,17 +91,3 @@ const AboutGrid = () => {
 }
 
 export default AboutGrid
-
-// export const query = graphql`
-//   query {
-//     file(relativePath: { eq: "images/womanWithTech.png" }) {
-//       childImageSharp {
-//         # Specify the image processing specifications right in the query.
-//         # Makes it trivial to update as your page's design changes.
-//         fluid{
-//             # Choose either the fragment including a small base64ed image, a traced placeholder SVG, or one without.
-//             ...GatsbyImageSharpFluid_noBase64
-//         }
-//       }
-//     }
-//   }`
