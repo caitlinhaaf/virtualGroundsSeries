@@ -13,6 +13,8 @@ class WorkshopPage extends React.Component {
     // const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
 
+    console.log(posts)
+
     return(
       <Layout bodyClass="orangeBody">
         <SEO title="Workshops" />
@@ -20,6 +22,7 @@ class WorkshopPage extends React.Component {
         {
           posts.map(({node}, i) => (
             <WorkshopBlock 
+              key={i}
               workshopNum={i+1} 
               pageLink={node.fields.slug}
               thumbnailSrc={node.frontmatter.thumbnail}>
@@ -54,6 +57,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            thumbnail
           }
         }
       }

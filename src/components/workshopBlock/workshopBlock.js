@@ -11,13 +11,11 @@ const WorkshopBlock = ({workshopNum, pageLink, thumbnailSrc, ...props}) => {
 
     return(
         <section className={componentStyles.workshopRow}>
+
             <div>
                 <h4>WORK<br/><span className={componentStyles.light}>SHOP {workshopNum}</span></h4>
-
                 {props.children}
-                {/* <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> */}
                 <br/>
-
                 <div>
                     <Link to={pageLink} >Learn More</Link>
                 </div>
@@ -25,21 +23,24 @@ const WorkshopBlock = ({workshopNum, pageLink, thumbnailSrc, ...props}) => {
 
             <div
                 style={{"min-width": "300px", "position": "relative"}}>
-                <div className={componentStyles.lineOffset}
-                    style={{
-                        "width": "100%;", 
-                        "position": "absolute", 
-                        "z-index": "-1",
-                        "bottom": "-1rem",
-                        "right": "-1rem"}}>
-                    <Lines 
-                        color={lineColor}/>
+                <div className={componentStyles.lineOffset}>
+                    <Lines color={lineColor}/>
                 </div>
                 
+                <div className={componentStyles.imageContainer}>
+                    <div
+                        style={{
+                            "opacity": ".6",
+                            "width": "100%",
+                            "height": "100%",
+                            "background-image": `url(${thumbnailSrc})`,
+                            "background-repeat": "no-repeat",
+                            "background-position": "center",
+                            "background-size": "cover"}}
+                    >
+                    </div>
+                </div>
 
-                <img src={thumbnailSrc} alt="Logo" />
-
-                {/* pass image in as child or query? */}
             </div>
 
         </section>
