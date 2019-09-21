@@ -13,37 +13,20 @@ class WorkshopPage extends React.Component {
     // const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
 
-    // const workshopList = ["test", "test", "test", "test"]
-
     return(
       <Layout bodyClass="orangeBody">
         <SEO title="Workshops" />
 
         {
           posts.map(({node}, i) => (
-            <WorkshopBlock workshopNum={i+1} pageLink={node.fields.slug}>
+            <WorkshopBlock 
+              workshopNum={i+1} 
+              pageLink={node.fields.slug}
+              thumbnailSrc={node.frontmatter.thumbnail}>
               <p>{node.frontmatter.description}</p>
             </WorkshopBlock>
           ))
         }
-
-        {/* {
-          posts.map(({node}, i) => (
-              <WorkshopBlock workshopNum={i+1} pageLink={node.fields.slug}>
-                <p>{node.frontmatter.description}</p>
-              <WorkshopBlock/>
-          ))
-        } */}
-
-        {/* {
-          posts.map((node, i) => {
-            return(
-              <WorkshopBlock workshopNum={i+1} pageLink={node.fields.slug}>
-                  <p>{node.frontmatter.description}</p>
-              <WorkshopBlock/>
-            )
-          })
-        } */}
 
         </Layout> 
     )
@@ -77,32 +60,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-
-
-// {posts.map(({ node }) => {
-//           const title = node.frontmatter.title || node.fields.slug
-//           return (
-//             <article key={node.fields.slug}>
-//               <header>
-//                 <h3
-//                   style={{
-//                     marginBottom: rhythm(1 / 4),
-//                   }}
-//                 >
-//                   <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-//                     {title}
-//                   </Link>
-//                 </h3>
-//                 <small>{node.frontmatter.date}</small>
-//               </header>
-//               <section>
-//                 <p
-//                   dangerouslySetInnerHTML={{
-//                     __html: node.frontmatter.description || node.excerpt,
-//                   }}
-//                 />
-//               </section>
-//             </article>
-//           )
-//         })}

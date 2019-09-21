@@ -5,7 +5,7 @@ import componentStyles from "./workshopBlock.module.scss"
 
 import Lines from '../lines/lines'
 
-const WorkshopBlock = ({workshopNum, pageLink, ...props}) => {
+const WorkshopBlock = ({workshopNum, pageLink, thumbnailSrc, ...props}) => {
     
     const lineColor = (workshopNum%2===0) ? "white" : "green";
 
@@ -37,10 +37,7 @@ const WorkshopBlock = ({workshopNum, pageLink, ...props}) => {
                 </div>
                 
 
-                <img 
-                    style={{"width":"100%", "z-index": "10"}}
-                    src={'workshop.png'} 
-                    alt="Logo" />
+                <img src={thumbnailSrc} alt="Logo" />
 
                 {/* pass image in as child or query? */}
             </div>
