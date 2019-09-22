@@ -22,7 +22,7 @@ const WorkshopBlock = ({workshopNum, pageLink, thumbnailSrc, ...props}) => {
             </div>
 
             <div
-                style={{"min-width": "300px", "position": "relative"}}>
+                className={componentStyles.thumbnail}>
                 <div className={componentStyles.lineOffset}>
                     <Lines color={lineColor}/>
                 </div>
@@ -30,7 +30,7 @@ const WorkshopBlock = ({workshopNum, pageLink, thumbnailSrc, ...props}) => {
                 <div className={componentStyles.imageContainer}>
                     <div
                         style={{
-                            "opacity": ".6",
+                            "opacity": ".4",
                             "width": "100%",
                             "height": "100%",
                             "background-image": `url(${thumbnailSrc})`,

@@ -5,6 +5,8 @@ import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
+import componentStyles from "./workshopPost.module.scss"
+
 class WorkshopPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -23,30 +25,15 @@ class WorkshopPostTemplate extends React.Component {
         />
 
         <article>
-          <header>
-
-            <h1
-              style={{
-                marginTop: rhythm(1),
-                marginBottom: 0,
-              }}
-            >
+          <header className={componentStyles.header}>
+            <h1 className={componentStyles.heading}>
               {/* {post.frontmatter.title} */}
               WORKSHOP {currentPage}
             </h1>
 
-            <p
-              style={{
-                ...scale(-1 / 5),
-                display: `block`,
-                marginBottom: rhythm(1),
-              }}
-            >
+            <p className={componentStyles.date}>
               {post.frontmatter.date}
             </p>
-
-            {/* <p>{this.props.pageContext}</p> */}
-
           </header>
 
           <section>
@@ -55,11 +42,8 @@ class WorkshopPostTemplate extends React.Component {
 
 
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
-          <hr
-            style={{
-              marginBottom: rhythm(1),
-            }}
-          />
+          
+          <hr className={componentStyles.rule}/>
           
         </article>
 

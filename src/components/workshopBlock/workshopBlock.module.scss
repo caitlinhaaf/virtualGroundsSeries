@@ -11,7 +11,11 @@
 
     > *{
         width: 45%;
-        // max-width: 45%;
+    }
+
+    .thumbnail{
+        min-width: 300px;
+        position: relative;
     }
 
     h4,
@@ -38,8 +42,11 @@
     @include md {
         flex-direction: column;
         > *{
-            max-width: none;
             width: 100%;
+            margin-bottom: 3rem;
+        }
+        .thumbnail{
+            height: 300px;
         }
     }
 }
