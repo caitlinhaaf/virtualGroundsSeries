@@ -19,3 +19,15 @@
     background: white;
     margin: 2em 0;
 }
+
+.linkList,
+.linkList *{
+    color: $green;
+    list-style: none
+}
+
+.link{
+    color: $green;
+    text-decoration: underline;
+    padding: .25em;
+}

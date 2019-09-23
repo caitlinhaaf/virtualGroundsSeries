@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
-import { rhythm, scale } from "../utils/typography"
+// import { rhythm, scale } from "../utils/typography"
 
 import componentStyles from "./workshopPost.module.scss"
 
@@ -12,6 +12,10 @@ class WorkshopPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next, currentPage } = this.props.pageContext
+
+    // console.log("readings...")
+    // console.log(post)
+    // console.log(post.frontmatter.readings)
 
     return (
       <Layout 
@@ -42,6 +46,16 @@ class WorkshopPostTemplate extends React.Component {
 
 
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
+
+          {post.frontmatter.readings &&
+            <ul className={componentStyles.linkList}>
+            {post.frontmatter.readings.map((reading, i)=>(
+              <a key={i} target="_blank" rel="noopener noreferrer" className={componentStyles.link} href={reading.file}>
+                <li>{reading.name}</li>
+              </a>
+            ))}
+            </ul>
+          }
           
           <hr className={componentStyles.rule}/>
           
@@ -101,6 +115,10 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        readings{
+          name
+          file
+        }
       }
     }
   }
