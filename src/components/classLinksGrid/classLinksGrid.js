@@ -4,7 +4,7 @@ import componentStyles from "./classLinksGrid.module.scss"
 
 const ClassLinksGrid = () => {
     return(
-        <div style={{"width":"auto", "margin": "0 auto"}}>
+        <div>
             <section className={componentStyles.grid}>
 
                 <div 

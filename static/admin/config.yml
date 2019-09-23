@@ -16,10 +16,12 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Tag", name: "tag", widget: "string"}
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: Thumbnail, name: thumbnail, widget: image}
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Readings", name: "readings", widget: "relation", collection: "authors"}
   - name: "readings"
     label: "Readings"
     folder: "content/readings"
@@ -28,4 +30,5 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Tag", name: "tag", widget: "string"}
       - { label: "PDF", name: "pdf", widget: "file" }
