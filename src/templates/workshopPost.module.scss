@@ -15,6 +15,29 @@
     display: block;
 }
 
+.resourcesGrid{
+    display: grid;
+    border-top: $whiteBorder;
+    border-left: $whiteBorder;
+    justify-items: stretch;
+    margin-top: 2em;
+
+    grid-template-columns: 100px 1fr;
+    grid-template-areas: 
+      "lines readings"
+      "lines links";
+
+      > *{
+        border-bottom: $whiteBorder;
+        border-right: $whiteBorder;
+        padding: 1rem;
+
+    }
+    > :first-child{
+        padding: 0;
+    }
+}
+
 .rule{
     background: white;
     margin: 2em 0;
@@ -26,8 +49,18 @@
     list-style: none
 }
 
+.linkList{
+    margin: .5em 0;
+}
+
 .link{
     color: $green;
     text-decoration: underline;
-    padding: .25em;
+    padding: .25em 0;
+    margin-bottom: .5em;
+
+    &:last-child{
+        padding: .25em 0 0 0;
+        margin-bottom: 0;
+    }
 }

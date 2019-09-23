@@ -1,0 +1,39 @@
+@import '../styles/variables';
+
+.grid{
+    // display: grid;
+    display: inline-grid;   
+    width: auto;
+    margin: 0 auto;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+
+    grid-template-areas: 
+      "rd ."
+      "rd list";
+
+    h2{
+        font-size: 15vw;
+        letter-spacing: .05em;
+    }
+}
+
+.gridSeciton{
+    padding: 0 .8em;
+}
+
+.leftCol{
+    text-align: right;
+}
+
+
+.readings{
+    grid-area: rd;
+}
+
+
+.list{
+    grid-area: list;
+}
+

@@ -5,6 +5,7 @@ import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 // import { rhythm, scale } from "../utils/typography"
 
+import Lines from '../components/lines/lines'
 import componentStyles from "./workshopPost.module.scss"
 
 class WorkshopPostTemplate extends React.Component {
@@ -12,10 +13,6 @@ class WorkshopPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next, currentPage } = this.props.pageContext
-
-    // console.log("readings...")
-    // console.log(post)
-    // console.log(post.frontmatter.readings)
 
     return (
       <Layout 
@@ -40,27 +37,46 @@ class WorkshopPostTemplate extends React.Component {
             </p>
           </header>
 
-          <section>
-            {post.frontmatter.description}
+          <section style={{"margin-bottom": "1em"}}>
+            <h4 style={{"margin-bottom": ".25em"}}>DESCRIPTION</h4>
+            <p>{post.frontmatter.description}</p>
           </section>
 
-
-          <section dangerouslySetInnerHTML={{ __html: post.html }} />
-
-          {post.frontmatter.readings &&
-            <ul className={componentStyles.linkList}>
-            {post.frontmatter.readings.map((reading, i)=>(
-              <a key={i} target="_blank" rel="noopener noreferrer" className={componentStyles.link} href={reading.file}>
-                <li>{reading.name}</li>
-              </a>
-            ))}
-            </ul>
-          }
+          <section  style={{"margin-bottom": "1em"}}>
+            <h4 style={{"margin-bottom": ".25em"}}>SUMMARY</h4>
+            <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          </section>
           
+
+          <section className={componentStyles.resourcesGrid}>
+            <div style={{ "grid-area": "lines", "width": "100px"}}>
+              <Lines color="white" />
+            </div>
+           
+            <div style={{ "grid-area": "readings"}}>
+              <h4>Readings</h4>
+              {post.frontmatter.readings &&
+                <ul className={componentStyles.linkList}>
+                {post.frontmatter.readings.map((reading, i)=>(
+                  <li className={componentStyles.link}>
+                    <a key={i} target="_blank" rel="noopener noreferrer" href={reading.file}>
+                      {reading.name}
+                    </a>
+                  </li>
+                ))}
+                </ul>
+              }
+            </div>
+
+            <div>
+              <h4>Links</h4>
+            </div>
+
+          </section>
+
           <hr className={componentStyles.rule}/>
           
         </article>
-
 
         <nav>
           <ul
@@ -76,14 +92,14 @@ class WorkshopPostTemplate extends React.Component {
             <li>
               {previous && (
                 <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
+                  &lt; {previous.frontmatter.title}
                 </Link>
               )}
             </li>
             <li>
               {next && (
                 <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
+                  {next.frontmatter.title} &gt;
                 </Link>
               )}
             </li>
