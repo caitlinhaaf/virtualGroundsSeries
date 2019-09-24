@@ -29,7 +29,7 @@ collections:
             { label: URL, name: url, widget: string}
           ]}
       - { label: "Lectures", 
-          name: "readings", 
+          name: "lectures", 
           widget: "list", 
           fields: [
             { label: Name, name: name, required: true, widget: string },
@@ -69,6 +69,28 @@ collections:
             { label: Name, name: name, required: true, widget: string },
             { label: File, name: file, widget: file },
             { label: URL, name: url, widget: string}
+          ]}
+      - { label: "Lectures", 
+          name: "lectures", 
+          widget: "list", 
+          fields: [
+            { label: Name, name: name, required: true, widget: string },
+            { label: File, name: file, required: true, widget: file },
+            { label: URL, name: url, widget: string}
+          ]}
+      - { label: "Links", 
+          name: "links", 
+          widget: "list", 
+          fields: [
+            { label: Name, name: name, required: true, widget: string },
+            { label: URL, name: url, widget: string}
+          ]}
+      - { label: "Gallery Images", 
+          name: "gallery image", 
+          widget: "list", 
+          fields: [
+            { label: Image, name: image, required: true, widget: image },
+            { label: Alt Text, name: alt text, widget: string}
           ]}
   - name: "Extra Reading"
     label: "Extra Reading"
