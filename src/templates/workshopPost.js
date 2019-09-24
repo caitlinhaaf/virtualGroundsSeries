@@ -68,7 +68,15 @@ class WorkshopPostTemplate extends React.Component {
               }
             </div>
 
-            <div>
+            <div style={{ "grid-area": "lectures"}}>
+              <h4>Lectures</h4>
+            </div>
+
+            <div style={{ "grid-area": "gallery"}}>
+              <h4>Gallery</h4>
+            </div>
+
+            <div style={{ "grid-area": "links"}}>
               <h4>Links</h4>
             </div>
 

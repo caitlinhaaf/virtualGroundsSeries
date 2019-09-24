@@ -8,15 +8,14 @@ public_folder: /img
 publish_mode: editorial_workflow
 
 collections:
-  - name: "workshops"
-    label: "Workshops"
+  - name: "Workshop"
+    label: "workshop"
     folder: "content/workshops"
     description: "Workshop date, description, and links to class content."
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Tag", name: "tag", widget: "string"}
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: Thumbnail, name: thumbnail, widget: image}
       - { label: "Description", name: "description", widget: "string" }
@@ -28,13 +27,3 @@ collections:
             { label: Name, name: name, required: true, widget: string },
             { label: File, name: file, required: true, widget: file },
           ]}
-  - name: "readings"
-    label: "Readings"
-    folder: "content/readings"
-    description: "Collection of class readings."
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Tag", name: "tag", widget: "string"}
-      - { label: "PDF", name: "pdf", widget: "file" }

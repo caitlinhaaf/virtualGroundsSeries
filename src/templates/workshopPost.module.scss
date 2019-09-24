@@ -31,6 +31,8 @@
     grid-template-columns: 100px 1fr;
     grid-template-areas: 
       "lines readings"
+      "lines lectures"
+      "lines gallery"
       "lines links";
 
       > *{

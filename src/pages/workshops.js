@@ -27,7 +27,15 @@ class WorkshopPage extends React.Component {
               pageLink={node.fields.slug}
               date={node.frontmatter.date}
               thumbnailSrc={node.frontmatter.thumbnail}>
-              <p>{node.frontmatter.description}</p>
+              <p
+                style={{
+                  "max-height": "200px;",
+                  "overflow": "hidden",
+                  // "white-space": "nowrap",
+                  // "text-oveflow": "ellipsis"
+                }}>
+                {node.frontmatter.description}
+              </p>
             </WorkshopBlock>
           ))
         }
