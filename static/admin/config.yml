@@ -9,7 +9,7 @@ publish_mode: editorial_workflow
 
 collections:
   - name: "Workshop"
-    label: "workshop"
+    label: "Workshop"
     folder: "content/workshops"
     description: "Workshop date, description, and links to class content."
     create: true
