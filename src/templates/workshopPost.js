@@ -29,7 +29,7 @@ class WorkshopPostTemplate extends React.Component {
           <header className={componentStyles.header}>
             <h1 className={componentStyles.heading}>
               {/* {post.frontmatter.title} */}
-              WORKSHOP {currentPage}
+              WORK<span className={componentStyles.light}>SHOP {currentPage}</span>
             </h1>
 
             <p className={componentStyles.date}>

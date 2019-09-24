@@ -1,7 +1,6 @@
 @import '../styles/variables';
 
 .grid{
-    // display: grid;
     display: inline-grid;   
     width: auto;
     margin: 0 auto;
@@ -16,6 +15,10 @@
     h2{
         font-size: 15vw;
         letter-spacing: .05em;
+    }
+
+    li a{
+        text-decoration: underline;
     }
 }
 

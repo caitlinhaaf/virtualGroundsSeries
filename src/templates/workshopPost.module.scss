@@ -6,6 +6,12 @@
 
 .heading{
     font: $hdrLarge;
+    *{
+        font-size: inherit;
+    }
+    > .light{
+        font-weight: 300;
+    }
 }
 
 .date{

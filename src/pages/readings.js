@@ -30,17 +30,21 @@ render() {
                     </Link>
                 </div>
 
-                <div className={componentStyles.list}>
+                <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
                     {
                         workshops.map(({node}, i) => {
-                            console.log(i)
-                            console.log(node.frontmatter)
                             return(
                             <div key={i}>
                                 <h4>{node.frontmatter.title}</h4>
-                                <ul>
+                                <ul style={{"margin-top" : "1em", "list-style": "none"}}>
                                     {node.frontmatter.readings.map((reading, j) =>(
-                                        <p key={j}>{reading.name}</p>
+                                        <li key={j}>
+                                          <a href={reading.file}
+                                             target="_blank"
+                                             rel="noopener noreferrer">
+                                            {reading.name}
+                                          </a>
+                                        </li>
                                     ))
                                     }
                                 </ul>
@@ -49,20 +53,6 @@ render() {
                         })
                     }
                 </div>
-
-                {/* <div 
-                    className={`${componentStyles.gridSeciton} ${componentStyles.rightCol} ${componentStyles.lectures}`}
-                >
-                    <h2>LECTU<br/>RES</h2>
-                </div> */}
-
-                {/* <div className={`${componentStyles.gridSeciton} ${componentStyles.leftCol} ${componentStyles.gallery}`}>
-                    <h2>GALL<br/>ERY</h2>
-                </div> */}
-
-                {/* <div className={`${componentStyles.gridSeciton} ${componentStyles.rightCol} ${componentStyles.links}`}>
-                    <h2>LIN<br/>KS</h2>
-                </div> */}
 
             </section>
         </div>

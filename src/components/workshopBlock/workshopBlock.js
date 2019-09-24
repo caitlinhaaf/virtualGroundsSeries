@@ -5,7 +5,7 @@ import componentStyles from "./workshopBlock.module.scss"
 
 import Lines from '../lines/lines'
 
-const WorkshopBlock = ({workshopNum, pageLink, thumbnailSrc, ...props}) => {
+const WorkshopBlock = ({workshopNum, pageLink, thumbnailSrc, date, ...props}) => {
     
     const lineColor = (workshopNum%2===0) ? "white" : "green";
 
@@ -14,6 +14,7 @@ const WorkshopBlock = ({workshopNum, pageLink, thumbnailSrc, ...props}) => {
 
             <div>
                 <h4>WORK<br/><span className={componentStyles.light}>SHOP {workshopNum}</span></h4>
+                <h5>{date}</h5>
                 {props.children}
                 <br/>
                 <div>

@@ -25,6 +25,7 @@ class WorkshopPage extends React.Component {
               key={i}
               workshopNum={i+1} 
               pageLink={node.fields.slug}
+              date={node.frontmatter.date}
               thumbnailSrc={node.frontmatter.thumbnail}>
               <p>{node.frontmatter.description}</p>
             </WorkshopBlock>
@@ -54,7 +55,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMMM, YYYY")
             title
             description
             thumbnail

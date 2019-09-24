@@ -6,7 +6,7 @@ const Footer = () => (
   <footer className={componentStyles.root}>
 
       <div>
-        <a href="twitter.com">
+        <a href="http://www.twitter.com" target="_blank" rel="noopener noreferrer">
         <em>Follow</em>
           <br/>
           <span className={componentStyles.light}>Twitter</span>
@@ -14,7 +14,7 @@ const Footer = () => (
       </div>
 
       <div>
-        <a href="facebook.com">
+        <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
         <em>Follow</em>
           <br/>
           <span className={componentStyles.light}>Facebook</span>
@@ -22,7 +22,7 @@ const Footer = () => (
       </div>
 
       <div>
-        <a href="instagram.com">
+        <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer">
         <em>See</em>
           <br/>
           <span className={componentStyles.light}>Instagram</span>
