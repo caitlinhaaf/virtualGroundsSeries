@@ -82,7 +82,7 @@ const AboutGrid = () => {
             <a 
                 style={{ "grid-area": "contact"}}
                 className={`${componentStyles.green} ${componentStyles.centered}`}
-                href="mailto:me@caitlinhaaf.com">
+                href="mailto:emily@trinitysquarevideo.com">
                 <h3>CONTACT</h3>
             </a>
 

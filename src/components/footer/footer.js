@@ -6,7 +6,7 @@ const Footer = () => (
   <footer className={componentStyles.root}>
 
       <div>
-        <a href="http://www.twitter.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://twitter.com/TSVToronto" target="_blank" rel="noopener noreferrer">
         <em>Follow</em>
           <br/>
           <span className={componentStyles.light}>Twitter</span>
@@ -14,7 +14,7 @@ const Footer = () => (
       </div>
 
       <div>
-        <a href="http://www.facebook.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.facebook.com/trinitysquarevideo?ref=bookmarks" target="_blank" rel="noopener noreferrer">
         <em>Follow</em>
           <br/>
           <span className={componentStyles.light}>Facebook</span>
@@ -22,7 +22,7 @@ const Footer = () => (
       </div>
 
       <div>
-        <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/trinitysquare/" target="_blank" rel="noopener noreferrer">
         <em>See</em>
           <br/>
           <span className={componentStyles.light}>Instagram</span>
@@ -30,7 +30,7 @@ const Footer = () => (
       </div>
 
       <div>
-        <a href="mailto:me@caitlinhaaf.com">
+        <a href="mailto:emily@trinitysquarevideo.com">
         <em>Send</em>
           <br/>
           <span className={componentStyles.light}>Email</span>
