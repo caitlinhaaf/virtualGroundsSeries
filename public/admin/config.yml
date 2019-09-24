@@ -8,15 +8,14 @@ public_folder: /img
 publish_mode: editorial_workflow
 
 collections:
-  - name: "workshops"
-    label: "Workshops"
+  - name: "Workshop"
+    label: "Workshop"
     folder: "content/workshops"
     description: "Workshop date, description, and links to class content."
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Tag", name: "tag", widget: "string"}
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: Thumbnail, name: thumbnail, widget: image}
       - { label: "Description", name: "description", widget: "string" }
@@ -27,14 +26,58 @@ collections:
           fields: [
             { label: Name, name: name, required: true, widget: string },
             { label: File, name: file, required: true, widget: file },
+            { label: URL, name: url, widget: string}
           ]}
-  - name: "readings"
-    label: "Readings"
-    folder: "content/readings"
-    description: "Collection of class readings."
+      - { label: "Lectures", 
+          name: "readings", 
+          widget: "list", 
+          fields: [
+            { label: Name, name: name, required: true, widget: string },
+            { label: File, name: file, required: true, widget: file },
+            { label: URL, name: url, widget: string}
+          ]}
+      - { label: "Links", 
+          name: "links", 
+          widget: "list", 
+          fields: [
+            { label: Name, name: name, required: true, widget: string },
+            { label: URL, name: url, widget: string}
+          ]}
+      - { label: "Gallery Images", 
+          name: "gallery image", 
+          widget: "list", 
+          fields: [
+            { label: Image, name: image, required: true, widget: image },
+            { label: Alt Text, name: alt text, widget: string}
+          ]}
+  - name: "Private Workshop"
+    label: "Private Workshop"
+    folder: "content/privateWorkshops"
+    description: "Private workshop date, description, and links to class content."
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{year}}-{{month}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Tag", name: "tag", widget: "string"}
-      - { label: "PDF", name: "pdf", widget: "file" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: Thumbnail, name: thumbnail, widget: image}
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Readings", 
+          name: "readings", 
+          widget: "list", 
+          fields: [
+            { label: Name, name: name, required: true, widget: string },
+            { label: File, name: file, widget: file },
+            { label: URL, name: url, widget: string}
+          ]}
+  - name: "Extra Reading"
+    label: "Extra Reading"
+    folder: "content/extraReadings"
+    description: "Any readings above and beyond those listing in the "
+    create: true
+    slug: "{{year}}-{{month}}-{{slug}}"
+    fields: 
+      - { label: "Title", name: "title", required: true, widget: "string" }
+      - { label: "File", name: "file", widget: "file" }
+      - { label: "URL", name: "url", widget: "string"}
+
