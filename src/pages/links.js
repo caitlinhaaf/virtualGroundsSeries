@@ -18,8 +18,8 @@ render() {
   return(
     <Layout bodyClass="greenBody">
       <SEO title="Class Content" />
-
-      <div>
+      <h2>LINKS</h2>
+      {/* <div>
             <section className={componentStyles.grid}>
 
                 <div 
@@ -56,7 +56,7 @@ render() {
 
             </section>
         </div>
-      
+       */}
     </Layout>
   )
 }
@@ -66,24 +66,24 @@ render() {
 export default LinksPage
 
 
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            readings{
-                name
-                file
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query {
+//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+//       edges {
+//         node {
+//           excerpt
+//           fields {
+//             slug
+//           }
+//           frontmatter {
+//             title
+//             readings{
+//                 name
+//                 file
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

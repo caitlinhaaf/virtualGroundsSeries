@@ -14,6 +14,8 @@ class WorkshopPostTemplate extends React.Component {
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next, currentPage } = this.props.pageContext
 
+    console.log(post)
+
     return (
       <Layout 
         location={this.props.location} 
@@ -57,7 +59,7 @@ class WorkshopPostTemplate extends React.Component {
               <h4>Readings</h4>
               {post.frontmatter.readings &&
                 <ul className={componentStyles.linkList}>
-                {post.frontmatter.readings.map((reading, i)=>(
+                {post.frontmatter.readingFiles.map((reading, i)=>(
                   <li className={componentStyles.link}>
                     <a key={i} target="_blank" rel="noopener noreferrer" href={reading.file}>
                       {reading.name}
@@ -100,14 +102,14 @@ class WorkshopPostTemplate extends React.Component {
             <li>
               {previous && (
                 <Link to={previous.fields.slug} rel="prev">
-                  &lt; {previous.frontmatter.title}
+                  &lt; Previous Workshop
                 </Link>
               )}
             </li>
             <li>
               {next && (
                 <Link to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} &gt;
+                  Next Workshop &gt;
                 </Link>
               )}
             </li>
@@ -139,7 +141,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-        readings{
+        readingFiles{
           name
           file
         }

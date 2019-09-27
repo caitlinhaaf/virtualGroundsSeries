@@ -12,9 +12,10 @@ class LecturesPage extends React.Component {
 render() {
   const {data} = this.props;
   const workshops = data.allMarkdownRemark.edges
+
   let lecturesListed = false;
   workshops.forEach(({node}) => {
-    if(node.frontmatter.lectures !== null) lecturesListed = true;
+    if(node.frontmatter.lectureFiles !== null) lecturesListed = true;
   })
 
   return(
@@ -23,14 +24,6 @@ render() {
 
       <div>
             <section className={componentStyles.grid}>
-
-                {/* <div 
-                    className={`${componentStyles.gridSeciton} ${componentStyles.leftCol} ${componentStyles.readings}`}
-                >
-                    <Link to="/classContent">
-                        <h2>READI<br/>NGS</h2>
-                    </Link>
-                </div> */}
 
                 <div 
                     className={`${componentStyles.gridSeciton} ${componentStyles.rightCol} ${componentStyles.lectures}`}
@@ -43,29 +36,30 @@ render() {
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
                     { !lecturesListed ? (
                         <h4>No lectures added yet.</h4>
-                    ):(
+                      ):(
                         workshops.map(({node}, i) => {
-                            if(node.frontmatter.lectures !== null){
-                                return(
-                                <div key={i}>
-                                    <h4>{node.frontmatter.title}</h4>
-                                    <ul style={{"margin-top" : "1em", "list-style": "none"}}>
-                                        {node.frontmatter.lectures.map((lecture, j) =>(
-                                            <li key={j}>
-                                            <a href={lecture.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer">
-                                                {lecture.name}
-                                            </a>
-                                            </li>
-                                        ))
-                                        }
-                                    </ul>
-                                </div>
-                                )
-                            }else return null
+                            return(
+                            <div key={i}>
+                                <h4>{node.frontmatter.title}</h4>
+                                <ul style={{"margin-top" : "1em", "list-style": "none"}}>
+                                    {node.frontmatter.lectureFiles.map((lecture, j) =>(
+                                        <li key={j}>
+                                          <a href={lecture.file}
+                                          // {
+                                          //   (lecture.file) ? lecture.file : reading.url
+                                          // }
+                                             target="_blank"
+                                             rel="noopener noreferrer">
+                                            {lecture.name}
+                                          </a>
+                                        </li>
+                                    ))
+                                    }
+                                </ul>
+                            </div>
+                            )
                         })
-                    )
+                      )
                     }
                 </div>
 
@@ -92,9 +86,9 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            lectures{
+            lectureFiles{
                 name
-                url
+                file
             }
           }
         }

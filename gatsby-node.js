@@ -1,65 +1,118 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
-  const { createTypes } = actions
-  const typeDefs = [
-    schema.buildObjectType({
-      name: 'MarkdownRemark',
-      fields: {
-        frontmatter: 'Frontmatter!'
-      },
-      interfaces: ['Node'],
-      extensions: {
-        infer: true,
-      },
-    }),
-    schema.buildObjectType({
-      name: 'Frontmatter',
-      fields: {
-        title: {
-          type: 'String!',
-          resolve(parent) {
-            return parent.title || '(Untitled)'
-          }
-        },
-        date: {
-          type: 'Date!',
-          extensions: {
-            dateformat: {},
-          },
-        },
-        lectures: {
-          type: 'LectureJson',
-          extensions: {
-            link: {},
-          },
-        }
-      }
-    }),
-    schema.buildObjectType({
-      name: 'LectureJson',
-      fields: {
-        name: 'String!',
-        file: 'String!',
-        url: 'String!'
-      },
-    }),
-  ]
-  createTypes(typeDefs)
-}
-
-// exports.sourceNodes = ({ actions }) => {
+// exports.createSchemaCustomization = ({ actions, schema }) => {
 //   const { createTypes } = actions
+//   const typeDefs = [
+//     schema.buildObjectType({
+//       name: 'MarkdownRemark',
+//       fields: {
+//         frontmatter: 'Frontmatter!'
+//       },
+//       interfaces: ['Node'],
+//       extensions: {
+//         infer: true,
+//       },
+//     }),
+//     schema.buildObjectType({
+//       name: 'Frontmatter',
+//       fields: {
+//         title: {
+//           type: 'String!',
+//           resolve(parent) {
+//             return parent.title || '(Untitled)'
+//           }
+//         },
+//         date: {
+//           type: 'Date!',
+//           extensions: {
+//             dateformat: {},
+//           },
+//         },
+//         lectures: {
+//           type: 'LectureJson',
+//         },
+//         readings: {
+//           type: 'ReadingsJson',
+//         }
+//       }
+//     }),
+//     schema.buildObjectType({
+//       name: 'LectureJson',
+//       fields: {
+//         name: 'String',
+//         file: 'String!',
+//         url: 'String!'
+//       },
+//     }),
+//     schema.buildObjectType({
+//       name: 'ReadingsJson',
+//       fields: {
+//         name: 'String',
+//         file: 'String!',
+//         url: 'String!'
+//       },
+//     })
+//   ]
+//   createTypes(typeDefs)
+// }
+
+// exports.createSchemaCustomization = ({ actions, schema }) => {
+//   const { createTypes } = actions
+
 //   const typeDefs = `
-//     type MarkdownRemark implements Node {
-//       frontmatter: Frontmatter
+//     type LecturesJson implements Node {
+//       name: String!
+//       file: File!
+//       url: String!
 //     }
-//     type Frontmatter {
-//       lectures: []
+//     type ReadingsJson implements Node {
+//       name: String!
+//       file: File!
+//       url: String!
+//     }
+//     type WorkshopJson implements Node {
+//       title: String!
+//       lectures: [LecturesJson]
+//       readings: [ReadingsJson]
+//       date: Date
 //     }
 //   `
 //   createTypes(typeDefs)
+// }
+
+// exports.createResolvers = ({ createResolvers }) => {
+//   createResolvers({
+//     LecturesJson: {
+
+//     }
+//   })
+// }
+
+// exports.sourceNodes = ({ actions, schema }) => {
+//   const { createTypes } = actions
+//   createTypes(`
+//     type LecturesJson {
+//       name: String
+//       file: String
+//       url: String
+//     }
+
+//     type ReadingsJson {
+//       name: String
+//       file: String
+//       url: String
+//     }
+
+//     type MarkdownRemarkFrontmatter {
+//       lectures: LecturesJson
+//       reading: ReadingsJson
+//     }
+
+//     type MarkdownRemark implements Node {
+//       frontmatter: MarkdownRemarkFrontmatter
+//     }
+//   `)
 // }
 
 exports.createPages = async ({ graphql, actions }) => {

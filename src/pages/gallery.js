@@ -18,7 +18,8 @@ render() {
   return(
     <Layout bodyClass="greenBody">
       <SEO title="Class Content" />
-
+      <h2>GALLERY</h2>
+{/* 
       <div>
             <section className={componentStyles.grid}>
 
@@ -55,7 +56,7 @@ render() {
                 </div>
 
             </section>
-        </div>
+        </div> */}
       
     </Layout>
   )
@@ -66,24 +67,24 @@ render() {
 export default GalleryPage
 
 
-export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            readings{
-                name
-                file
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query {
+//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+//       edges {
+//         node {
+//           excerpt
+//           fields {
+//             slug
+//           }
+//           frontmatter {
+//             title
+//             readings{
+//                 name
+//                 file
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

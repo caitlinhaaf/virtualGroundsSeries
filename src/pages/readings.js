@@ -14,6 +14,10 @@ render() {
   const {data} = this.props;
   const workshops = data.allMarkdownRemark.edges
   console.log(workshops)
+  let readingsListed = false;
+  workshops.forEach(({node}) => {
+    if(node.frontmatter.readingFiles !== null) readingsListed = true;
+  })
 
   return(
     <Layout bodyClass="greenBody">
@@ -31,15 +35,20 @@ render() {
                 </div>
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
-                    {
+                    { !readingsListed ? (
+                        <h4>No readings added yet.</h4>
+                      ):(
                         workshops.map(({node}, i) => {
                             return(
                             <div key={i}>
                                 <h4>{node.frontmatter.title}</h4>
                                 <ul style={{"margin-top" : "1em", "list-style": "none"}}>
-                                    {node.frontmatter.readings.map((reading, j) =>(
+                                    {node.frontmatter.readingFiles.map((reading, j) =>(
                                         <li key={j}>
                                           <a href={reading.file}
+                                          // {
+                                          //   (reading.file) ? reading.file : reading.url
+                                          // }
                                              target="_blank"
                                              rel="noopener noreferrer">
                                             {reading.name}
@@ -51,6 +60,7 @@ render() {
                             </div>
                             )
                         })
+                      )
                     }
                 </div>
 
@@ -77,7 +87,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             title
-            readings{
+            readingFiles{
                 name
                 file
             }

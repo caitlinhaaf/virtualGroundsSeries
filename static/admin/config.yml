@@ -23,28 +23,39 @@ collections:
       - { label: Thumbnail, name: thumbnail, widget: image}
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Readings", 
-          name: "readings", 
+      - { label: "Reading Files", 
+          name: "readingsFiles", 
           widget: "list", 
           fields: [
             { label: Name, name: name, required: true, widget: string },
-            { label: File, name: file, required: false, widget: file},
-            { label: URL, name: url, required: false, widget: string}
+            { label: File, name: file, required: true, widget: file},
+          ]}
+      - { label: "Reading Link", 
+          name: "readingLinks", 
+          widget: "list", 
+          fields: [
+            { label: Name, name: name, required: true, widget: string },
+            { label: URL, name: url, required: true, widget: string}
+          ]}
+      - { label: "Lecture File", 
+          name: "lectureFiles", 
+          widget: "list", 
+          fields: [
+            { label: Name, name: name, required: true, widget: string },
+            { label: File, name: file, required: true, widget: file},
           ]}
       - { label: "Lectures", 
-          name: "lectures", 
+          name: "lectureLinks", 
           widget: "list", 
           fields: [
             { label: Name, name: name, required: true, widget: string },
-            { label: File, name: file, required: false, widget: file},
-            { label: URL, name: url, required: false, widget: string}
+            { label: URL, name: url, required: true, widget: string}
           ]}
       - { label: "Links", 
           name: "links", 
           widget: "list", 
           fields: [
             { label: Name, name: name, required: true, widget: string },
-            { label: File, name: file, required: false, widget: file},
             { label: URL, name: url, required: false, widget: string}
           ]}
       - { label: "Gallery Images", 
@@ -63,6 +74,7 @@ collections:
      preview: false
     slug: "{{year}}-{{month}}-{{slug}}"
     fields:
+      - { label: "Privacy Setting", name: "privacySetting", widget: "hidden", default: "open" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: Thumbnail, name: thumbnail, widget: image}
@@ -98,51 +110,3 @@ collections:
             { label: Image, name: image, required: true, widget: image },
             { label: Alt Text, name: alt text, widget: string}
           ]}
-  - name: "Extra Reading"
-    label: "Extra Reading"
-    folder: "content/extraReadings"
-    description: "Any readings above and beyond those listed in the public workshops."
-    create: true
-    editor:
-     preview: false
-    slug: "{{year}}-{{month}}-{{slug}}"
-    fields: 
-      - { label: "Title", name: "title", required: true, widget: "string" }
-      - { label: "File", name: "file", widget: "file" }
-      - { label: "URL", name: "url", widget: "string"}
-  - name: "Extra Lectures"
-    label: "Extra Lectures"
-    folder: "content/extraLectures"
-    description: "Any readings above and beyond those listed in the public workshops."
-    create: true
-    editor:
-     preview: false
-    slug: "{{year}}-{{month}}-{{slug}}"
-    fields: 
-      - { label: "Title", name: "title", required: true, widget: "string" }
-      - { label: "File", name: "file", widget: "file" }
-      - { label: "URL", name: "url", widget: "string"}
-  - name: "Extra Links"
-    label: "Extra Links"
-    folder: "content/extraLinks"
-    description: "Any links above and beyond those listed in the public workshops."
-    create: true
-    editor:
-     preview: false
-    slug: "{{year}}-{{month}}-{{slug}}"
-    fields: 
-      - { label: "Title", name: "title", required: true, widget: "string" }
-      - { label: "File", name: "file", widget: "file" }
-      - { label: "URL", name: "url", widget: "string"}
-  - name: "Extra Gallery Images"
-    label: "Extra Links"
-    folder: "content/extraGalleryImages"
-    description: "Any image above and beyond those included in the public workshops."
-    create: true
-    editor:
-     preview: false
-    slug: "{{year}}-{{month}}-{{slug}}"
-    fields: 
-      - { label: "Image", name: "image", required: true, widget: "image" }
-      - { label: "Alt Text", name: "alt text", widget: "string" }
-

@@ -23,17 +23,11 @@ class WorkshopPage extends React.Component {
           posts.map(({node}, i) => (
             <WorkshopBlock 
               key={i}
-              workshopNum={i+1} 
+              workshopNum={posts.length - i} 
               pageLink={node.fields.slug}
               date={node.frontmatter.date}
               thumbnailSrc={node.frontmatter.thumbnail}>
-              <p
-                style={{
-                  "max-height": "200px;",
-                  "overflow": "hidden",
-                  // "white-space": "nowrap",
-                  // "text-oveflow": "ellipsis"
-                }}>
+              <p>
                 {node.frontmatter.description}
               </p>
             </WorkshopBlock>
@@ -55,7 +49,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           excerpt
