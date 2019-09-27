@@ -13,6 +13,8 @@ collections:
     folder: "content/workshops"
     description: "Workshop date, description, and links to class content."
     create: true
+    editor:
+     preview: false
     slug: "{{year}}-{{month}}-{{slug}}"
     fields:
       - { label: "Privacy Setting", name: "privacySetting", widget: "hidden", default: "open" }
@@ -57,6 +59,8 @@ collections:
     folder: "content/privateWorkshops"
     description: "Private workshop date, description, and links to class content."
     create: true
+    editor:
+     preview: false
     slug: "{{year}}-{{month}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
@@ -99,6 +103,8 @@ collections:
     folder: "content/extraReadings"
     description: "Any readings above and beyond those listed in the public workshops."
     create: true
+    editor:
+     preview: false
     slug: "{{year}}-{{month}}-{{slug}}"
     fields: 
       - { label: "Title", name: "title", required: true, widget: "string" }
@@ -109,6 +115,8 @@ collections:
     folder: "content/extraLectures"
     description: "Any readings above and beyond those listed in the public workshops."
     create: true
+    editor:
+     preview: false
     slug: "{{year}}-{{month}}-{{slug}}"
     fields: 
       - { label: "Title", name: "title", required: true, widget: "string" }
@@ -119,6 +127,8 @@ collections:
     folder: "content/extraLinks"
     description: "Any links above and beyond those listed in the public workshops."
     create: true
+    editor:
+     preview: false
     slug: "{{year}}-{{month}}-{{slug}}"
     fields: 
       - { label: "Title", name: "title", required: true, widget: "string" }
@@ -129,6 +139,8 @@ collections:
     folder: "content/extraGalleryImages"
     description: "Any image above and beyond those included in the public workshops."
     create: true
+    editor:
+     preview: false
     slug: "{{year}}-{{month}}-{{slug}}"
     fields: 
       - { label: "Image", name: "image", required: true, widget: "image" }
