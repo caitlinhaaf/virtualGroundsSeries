@@ -92,28 +92,48 @@ collections:
           widget: "list", 
           fields: [
             { label: Name, name: name, required: true, widget: string },
-            { label: File, name: file, widget: file },
-            { label: URL, name: url, widget: string}
+            { label: File, name: file, required: false, widget: file},
+            { label: URL, name: url, required: false, widget: string},
           ]}
-      - { label: "Lectures", 
-          name: "lectures", 
+      - { label: "Reading Files", 
+          name: "readingFiles", 
           widget: "list", 
           fields: [
             { label: Name, name: name, required: true, widget: string },
-            { label: File, name: file, required: true, widget: file },
-            { label: URL, name: url, widget: string}
+            { label: File, name: file, required: true, widget: file},
+          ]}
+      - { label: "Reading Link", 
+          name: "readingLinks", 
+          widget: "list", 
+          fields: [
+            { label: Name, name: name, required: true, widget: string },
+            { label: URL, name: url, required: true, widget: string}
+          ]}
+      - { label: "Lecture File", 
+          name: "lectureFiles", 
+          widget: "list", 
+          fields: [
+            { label: Name, name: name, required: true, widget: string },
+            { label: File, name: file, required: true, widget: file},
+          ]}
+      - { label: "Lectures Links", 
+          name: "lectureLinks", 
+          widget: "list", 
+          fields: [
+            { label: Name, name: name, required: true, widget: string },
+            { label: URL, name: url, required: true, widget: string}
           ]}
       - { label: "Links", 
           name: "links", 
           widget: "list", 
           fields: [
             { label: Name, name: name, required: true, widget: string },
-            { label: URL, name: url, widget: string}
+            { label: URL, name: url, required: false, widget: string}
           ]}
       - { label: "Gallery Images", 
-          name: "gallery image", 
+          name: "galleryImages", 
           widget: "list", 
           fields: [
             { label: Image, name: image, required: true, widget: image },
-            { label: Alt Text, name: alt text, widget: string}
+            { label: Alt Text, name: altText, required: true, widget: string}
           ]}
