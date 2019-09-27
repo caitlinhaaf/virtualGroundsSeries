@@ -8,13 +8,14 @@ public_folder: /img
 publish_mode: editorial_workflow
 
 collections:
-  - name: "Workshop"
-    label: "Workshop"
+  - name: "Open Workshop"
+    label: "Open Workshop"
     folder: "content/workshops"
     description: "Workshop date, description, and links to class content."
     create: true
     slug: "{{year}}-{{month}}-{{slug}}"
     fields:
+      - { label: "Privacy Setting", name: "privacySetting", widget: "hidden", default: "open" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: Thumbnail, name: thumbnail, widget: image}
@@ -25,7 +26,7 @@ collections:
           widget: "list", 
           fields: [
             { label: Name, name: name, required: true, widget: string },
-            { label: File, name: file, required: false, widget: file },
+            { label: File, name: file, required: false, widget: file},
             { label: URL, name: url, required: false, widget: string}
           ]}
       - { label: "Lectures", 
@@ -33,7 +34,7 @@ collections:
           widget: "list", 
           fields: [
             { label: Name, name: name, required: true, widget: string },
-            { label: File, name: file, required: false, widget: file },
+            { label: File, name: file, required: false, widget: file},
             { label: URL, name: url, required: false, widget: string}
           ]}
       - { label: "Links", 
@@ -41,7 +42,7 @@ collections:
           widget: "list", 
           fields: [
             { label: Name, name: name, required: true, widget: string },
-            { label: File, name: file, required: false, widget: file },
+            { label: File, name: file, required: false, widget: file},
             { label: URL, name: url, required: false, widget: string}
           ]}
       - { label: "Gallery Images", 

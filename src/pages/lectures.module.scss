@@ -32,12 +32,23 @@
 }
 
 
-.readings{
-    grid-area: rd;
+.lectures{
+    grid-area: lc;
+    h2{
+        color: $green;
+        text-shadow:
+        0px 0px 0 $yellow,
+      -2px -2px 0 $yellow,  
+       2px -2px 0 $yellow,
+       -2px 2px 0 $yellow,
+        2px 2px 0 $yellow;
+    }
 }
 
 
 .list{
     grid-area: list;
 }
+
+
 
