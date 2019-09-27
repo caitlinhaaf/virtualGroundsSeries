@@ -13,11 +13,11 @@ render() {
 
   const {data} = this.props;
   const workshops = data.allMarkdownRemark.edges
-  console.log(workshops)
-  let readingsListed = false;
-  workshops.forEach(({node}) => {
-    if(node.frontmatter.readingFiles !== null) readingsListed = true;
-  })
+  // console.log(workshops)
+  // let readingsListed = false;
+  // workshops.forEach(({node}) => {
+  //   if(node.frontmatter.readingFiles !== null) readingsListed = true;
+  // })
 
   return(
     <Layout bodyClass="greenBody">
@@ -35,9 +35,10 @@ render() {
                 </div>
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
-                    { !readingsListed ? (
-                        <h4>No readings added yet.</h4>
-                      ):(
+                    { 
+                      // !readingsListed ? (
+                      //   <h4>No readings added yet.</h4>
+                      // ):(
                         workshops.map(({node}, i) => {
                             return(
                             <div key={i}>
@@ -56,11 +57,21 @@ render() {
                                         </li>
                                     ))
                                     }
+                                    {node.frontmatter.readingLinks.map((reading, j) =>(
+                                        <li key={j}>
+                                          <a href={reading.url}
+                                             target="_blank"
+                                             rel="noopener noreferrer">
+                                            {reading.name}
+                                          </a>
+                                        </li>
+                                    ))
+                                    }
                                 </ul>
                             </div>
                             )
                         })
-                      )
+                      // )
                     }
                 </div>
 
@@ -91,6 +102,10 @@ export const pageQuery = graphql`
                 name
                 file
             }
+            readingLinks{
+              name
+              url
+          }
           }
         }
       }

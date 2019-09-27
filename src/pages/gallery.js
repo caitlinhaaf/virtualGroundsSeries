@@ -1,63 +1,53 @@
 import React from "react"
-// import { Link, graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 
 // import ClassLinksGrid from "../components/classLinksGrid/classLinksGrid"
-// import componentStyles from "./readings.module.scss"
+import componentStyles from "./gallery.module.scss"
 
 class GalleryPage extends React.Component {
 
 render() {
-
-  // const {data} = this.props;
-  // const workshops = data.allMarkdownRemark.edges
-  // console.log(workshops)
+  const {data} = this.props;
+  const workshops = data.allMarkdownRemark.edges
 
   return(
     <Layout bodyClass="greenBody">
       <SEO title="Class Content" />
-      <h2>GALLERY</h2>
-{/* 
+
       <div>
             <section className={componentStyles.grid}>
 
-                <div 
-                    className={`${componentStyles.gridSeciton} ${componentStyles.leftCol} ${componentStyles.readings}`}
-                >
+                <div className={`${componentStyles.gridSeciton} ${componentStyles.leftCol} ${componentStyles.gallery}`}>
                     <Link to="/classContent">
-                        <h2>READI<br/>NGS</h2>
+                      <h2>GALL<br/>ERY</h2>
                     </Link>
                 </div>
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
+                    {/* {workshops.map(({node}) => (
+                      node.galleryImages.map((image, j) => (
+                        <img key={j} src={image.image} alt={image.altText}/>
+                      ))
+                    ))
+                    } */}
                     {
-                        workshops.map(({node}, i) => {
-                            return(
-                            <div key={i}>
-                                <h4>{node.frontmatter.title}</h4>
-                                <ul style={{"margin-top" : "1em", "list-style": "none"}}>
-                                    {node.frontmatter.readings.map((reading, j) =>(
-                                        <li key={j}>
-                                          <a href={reading.file}
-                                             target="_blank"
-                                             rel="noopener noreferrer">
-                                            {reading.name}
-                                          </a>
-                                        </li>
-                                    ))
-                                    }
-                                </ul>
-                            </div>
-                            )
-                        })
+                      workshops.map(({node})=>{
+                        
+                        return(
+                          node.frontmatter.galleryImages.map((image, j) => (
+                            <img key={j} src={image.image} alt={image.altText}/>
+                          ))
+                        )
+                      })
                     }
                 </div>
 
+
             </section>
-        </div> */}
-      
+        </div>
     </Layout>
   )
 }
@@ -67,24 +57,24 @@ render() {
 export default GalleryPage
 
 
-// export const pageQuery = graphql`
-//   query {
-//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
-//       edges {
-//         node {
-//           excerpt
-//           fields {
-//             slug
-//           }
-//           frontmatter {
-//             title
-//             readings{
-//                 name
-//                 file
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+      edges {
+        node {
+          excerpt
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            galleryImages{
+                image
+                altText
+            }
+          }
+        }
+      }
+    }
+  }
+`

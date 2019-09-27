@@ -34,11 +34,15 @@ const ClassContentPage = () => {
                 </div>
 
                 <div className={`${componentStyles.gridSeciton} ${componentStyles.leftCol} ${componentStyles.gallery}`}>
-                    <h2>GALL<br/>ERY</h2>
+                    <Link to="/gallery">
+                        <h2>GALL<br/>ERY</h2>
+                    </Link>
                 </div>
 
                 <div className={`${componentStyles.gridSeciton} ${componentStyles.rightCol} ${componentStyles.links}`}>
-                    <h2>LIN<br/>KS</h2>
+                    <Link to="/links">
+                        <h2>LIN<br/>KS</h2>
+                    </Link>
                 </div>
 
             </section>

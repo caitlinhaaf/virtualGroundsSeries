@@ -55,6 +55,16 @@ render() {
                                         </li>
                                     ))
                                     }
+                                    {node.frontmatter.lectureLinks.map((lecture, j) =>(
+                                        <li key={j}>
+                                          <a href={lecture.url}
+                                             target="_blank"
+                                             rel="noopener noreferrer">
+                                            {lecture.name}
+                                          </a>
+                                        </li>
+                                    ))
+                                    }
                                 </ul>
                             </div>
                             )
@@ -90,6 +100,10 @@ export const pageQuery = graphql`
                 name
                 file
             }
+            lectureLinks{
+              name
+              url
+          }
           }
         }
       }

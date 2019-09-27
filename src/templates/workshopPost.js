@@ -57,11 +57,18 @@ class WorkshopPostTemplate extends React.Component {
            
             <div style={{ "grid-area": "readings"}}>
               <h4>Readings</h4>
-              {post.frontmatter.readingFiles &&
-                <ul className={componentStyles.linkList}>
+              {<ul className={componentStyles.linkList}>
                 {post.frontmatter.readingFiles.map((reading, i)=>(
                   <li className={componentStyles.link}>
                     <a key={i} target="_blank" rel="noopener noreferrer" href={reading.file}>
+                      {reading.name}
+                    </a>
+                  </li>
+                ))}
+
+                {post.frontmatter.readingLinks.map((reading, i)=>(
+                  <li className={componentStyles.link}>
+                    <a key={i} target="_blank" rel="noopener noreferrer" href={reading.url}>
                       {reading.name}
                     </a>
                   </li>
@@ -72,14 +79,45 @@ class WorkshopPostTemplate extends React.Component {
 
             <div style={{ "grid-area": "lectures"}}>
               <h4>Lectures</h4>
+              <ul className={componentStyles.linkList}>
+                {post.frontmatter.lectureFiles.map((lecture, i)=>(
+                  <li className={componentStyles.link}>
+                    <a key={i} target="_blank" rel="noopener noreferrer" href={lecture.file}>
+                      {lecture.name}
+                    </a>
+                  </li>
+                ))}
+
+                {post.frontmatter.lectureLinks.map((lecture, i)=>(
+                  <li className={componentStyles.link}>
+                    <a key={i} target="_blank" rel="noopener noreferrer" href={lecture.url}>
+                      {lecture.name}
+                    </a>
+                  </li>
+                ))}
+                </ul>
             </div>
 
             <div style={{ "grid-area": "gallery"}}>
               <h4>Gallery</h4>
+              <div style={{"margin-top": "1em"}}>
+                {post.frontmatter.galleryImages.map((image, i)=>(
+                    <img className={componentStyles.galleryImg} src={image.image} alt={image.altText}/>
+                  ))}
+              </div>
             </div>
 
             <div style={{ "grid-area": "links"}}>
               <h4>Links</h4>
+              <ul className={componentStyles.linkList}>
+                {post.frontmatter.links.map((link, i)=>(
+                  <li className={componentStyles.link}>
+                    <a key={i} target="_blank" rel="noopener noreferrer" href={link.url}>
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+                </ul>
             </div>
 
           </section>
@@ -144,6 +182,26 @@ export const pageQuery = graphql`
         readingFiles{
           name
           file
+        }
+        readingLinks{
+          name
+          url
+        }
+        lectureFiles{
+          name
+          file
+        }
+        lectureLinks{
+          name
+          url
+        }
+        galleryImages{
+          image
+          altText
+        }
+        links{
+          name
+          url
         }
       }
     }

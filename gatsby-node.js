@@ -154,6 +154,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: post.node.fields.slug,
+      // path: `openworkshop${post.node.fields.workshopNum}`,
       component: workshopPost,
       context: {
         slug: post.node.fields.slug,

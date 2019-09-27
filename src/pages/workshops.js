@@ -23,7 +23,7 @@ class WorkshopPage extends React.Component {
           posts.map(({node}, i) => (
             <WorkshopBlock 
               key={i}
-              workshopNum={posts.length - i} 
+              workshopNum={node.frontmatter.workshopNum}
               pageLink={node.fields.slug}
               date={node.frontmatter.date}
               thumbnailSrc={node.frontmatter.thumbnail}>
@@ -57,6 +57,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            workshopNum
             date(formatString: "MMMM, YYYY")
             title
             description

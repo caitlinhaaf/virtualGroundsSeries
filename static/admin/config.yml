@@ -60,11 +60,11 @@ collections:
             { label: URL, name: url, required: false, widget: string}
           ]}
       - { label: "Gallery Images", 
-          name: "gallery image", 
+          name: "galleryImages", 
           widget: "list", 
           fields: [
             { label: Image, name: image, required: true, widget: image },
-            { label: Alt Text, name: alt text, required: true, widget: string}
+            { label: Alt Text, name: altText, required: true, widget: string}
           ]}
   - name: "Private Workshop"
     label: "Private Workshop"
