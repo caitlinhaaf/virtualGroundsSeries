@@ -1,5 +1,5 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
@@ -12,7 +12,7 @@ class WorkshopPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+    // const { previous, next } = this.props.pageContext
 
     console.log(post)
 
@@ -30,7 +30,6 @@ class WorkshopPostTemplate extends React.Component {
         <article>
           <header className={componentStyles.header}>
             <h1 className={componentStyles.heading}>
-              {/* {post.frontmatter.title} */}
               WORK<span className={componentStyles.light}>SHOP {post.frontmatter.workshopNum}</span>
             </h1>
 
@@ -126,7 +125,7 @@ class WorkshopPostTemplate extends React.Component {
           
         </article>
 
-        <nav>
+        {/* <nav>
           <ul
             style={{
               display: `flex`,
@@ -153,7 +152,7 @@ class WorkshopPostTemplate extends React.Component {
             </li>
 
           </ul>
-        </nav>
+        </nav> */}
 
 
       </Layout>

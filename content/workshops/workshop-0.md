@@ -1,4 +1,5 @@
 ---
+privacySetting: open
 workshopNum: '0'
 title: Workshop 0
 date: 2019-09-24T10:33:42.216Z
