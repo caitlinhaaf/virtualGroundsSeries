@@ -106,7 +106,7 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: post.node.fields.slug,
         previous,
         next,
-        currentPage: posts.length - i
+        currentPage: posts.length - index
       },
     })
   })
