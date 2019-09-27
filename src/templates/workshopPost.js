@@ -57,7 +57,7 @@ class WorkshopPostTemplate extends React.Component {
            
             <div style={{ "grid-area": "readings"}}>
               <h4>Readings</h4>
-              {post.frontmatter.readings &&
+              {post.frontmatter.readingFiles &&
                 <ul className={componentStyles.linkList}>
                 {post.frontmatter.readingFiles.map((reading, i)=>(
                   <li className={componentStyles.link}>
