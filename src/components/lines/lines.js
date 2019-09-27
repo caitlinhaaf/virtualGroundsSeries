@@ -1,12 +1,12 @@
 import React from "react"
-import componentSytles from './lines.module.scss'
+import componentStyles from './lines.module.scss'
 
 const WhiteLines = ({color}) => {
 
-        const stripeClass = componentSytles[color];
+        const stripeClass = componentStyles[color];
 
         return(
-        <svg x="0px" y="0px" height="100%" width="100%" viewBox="0 0 400 400" preserveAspectRatio="xMinYMin slice">
+        <svg className={componentStyles.svg} x="0px" y="0px" height="100%" width="100%" viewBox="0 0 400 400" preserveAspectRatio="xMinYMin slice">
         {/* <svg x="0px" y="0px" viewBox="0 0 600 600" preserveAspectRatio="xMinYMin slice"></svg> */}
         <g>
                 

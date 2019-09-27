@@ -12,7 +12,7 @@ class WorkshopPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next, currentPage } = this.props.pageContext
+    const { previous, next } = this.props.pageContext
 
     console.log(post)
 
@@ -31,7 +31,7 @@ class WorkshopPostTemplate extends React.Component {
           <header className={componentStyles.header}>
             <h1 className={componentStyles.heading}>
               {/* {post.frontmatter.title} */}
-              WORK<span className={componentStyles.light}>SHOP {currentPage}</span>
+              WORK<span className={componentStyles.light}>SHOP {post.frontmatter.workshopNum}</span>
             </h1>
 
             <p className={componentStyles.date}>
@@ -176,6 +176,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       frontmatter {
+        workshopNum
         title
         date(formatString: "MMMM DD, YYYY")
         description
