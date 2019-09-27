@@ -16,13 +16,21 @@ collections:
     editor:
      preview: false
     fields:
-      - { label: "Privacy Setting", name: "privacySetting", widget: "hidden", default: "open" }
+      - { label: "Privacy Setting", name: "privacySetting", default: "open" }
       - { label: "Workshop Number", name: "workshopNum", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: Thumbnail, name: thumbnail, widget: image}
       - { label: "Description", name: "description", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Readings", 
+          name: "readings", 
+          widget: "list", 
+          fields: [
+            { label: Name, name: name, required: true, widget: string },
+            { label: File, name: file, required: false, widget: file},
+            { label: URL, name: url, required: false, widget: string},
+          ]}
       - { label: "Reading Files", 
           name: "readingFiles", 
           widget: "list", 
@@ -73,7 +81,7 @@ collections:
     editor:
      preview: false
     fields:
-      - { label: "Privacy Setting", name: "privacySetting", widget: "hidden", default: "open" }
+      - { label: "Privacy Setting", name: "privacySetting", default: "closed" }
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: Thumbnail, name: thumbnail, widget: image}

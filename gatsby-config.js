@@ -27,13 +27,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/assets`,
-        name: `assets`,
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -63,7 +56,6 @@ module.exports = {
         //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -73,7 +65,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#307574`,
         display: `minimal-ui`,
-        icon: `content/assets/femmeTechIcon.png`,
+        icon: `src/images/femmeTechIcon.png`,
       },
     },
     `gatsby-plugin-offline`,

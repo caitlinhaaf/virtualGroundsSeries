@@ -1,118 +1,29 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-// exports.createSchemaCustomization = ({ actions, schema }) => {
-//   const { createTypes } = actions
-//   const typeDefs = [
-//     schema.buildObjectType({
-//       name: 'MarkdownRemark',
-//       fields: {
-//         frontmatter: 'Frontmatter!'
-//       },
-//       interfaces: ['Node'],
-//       extensions: {
-//         infer: true,
-//       },
-//     }),
-//     schema.buildObjectType({
-//       name: 'Frontmatter',
-//       fields: {
-//         title: {
-//           type: 'String!',
-//           resolve(parent) {
-//             return parent.title || '(Untitled)'
+// exports.createResolvers = ({ createResolvers }) => {
+//   const resolvers = {
+//     MarkdownRemarkFrontmatter: {
+//       readings: {
+//         resolve(source, args, context, info) {
+//           if (!source.readings) {
+//             return info.originalResolver(
+//               {
+//                 ...source,
+//                 readings: {type: "ReadingsJson"}
+//               },
+//               args,
+//               context,
+//               info
+//             )
+//           }else{
+//             return info.originalResolver(source, args, context, info)
 //           }
 //         },
-//         date: {
-//           type: 'Date!',
-//           extensions: {
-//             dateformat: {},
-//           },
-//         },
-//         lectures: {
-//           type: 'LectureJson',
-//         },
-//         readings: {
-//           type: 'ReadingsJson',
-//         }
-//       }
-//     }),
-//     schema.buildObjectType({
-//       name: 'LectureJson',
-//       fields: {
-//         name: 'String',
-//         file: 'String!',
-//         url: 'String!'
 //       },
-//     }),
-//     schema.buildObjectType({
-//       name: 'ReadingsJson',
-//       fields: {
-//         name: 'String',
-//         file: 'String!',
-//         url: 'String!'
-//       },
-//     })
-//   ]
-//   createTypes(typeDefs)
-// }
-
-// exports.createSchemaCustomization = ({ actions, schema }) => {
-//   const { createTypes } = actions
-
-//   const typeDefs = `
-//     type LecturesJson implements Node {
-//       name: String!
-//       file: File!
-//       url: String!
-//     }
-//     type ReadingsJson implements Node {
-//       name: String!
-//       file: File!
-//       url: String!
-//     }
-//     type WorkshopJson implements Node {
-//       title: String!
-//       lectures: [LecturesJson]
-//       readings: [ReadingsJson]
-//       date: Date
-//     }
-//   `
-//   createTypes(typeDefs)
-// }
-
-// exports.createResolvers = ({ createResolvers }) => {
-//   createResolvers({
-//     LecturesJson: {
-
-//     }
-//   })
-// }
-
-// exports.sourceNodes = ({ actions, schema }) => {
-//   const { createTypes } = actions
-//   createTypes(`
-//     type LecturesJson {
-//       name: String
-//       file: String
-//       url: String
-//     }
-
-//     type ReadingsJson {
-//       name: String
-//       file: String
-//       url: String
-//     }
-
-//     type MarkdownRemarkFrontmatter {
-//       lectures: LecturesJson
-//       reading: ReadingsJson
-//     }
-
-//     type MarkdownRemark implements Node {
-//       frontmatter: MarkdownRemarkFrontmatter
-//     }
-//   `)
+//     },
+//   }
+//   createResolvers(resolvers)
 // }
 
 exports.createPages = async ({ graphql, actions }) => {
@@ -148,13 +59,17 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog posts pages.
   const posts = result.data.allMarkdownRemark.edges
 
+  // const openPosts = result.data.allMarkdownRemark.edges.filter(edge => {
+  //   if (edge.node.frontmatter.privacySetting === "open") return true  
+  // })
+  // console.log(openPosts)
+
   posts.forEach((post, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
 
     createPage({
       path: post.node.fields.slug,
-      // path: `openworkshop${post.node.fields.workshopNum}`,
       component: workshopPost,
       context: {
         slug: post.node.fields.slug,
