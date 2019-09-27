@@ -1,19 +1,19 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+// import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 
 // import ClassLinksGrid from "../components/classLinksGrid/classLinksGrid"
-import componentStyles from "./readings.module.scss"
+// import componentStyles from "./readings.module.scss"
 
 class LinksPage extends React.Component {
 
 render() {
 
-  const {data} = this.props;
-  const workshops = data.allMarkdownRemark.edges
-  console.log(workshops)
+  // const {data} = this.props;
+  // const workshops = data.allMarkdownRemark.edges
+  // console.log(workshops)
 
   return(
     <Layout bodyClass="greenBody">
