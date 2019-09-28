@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
@@ -122,6 +122,18 @@ class WorkshopPostTemplate extends React.Component {
           </section>
 
           <hr className={componentStyles.rule}/>
+
+          {post.frontmatter.privacySetting === "closed" ?
+            (
+              <Link to="/closedworkshops" className={componentStyles.backLink}>
+                &lt; Back to Closed Workshops Page
+              </Link>
+            ):(
+              <Link to="/workshops" className={componentStyles.backLink}>
+                &lt; Back to Workshops Page
+              </Link>
+            )
+          }
           
         </article>
 
@@ -175,6 +187,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       frontmatter {
+        privacySetting
         workshopNum
         title
         date(formatString: "MMMM DD, YYYY")

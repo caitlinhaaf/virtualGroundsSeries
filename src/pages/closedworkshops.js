@@ -17,9 +17,9 @@ class ClosedWorkshopPage extends React.Component {
       <Layout bodyClass="orangeBody">
         <SEO title="Workshops" />
 
-        <div style={{"margin": "0em 0 1em 0", "font-size": "5vw"}}>
-            <h2>CLOSED WORKSHOPS</h2>
-            <p>Note that the workshops listed here are closed to the public.</p>
+        <div style={{"margin": "0em 0 2em 0"}}>
+            <h2 style={{"font-size": "7vw"}}>CLOSED WORKSHOPS</h2>
+            <h5 style={{"font-size":"1.25em"}}>Note that the workshops listed here are closed to the public.</h5>
         </div>
 
         <div>

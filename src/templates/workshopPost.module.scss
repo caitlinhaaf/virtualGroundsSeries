@@ -61,8 +61,12 @@
     margin: .5em 0;
 }
 
+.backLink,
 .link{
     color: $green;
+}
+
+.link{
     text-decoration: underline;
     padding: .25em 0;
     margin-bottom: .5em;
@@ -71,6 +75,10 @@
         padding: .25em 0 0 0;
         margin-bottom: 0;
     }
+}
+
+.backLink{
+    font-weight: bold;
 }
 
 .galleryImg{

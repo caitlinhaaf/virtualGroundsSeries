@@ -10,7 +10,7 @@ publish_mode: editorial_workflow
 collections:
   - name: "Open Workshop"
     label: "Open Workshop"
-    folder: "content/workshops"
+    folder: "content/workshops/openworkshops"
     description: "Workshop date, description, and links to class content."
     create: true
     editor:
@@ -73,9 +73,9 @@ collections:
             { label: Image, name: image, required: true, widget: image },
             { label: Alt Text, name: altText, required: true, widget: string}
           ]}
-  - name: "Private Workshop"
-    label: "Private Workshop"
-    folder: "content/privateWorkshops"
+  - name: "Closed Workshop"
+    label: "Closed Workshop"
+    folder: "content/workshops/closedworkshops"
     description: "Private workshop date, description, and links to class content."
     create: true
     editor:
