@@ -13,7 +13,9 @@ const AboutGrid = () => {
             <div style={{ "grid-area": "about"}}>
                 <h3 className={componentStyles.underline}>ABOUT</h3>
                 <p className={componentStyles.content}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    A series dedicated to  feminist perspectives on digital sustainability and survival presented by Trinity Square Video and the Digital Justice Lab.
+                    <br/>
+                    Virtual Grounds is a two-phase project dedicated to how we navigate our virtual selves of the future. In this program we will be specifically focused on feminist perspectives on digital sustainability and survival. Over the course of 11 months we will be studying, creating and disseminating together. 
                 </p>
             </div>
 

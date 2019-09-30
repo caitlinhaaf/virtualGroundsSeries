@@ -1,11 +1,11 @@
 module.exports = {
   siteMetadata: {
     title: `Virtual Grounds`,
-    description: `A feminist technolgy workshop series hosted by Digital Justice Labs and Trinity Square Video`,
-    author: `@caitlinhaaf`,
-    siteUrl: `https://virtualgrounds.ca/`,
+    description: `A series dedicated to  feminist perspectives on digital sustainability and survival presented by Trinity Square Video and the Digital Justice Lab.`,
+    author: `@TSVToronto`,
+    siteUrl: `https://virtualgrounds.zone/`,
     social: {
-      twitter: `caitlinhaaf`,
+      twitter: `TSVToronto`,
     },
   },
   plugins: [

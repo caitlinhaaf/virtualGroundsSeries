@@ -48,6 +48,10 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
+          property: `og:image`,
+          content: `imgOpenGraph.jpg`,
+        },
+        {
           property: `og:type`,
           content: `website`,
         },
@@ -62,6 +66,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:title`,
           content: title,
+        },
+        {
+          name: `twitter:image`,
+          content: `imgOpenGraph.jpg`,
         },
         {
           name: `twitter:description`,

@@ -12,11 +12,12 @@ class LinksPage extends React.Component {
 render() {
   const {data} = this.props;
   const workshops = data.allMarkdownRemark.edges
+  const openWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "open"))
+  const closedWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "closed"))
 
   return(
     <Layout bodyClass="greenBody">
       <SEO title="Class Content" />
-      {/* <h2>LINKS</h2> */}
       <div>
             <section className={componentStyles.grid}>
                 <div className={`${componentStyles.gridSeciton} ${componentStyles.rightCol} ${componentStyles.links}`}>
@@ -26,8 +27,8 @@ render() {
                 </div>
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
-                    {
-                        workshops.map(({node}, i) => {
+                    {openWorkshops.length >= 1 &&
+                        openWorkshops.map(({node}, i) => {
                             return(
                             <div key={i}>
                                 <h4>{node.frontmatter.title}</h4>
@@ -46,6 +47,35 @@ render() {
                             </div>
                             )
                         })
+                    }
+
+                    {
+                      closedWorkshops.length >= 1 &&
+                        <>
+                          <h4>Extra Links</h4>
+                          <ul style={{"margin-top" : "1em", "list-style": "none"}}>
+                            {
+                              closedWorkshops.map(({node}) => {
+                                return(
+                                  <>
+                                    {
+                                      node.frontmatter.links.map((link, j) =>(
+                                        <li key={j}>
+                                          <a href={link.url}
+                                             target="_blank"
+                                             rel="noopener noreferrer">
+                                            {link.name}
+                                          </a>
+                                        </li>
+                                    ))
+                                    }
+                                  </>
+                                )
+                              })
+
+                            }
+                          </ul>
+                        </>
                     }
                 </div>
 
@@ -71,6 +101,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            privacySetting
             title
             links{
                 name

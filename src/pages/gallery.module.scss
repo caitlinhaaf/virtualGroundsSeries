@@ -18,6 +18,13 @@
         font-size: 15vw;
         letter-spacing: .05em;
     }
+
+    @include lg {
+        grid-template-areas: 
+        "gl"
+        "list";
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .gridSeciton{

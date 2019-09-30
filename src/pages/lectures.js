@@ -12,11 +12,8 @@ class LecturesPage extends React.Component {
 render() {
   const {data} = this.props;
   const workshops = data.allMarkdownRemark.edges
-
-  let lecturesListed = false;
-  workshops.forEach(({node}) => {
-    if(node.frontmatter.lectureFiles !== null) lecturesListed = true;
-  })
+  const openWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "open"))
+  const closedWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "closed"))
 
   return(
     <Layout bodyClass="greenBody">
@@ -34,30 +31,16 @@ render() {
                 </div>
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
-                    { !lecturesListed ? (
-                        <h4>No lectures added yet.</h4>
-                      ):(
-                        workshops.map(({node}, i) => {
+                    { openWorkshops.length >= 1 &&
+                        openWorkshops.map(({node}, i) => {
+                            const allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
                             return(
                             <div key={i}>
                                 <h4>{node.frontmatter.title}</h4>
-                                <ul style={{"margin-top" : "1em", "list-style": "none"}}>
-                                    {node.frontmatter.lectureFiles.map((lecture, j) =>(
+                                <ul style={{"marginTop" : "1em", "listStyle": "none"}}>
+                                    {allLectures.map((lecture, j) =>(
                                         <li key={j}>
-                                          <a href={lecture.file}
-                                          // {
-                                          //   (lecture.file) ? lecture.file : reading.url
-                                          // }
-                                             target="_blank"
-                                             rel="noopener noreferrer">
-                                            {lecture.name}
-                                          </a>
-                                        </li>
-                                    ))
-                                    }
-                                    {node.frontmatter.lectureLinks.map((lecture, j) =>(
-                                        <li key={j}>
-                                          <a href={lecture.url}
+                                          <a href={lecture.file ? lecture.file : lecture.url}
                                              target="_blank"
                                              rel="noopener noreferrer">
                                             {lecture.name}
@@ -69,7 +52,31 @@ render() {
                             </div>
                             )
                         })
-                      )
+                    }
+
+                    {
+                      closedWorkshops.length >= 1 &&
+                        <>
+                          <h4>Extra Lectures</h4>
+                          <ul style={{"marginTop" : "1em", "listStyle": "none"}}>
+                            {
+                              closedWorkshops.map(({node}) => {
+                                const allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
+                                return(
+                                  allLectures.map((lecture, j) =>(
+                                    <li key={j}>
+                                      <a href={lecture.file ? lecture.file : lecture.url}
+                                         target="_blank"
+                                         rel="noopener noreferrer">
+                                        {lecture.name}
+                                      </a>
+                                    </li>
+                                ))
+                                )
+                              })
+                            }
+                          </ul>
+                        </>
                     }
                 </div>
 
@@ -95,6 +102,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            privacySetting
             title
             lectureFiles{
                 name

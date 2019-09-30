@@ -17,6 +17,13 @@
         font-size: 15vw;
         letter-spacing: .05em;
     }
+
+    @include md {
+        grid-template-areas: 
+        "lk"
+        "list";
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .gridSeciton{

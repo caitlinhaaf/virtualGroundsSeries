@@ -13,11 +13,9 @@ render() {
 
   const {data} = this.props;
   const workshops = data.allMarkdownRemark.edges
-  // console.log(workshops)
-  // let readingsListed = false;
-  // workshops.forEach(({node}) => {
-  //   if(node.frontmatter.readingFiles !== null) readingsListed = true;
-  // })
+
+  const openWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "open"))
+  const closedWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "closed"))
 
   return(
     <Layout bodyClass="greenBody">
@@ -35,31 +33,16 @@ render() {
                 </div>
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
-                    { 
-                      // !readingsListed ? (
-                      //   <h4>No readings added yet.</h4>
-                      // ):(
-                        workshops.map(({node}, i) => {
+                    { openWorkshops.length >= 1 &&
+                        openWorkshops.map(({node}, i) => {
+                            const allReadings = [...node.frontmatter.readingFiles, ...node.frontmatter.readingLinks]
                             return(
                             <div key={i}>
                                 <h4>{node.frontmatter.title}</h4>
                                 <ul style={{"margin-top" : "1em", "list-style": "none"}}>
-                                    {node.frontmatter.readingFiles.map((reading, j) =>(
+                                    {allReadings.map((reading, j) =>(
                                         <li key={j}>
-                                          <a href={reading.file}
-                                          // {
-                                          //   (reading.file) ? reading.file : reading.url
-                                          // }
-                                             target="_blank"
-                                             rel="noopener noreferrer">
-                                            {reading.name}
-                                          </a>
-                                        </li>
-                                    ))
-                                    }
-                                    {node.frontmatter.readingLinks.map((reading, j) =>(
-                                        <li key={j}>
-                                          <a href={reading.url}
+                                          <a href={(reading.file) ? reading.file : reading.url}
                                              target="_blank"
                                              rel="noopener noreferrer">
                                             {reading.name}
@@ -71,7 +54,33 @@ render() {
                             </div>
                             )
                         })
-                      // )
+                    }
+
+                    {closedWorkshops.length >= 1 &&
+                      <div>
+                        <h4>Extra Readings</h4>
+                        <ul style={{"margin-top" : "1em", "list-style": "none"}}>
+                          {closedWorkshops.map(({node}, i) => { 
+                            const allReadings = [...node.frontmatter.readingFiles, ...node.frontmatter.readingLinks]
+                            return(
+                              <>
+                                {
+                                  allReadings.map((reading, j) => (
+                                    <li key={j}>
+                                          <a href={(reading.url) ? reading.url : reading.file}
+                                             target="_blank"
+                                             rel="noopener noreferrer">
+                                            {reading.name}
+                                          </a>
+                                    </li>
+                                  ))
+                                }
+                              </>
+                            )
+                          })
+                          }
+                        </ul>
+                      </div>
                     }
                 </div>
 
@@ -97,6 +106,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            privacySetting
             title
             readingFiles{
                 name

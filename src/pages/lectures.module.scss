@@ -21,6 +21,13 @@
     li a{
         text-decoration: underline;
     }
+
+    @include md {
+        grid-template-areas: 
+        "lc"
+        "list";
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .gridSeciton{
