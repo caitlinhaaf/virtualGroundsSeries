@@ -3,6 +3,7 @@ import React from "react"
 
 import Lines from '../lines/lines'
 import FemmeUsingPhone from '../images/femmeUsingPhone'
+import Logos from '../images/logos'
 
 import componentStyles from "./aboutGrid.module.scss" 
 
@@ -68,10 +69,8 @@ const AboutGrid = () => {
                 <h3 className={componentStyles.alt}>
                     PARTNERS
                 </h3>
-                <img 
-                    style={{"width":"100%"}}
-                    src={'djlLogos.png'} 
-                    alt="Logo" />
+
+                <Logos className={componentStyles.logosCol}/>
             </div>
 
             <div 
