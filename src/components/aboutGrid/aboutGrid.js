@@ -14,9 +14,9 @@ const AboutGrid = () => {
             <div style={{ "grid-area": "about"}}>
                 <h3 className={componentStyles.underline}>ABOUT</h3>
                 <p className={componentStyles.content}>
-                    A series dedicated to  feminist perspectives on digital sustainability and survival presented by Trinity Square Video and the Digital Justice Lab.
-                    <br/>
-                    Virtual Grounds is a two-phase project dedicated to how we navigate our virtual selves of the future. In this program we will be specifically focused on feminist perspectives on digital sustainability and survival. Over the course of 11 months we will be studying, creating and disseminating together. 
+                A series dedicated to feminist perspectives on digital sustainability and survival presented by Trinity Square Video and the Digital Justice Lab.
+                <br/><br/>
+                Virtual Grounds is a 2-part training and research initiative that considers how we navigate the future, protect our virtual selves, and shape digital landscapes. Over the course of 11 months, we will survey how technology continues to grow and impact our lives in different ways through a series of workshops led by practicing creative technologists, scholars, and artists. The content and research created will then be compiled into a transmedia publication, which will be distributed publicly to all communities to use and interpret. 
                 </p>
             </div>
 
