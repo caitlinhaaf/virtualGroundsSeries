@@ -57,7 +57,7 @@ class WorkshopPostTemplate extends React.Component {
             <div style={{ "grid-area": "readings"}}>
               <h4>Readings</h4>
               <ul className={componentStyles.linkList}>
-                {post.frontmatter.readingFiles !== undefined &&
+                {post.frontmatter.readingFiles !== null &&
                   post.frontmatter.readingFiles.map((reading, i)=>(
                   <li className={componentStyles.link}>
                     <a key={i} target="_blank" rel="noopener noreferrer" href={reading.file}>
@@ -66,7 +66,7 @@ class WorkshopPostTemplate extends React.Component {
                   </li>
                 ))}
 
-                {post.frontmatter.readingLinks !== undefined &&
+                {post.frontmatter.readingLinks !== null &&
                   post.frontmatter.readingLinks.map((reading, i)=>(
                   <li className={componentStyles.link}>
                     <a key={i} target="_blank" rel="noopener noreferrer" href={reading.url}>
@@ -81,7 +81,7 @@ class WorkshopPostTemplate extends React.Component {
             <div style={{ "grid-area": "lectures"}}>
               <h4>Lectures</h4>
               <ul className={componentStyles.linkList}>
-                {post.frontmatter.lectureFiles !== undefined &&
+                {post.frontmatter.lectureFiles !== null &&
                   post.frontmatter.lectureFiles.map((lecture, i)=>(
                   <li className={componentStyles.link}>
                     <a key={i} target="_blank" rel="noopener noreferrer" href={lecture.file}>
@@ -90,7 +90,7 @@ class WorkshopPostTemplate extends React.Component {
                   </li>
                 ))}
 
-                {post.frontmatter.lectureLinks !== undefined &&
+                {post.frontmatter.lectureLinks !== null &&
                   post.frontmatter.lectureLinks.map((lecture, i)=>(
                   <li className={componentStyles.link}>
                     <a key={i} target="_blank" rel="noopener noreferrer" href={lecture.url}>
@@ -104,7 +104,7 @@ class WorkshopPostTemplate extends React.Component {
             <div style={{ "grid-area": "gallery"}}>
               <h4>Gallery</h4>
               <div style={{"margin-top": "1em"}}>
-                {post.frontmatter.galleryImages !== undefined  &&
+                {post.frontmatter.galleryImages !== null  &&
                   post.frontmatter.galleryImages.map((image, i)=>(
                     <img className={componentStyles.galleryImg} src={image.image} alt={image.altText}/>
                   ))}
@@ -114,7 +114,7 @@ class WorkshopPostTemplate extends React.Component {
             <div style={{ "grid-area": "links"}}>
               <h4>Links</h4>
               <ul className={componentStyles.linkList}>
-                {post.frontmatter.links !== undefined  &&
+                {post.frontmatter.links !== null  &&
                   post.frontmatter.links.map((link, i)=>(
                   <li className={componentStyles.link}>
                     <a key={i} target="_blank" rel="noopener noreferrer" href={link.url}>
