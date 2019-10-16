@@ -27,15 +27,8 @@ render() {
                 </div>
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
-                    {/* {workshops.map(({node}) => (
-                      node.galleryImages.map((image, j) => (
-                        <img key={j} src={image.image} alt={image.altText}/>
-                      ))
-                    ))
-                    } */}
-                    {
+                    {workshops.map !== null &&
                       workshops.map(({node})=>{
-                        
                         return(
                           node.frontmatter.galleryImages.map((image, j) => (
                             <img key={j} src={image.image} alt={image.altText}/>

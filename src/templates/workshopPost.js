@@ -75,7 +75,6 @@ class WorkshopPostTemplate extends React.Component {
                   </li>
                 ))}
                 </ul>
-              }
             </div>
 
             <div style={{ "grid-area": "lectures"}}>
