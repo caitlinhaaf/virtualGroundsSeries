@@ -56,8 +56,9 @@ class WorkshopPostTemplate extends React.Component {
            
             <div style={{ "grid-area": "readings"}}>
               <h4>Readings</h4>
-              {<ul className={componentStyles.linkList}>
-                {post.frontmatter.readingFiles.map((reading, i)=>(
+              <ul className={componentStyles.linkList}>
+                {post.frontmatter.readingFiles !== undefined &&
+                  post.frontmatter.readingFiles.map((reading, i)=>(
                   <li className={componentStyles.link}>
                     <a key={i} target="_blank" rel="noopener noreferrer" href={reading.file}>
                       {reading.name}
@@ -65,7 +66,8 @@ class WorkshopPostTemplate extends React.Component {
                   </li>
                 ))}
 
-                {post.frontmatter.readingLinks.map((reading, i)=>(
+                {post.frontmatter.readingLinks !== undefined &&
+                  post.frontmatter.readingLinks.map((reading, i)=>(
                   <li className={componentStyles.link}>
                     <a key={i} target="_blank" rel="noopener noreferrer" href={reading.url}>
                       {reading.name}
@@ -79,7 +81,8 @@ class WorkshopPostTemplate extends React.Component {
             <div style={{ "grid-area": "lectures"}}>
               <h4>Lectures</h4>
               <ul className={componentStyles.linkList}>
-                {post.frontmatter.lectureFiles.map((lecture, i)=>(
+                {post.frontmatter.lectureFiles !== undefined &&
+                  post.frontmatter.lectureFiles.map((lecture, i)=>(
                   <li className={componentStyles.link}>
                     <a key={i} target="_blank" rel="noopener noreferrer" href={lecture.file}>
                       {lecture.name}
@@ -87,7 +90,8 @@ class WorkshopPostTemplate extends React.Component {
                   </li>
                 ))}
 
-                {post.frontmatter.lectureLinks.map((lecture, i)=>(
+                {post.frontmatter.lectureLinks !== undefined &&
+                  post.frontmatter.lectureLinks.map((lecture, i)=>(
                   <li className={componentStyles.link}>
                     <a key={i} target="_blank" rel="noopener noreferrer" href={lecture.url}>
                       {lecture.name}
@@ -100,7 +104,8 @@ class WorkshopPostTemplate extends React.Component {
             <div style={{ "grid-area": "gallery"}}>
               <h4>Gallery</h4>
               <div style={{"margin-top": "1em"}}>
-                {post.frontmatter.galleryImages.map((image, i)=>(
+                {post.frontmatter.galleryImages !== undefined  &&
+                  post.frontmatter.galleryImages.map((image, i)=>(
                     <img className={componentStyles.galleryImg} src={image.image} alt={image.altText}/>
                   ))}
               </div>
@@ -109,7 +114,8 @@ class WorkshopPostTemplate extends React.Component {
             <div style={{ "grid-area": "links"}}>
               <h4>Links</h4>
               <ul className={componentStyles.linkList}>
-                {post.frontmatter.links.map((link, i)=>(
+                {post.frontmatter.links !== undefined  &&
+                  post.frontmatter.links.map((link, i)=>(
                   <li className={componentStyles.link}>
                     <a key={i} target="_blank" rel="noopener noreferrer" href={link.url}>
                       {link.name}

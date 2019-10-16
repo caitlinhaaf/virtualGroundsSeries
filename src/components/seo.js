@@ -49,7 +49,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `OpenGraph.jpg`,
+          content: `img/OpenGraph.jpg`,
         },
         {
           property: `og:type`,
@@ -69,7 +69,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: `imgOpenGraph.jpg`,
+          content: `img/OpenGraph.jpg`,
         },
         {
           name: `twitter:description`,
