@@ -54,7 +54,7 @@ render() {
                         <>
                           <h4>Extra Links</h4>
                           <ul style={{"margin-top" : "1em", "list-style": "none"}}>
-                            {
+                            {closedWorkshops.map.length >1 &&
                               closedWorkshops.map(({node}) => {
                                 return(
                                   <>

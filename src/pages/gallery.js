@@ -27,13 +27,15 @@ render() {
                 </div>
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
-                    {workshops.map !== null &&
-                      workshops.map(({node})=>{
-                        return(
-                          node.frontmatter.galleryImages.map((image, j) => (
-                            <img key={j} src={image.image} alt={image.altText}/>
-                          ))
-                        )
+                    {workshops.map(({node}) => {
+                        if (node.frontmatter.galleryImages !== null){
+                            return(
+                            node.frontmatter.galleryImages.map((image, j) => (
+                              <img key={j} src={image.image} alt={image.altText}/>
+                            ))
+                            )
+                          }
+                        else return null
                       })
                     }
                 </div>
