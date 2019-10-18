@@ -29,23 +29,27 @@ render() {
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
                     {openWorkshops.length >= 1 &&
                         openWorkshops.map(({node}, i) => {
-                            return(
-                            <div key={i}>
-                                <h4>{node.frontmatter.title}</h4>
-                                <ul style={{"margin-top" : "1em", "list-style": "none"}}>
-                                    {node.frontmatter.links.map((link, j) =>(
-                                        <li key={j}>
-                                          <a href={link.url}
-                                             target="_blank"
-                                             rel="noopener noreferrer">
-                                            {link.name}
-                                          </a>
-                                        </li>
-                                    ))
-                                    }
-                                </ul>
-                            </div>
-                            )
+
+                            if(node.frontmatter.links) {
+                              return(
+                                <div key={i}>
+                                    <h4>{node.frontmatter.title}</h4>
+                                    <ul style={{"margin-top" : "1em", "list-style": "none"}}>
+                                        {node.frontmatter.links.map((link, j) =>(
+                                            <li key={j}>
+                                              <a href={link.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer">
+                                                {link.name}
+                                              </a>
+                                            </li>
+                                        ))
+                                        }
+                                    </ul>
+                                </div>
+                                )
+                            }
+                            else return null
                         })
                     }
 
@@ -54,25 +58,28 @@ render() {
                         <>
                           <h4>Extra Links</h4>
                           <ul style={{"margin-top" : "1em", "list-style": "none"}}>
-                            {closedWorkshops.map.length >1 &&
+                            {closedWorkshops.length >1 &&
                               closedWorkshops.map(({node}) => {
-                                return(
-                                  <>
-                                    {
-                                      node.frontmatter.links.map((link, j) =>(
-                                        <li key={j}>
-                                          <a href={link.url}
-                                             target="_blank"
-                                             rel="noopener noreferrer">
-                                            {link.name}
-                                          </a>
-                                        </li>
-                                    ))
-                                    }
-                                  </>
-                                )
+                                if(node.frontmatter.links){
+                                  return(
+                                    <>
+                                      {
+                                        node.frontmatter.links.map((link, j) =>(
+                                          <li key={j}>
+                                            <a href={link.url}
+                                               target="_blank"
+                                               rel="noopener noreferrer">
+                                              {link.name}
+                                            </a>
+                                          </li>
+                                      ))
+                                      }
+                                    </>
+                                  )
+                                }
+                                else return null
+                                
                               })
-
                             }
                           </ul>
                         </>

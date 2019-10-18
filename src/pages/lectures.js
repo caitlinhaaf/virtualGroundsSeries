@@ -33,7 +33,13 @@ render() {
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
                     { openWorkshops.length >= 1 &&
                         openWorkshops.map(({node}, i) => {
-                            const allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
+
+                            let allLectures;
+                            // const allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
+                            if(node.frontmatter.lectureFiles && node.frontmatter.lectureLinks) allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
+                            else if(node.frontmatter.lectureFiles) allLectures = [...node.frontmatter.lectureFiles]
+                            else if(node.frontmatter.lectureLinks) allLectures = [...node.frontmatter.lectureLinks]
+
                             return(
                             <div key={i}>
                                 <h4>{node.frontmatter.title}</h4>
@@ -61,7 +67,14 @@ render() {
                           <ul style={{"marginTop" : "1em", "listStyle": "none"}}>
                             {
                               closedWorkshops.map(({node}) => {
-                                const allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
+
+                                // const allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
+                                let allLectures;
+                                // const allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
+                                if(node.frontmatter.lectureFiles!==null && node.frontmatter.lectureLinks!==null) allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
+                                else if(node.frontmatter.lectureFiles!==null) allLectures = [...node.frontmatter.lectureFiles]
+                                else if(node.frontmatter.lectureLinks!==null) allLectures = [...node.frontmatter.lectureLinks]
+
                                 return(
                                   allLectures.map((lecture, j) =>(
                                     <li key={j}>

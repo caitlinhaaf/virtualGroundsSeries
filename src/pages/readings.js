@@ -35,7 +35,14 @@ render() {
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
                     { openWorkshops.length >= 1 &&
                         openWorkshops.map(({node}, i) => {
-                            const allReadings = [...node.frontmatter.readingFiles, ...node.frontmatter.readingLinks]
+
+                            // const allReadings = [...node.frontmatter.readingFiles, ...node.frontmatter.readingLinks]
+                            let allReadings;
+                            if(node.frontmatter.readingFiles && node.frontmatter.readingLinks) allReadings = [...node.frontmatter.readingFiles, ...node.frontmatter.readingLinks]
+                            else if(node.frontmatter.readingFiles) allReadings = [...node.frontmatter.readingFiles]
+                            else if(node.frontmatter.readingLinks) allReadings = [...node.frontmatter.readingLinks]
+                            else allReadings = [];
+
                             return(
                             <div key={i}>
                                 <h4>{node.frontmatter.title}</h4>
@@ -61,7 +68,12 @@ render() {
                         <h4>Extra Readings</h4>
                         <ul style={{"margin-top" : "1em", "list-style": "none"}}>
                           {closedWorkshops.map(({node}, i) => { 
-                            const allReadings = [...node.frontmatter.readingFiles, ...node.frontmatter.readingLinks]
+                            // const allReadings = [...node.frontmatter.readingFiles, ...node.frontmatter.readingLinks]
+                            let allReadings;
+                            if(node.frontmatter.readingFiles && node.frontmatter.readingLinks) allReadings = [...node.frontmatter.readingFiles, ...node.frontmatter.readingLinks]
+                            else if(node.frontmatter.readingFiles) allReadings = [...node.frontmatter.readingFiles]
+                            else if(node.frontmatter.readingLinks) allReadings = [...node.frontmatter.readingLinks]
+                            else allReadings = [];
                             return(
                               <>
                                 {
