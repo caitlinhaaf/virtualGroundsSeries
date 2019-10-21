@@ -3,8 +3,9 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
+import ResourceList from "../components/resourceList/resourceList"
+import {normalizeResourceList} from "../utils/helpers"
 
-// import ClassLinksGrid from "../components/classLinksGrid/classLinksGrid"
 import componentStyles from "./lectures.module.scss"
 
 class LecturesPage extends React.Component {
@@ -34,28 +35,19 @@ render() {
                     { openWorkshops.length >= 1 &&
                         openWorkshops.map(({node}, i) => {
 
-                            let allLectures;
-                            // const allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
-                            if(node.frontmatter.lectureFiles && node.frontmatter.lectureLinks) allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
-                            else if(node.frontmatter.lectureFiles) allLectures = [...node.frontmatter.lectureFiles]
-                            else if(node.frontmatter.lectureLinks) allLectures = [...node.frontmatter.lectureLinks]
+                            const lectureFiles = node.frontmatter.lectureFiles ? (
+                              normalizeResourceList(node.frontmatter.lectureFiles, "file")
+                            ) : ([])
+                            const lectureLinks = node.frontmatter.lectureLinks ? (
+                              normalizeResourceList(node.frontmatter.lectureLinks, "url")
+                            ) : ([])
+                            const allLectures = [...lectureFiles, ...lectureLinks] 
 
                             return(
-                            <div key={i}>
-                                <h4>{node.frontmatter.title}</h4>
-                                <ul style={{"marginTop" : "1em", "listStyle": "none"}}>
-                                    {allLectures.map((lecture, j) =>(
-                                        <li key={j}>
-                                          <a href={lecture.file ? lecture.file : lecture.url}
-                                             target="_blank"
-                                             rel="noopener noreferrer">
-                                            {lecture.name}
-                                          </a>
-                                        </li>
-                                    ))
-                                    }
-                                </ul>
-                            </div>
+                              <div key={i}>
+                                  <h4 style={{marginBottom: `.5em`}}>{node.frontmatter.title}</h4>
+                                  <ResourceList resources={allLectures} />
+                              </div>
                             )
                         })
                     }
@@ -63,29 +55,19 @@ render() {
                     {
                       closedWorkshops.length >= 1 &&
                         <>
-                          <h4>Extra Lectures</h4>
-                          <ul style={{"marginTop" : "1em", "listStyle": "none"}}>
+                          <h4 style={{marginBottom: `.5em`}}>Extra Lectures</h4>
+                          <ul style={{"listStyle": "none"}}>
                             {
-                              closedWorkshops.map(({node}) => {
+                              closedWorkshops.map(({node}, i) => {
+                                const lectureFiles = node.frontmatter.lectureFiles ? (
+                                  normalizeResourceList(node.frontmatter.lectureFiles, "file")
+                                ) : ([])
+                                const lectureLinks = node.frontmatter.lectureLinks ? (
+                                  normalizeResourceList(node.frontmatter.lectureLinks, "url")
+                                ) : ([])
+                                const allLectures = [...lectureFiles, ...lectureLinks] 
 
-                                // const allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
-                                let allLectures;
-                                // const allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
-                                if(node.frontmatter.lectureFiles!==null && node.frontmatter.lectureLinks!==null) allLectures = [...node.frontmatter.lectureFiles, ...node.frontmatter.lectureLinks]
-                                else if(node.frontmatter.lectureFiles!==null) allLectures = [...node.frontmatter.lectureFiles]
-                                else if(node.frontmatter.lectureLinks!==null) allLectures = [...node.frontmatter.lectureLinks]
-
-                                return(
-                                  allLectures.map((lecture, j) =>(
-                                    <li key={j}>
-                                      <a href={lecture.file ? lecture.file : lecture.url}
-                                         target="_blank"
-                                         rel="noopener noreferrer">
-                                        {lecture.name}
-                                      </a>
-                                    </li>
-                                ))
-                                )
+                                return <ResourceList key={i} resources={allLectures} />
                               })
                             }
                           </ul>
@@ -107,7 +89,10 @@ export default LecturesPage
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+    allMarkdownRemark(sort: { 
+        fields: [frontmatter___date], 
+        order: ASC 
+      }) {
       edges {
         node {
           excerpt

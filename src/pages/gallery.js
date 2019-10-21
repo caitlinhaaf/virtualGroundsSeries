@@ -4,7 +4,6 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 
-// import ClassLinksGrid from "../components/classLinksGrid/classLinksGrid"
 import componentStyles from "./gallery.module.scss"
 
 class GalleryPage extends React.Component {
@@ -28,18 +27,18 @@ render() {
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
                     {workshops.map(({node}) => {
-                        if (node.frontmatter.galleryImages !== null){
-                            return(
+                        return(
+                          (node.frontmatter.galleryImages) ? (
                             node.frontmatter.galleryImages.map((image, j) => (
                               <img key={j} src={image.image} alt={image.altText}/>
                             ))
-                            )
-                          }
-                        else return null
+                          ):(
+                            null
+                          )
+                        )
                       })
                     }
                 </div>
-
 
             </section>
         </div>

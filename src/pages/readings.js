@@ -3,8 +3,9 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
+import ResourceList from "../components/resourceList/resourceList"
+import {normalizeResourceList} from "../utils/helpers"
 
-// import ClassLinksGrid from "../components/classLinksGrid/classLinksGrid"
 import componentStyles from "./readings.module.scss"
 
 class ReadingsPage extends React.Component {
@@ -33,65 +34,47 @@ render() {
                 </div>
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
+                    { (openWorkshops.length === 0 && closedWorkshops.length === 0) &&
+                      <p>No workshop links have been posted yet.</p>
+                    }
+                  
                     { openWorkshops.length >= 1 &&
                         openWorkshops.map(({node}, i) => {
-
-                            // const allReadings = [...node.frontmatter.readingFiles, ...node.frontmatter.readingLinks]
-                            let allReadings;
-                            if(node.frontmatter.readingFiles && node.frontmatter.readingLinks) allReadings = [...node.frontmatter.readingFiles, ...node.frontmatter.readingLinks]
-                            else if(node.frontmatter.readingFiles) allReadings = [...node.frontmatter.readingFiles]
-                            else if(node.frontmatter.readingLinks) allReadings = [...node.frontmatter.readingLinks]
-                            else allReadings = [];
+                            const fileLinks = node.frontmatter.readingFiles ? (
+                              normalizeResourceList(node.frontmatter.readingFiles, "file")
+                            ) : ([])
+                            const urlLinks = node.frontmatter.readingLinks ? (
+                              normalizeResourceList(node.frontmatter.readingLinks, "url")
+                            ) : ([])
+                            const allReadings = [...fileLinks, ...urlLinks] 
 
                             return(
                             <div key={i}>
-                                <h4>{node.frontmatter.title}</h4>
-                                <ul style={{"margin-top" : "1em", "list-style": "none"}}>
-                                    {allReadings.map((reading, j) =>(
-                                        <li key={j}>
-                                          <a href={(reading.file) ? reading.file : reading.url}
-                                             target="_blank"
-                                             rel="noopener noreferrer">
-                                            {reading.name}
-                                          </a>
-                                        </li>
-                                    ))
-                                    }
-                                </ul>
+                                <h4 style={{marginBottom: `.5em`}}>{node.frontmatter.title}</h4>
+                                <ResourceList resources={allReadings} />
                             </div>
                             )
-                        })
+                        })     
                     }
 
                     {closedWorkshops.length >= 1 &&
                       <div>
-                        <h4>Extra Readings</h4>
-                        <ul style={{"margin-top" : "1em", "list-style": "none"}}>
+                        <h4 style={{marginBottom: `.5em`}}>Extra Readings</h4>
                           {closedWorkshops.map(({node}, i) => { 
-                            // const allReadings = [...node.frontmatter.readingFiles, ...node.frontmatter.readingLinks]
-                            let allReadings;
-                            if(node.frontmatter.readingFiles && node.frontmatter.readingLinks) allReadings = [...node.frontmatter.readingFiles, ...node.frontmatter.readingLinks]
-                            else if(node.frontmatter.readingFiles) allReadings = [...node.frontmatter.readingFiles]
-                            else if(node.frontmatter.readingLinks) allReadings = [...node.frontmatter.readingLinks]
-                            else allReadings = [];
+                
+                            const fileLinks = node.frontmatter.readingFiles ? (
+                              normalizeResourceList(node.frontmatter.readingFiles, "file")
+                            ) : ([])
+                            const urlLinks = node.frontmatter.readingLinks ? (
+                              normalizeResourceList(node.frontmatter.readingLinks, "url")
+                            ) : ([])
+                            const allReadings = [...fileLinks, ...urlLinks] 
+
                             return(
-                              <>
-                                {
-                                  allReadings.map((reading, j) => (
-                                    <li key={j}>
-                                          <a href={(reading.url) ? reading.url : reading.file}
-                                             target="_blank"
-                                             rel="noopener noreferrer">
-                                            {reading.name}
-                                          </a>
-                                    </li>
-                                  ))
-                                }
-                              </>
+                              <ResourceList key={i} resources={allReadings} />
                             )
                           })
                           }
-                        </ul>
                       </div>
                     }
                 </div>

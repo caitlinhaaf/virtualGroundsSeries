@@ -3,8 +3,9 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
+import ResourceList from "../components/resourceList/resourceList"
+import {normalizeResourceList} from "../utils/helpers"
 
-// import ClassLinksGrid from "../components/classLinksGrid/classLinksGrid"
 import componentStyles from "./links.module.scss"
 
 class LinksPage extends React.Component {
@@ -29,59 +30,34 @@ render() {
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
                     {openWorkshops.length >= 1 &&
                         openWorkshops.map(({node}, i) => {
-
                             if(node.frontmatter.links) {
+                              const linksList = normalizeResourceList(node.frontmatter.links, "url")
                               return(
-                                <div key={i}>
-                                    <h4>{node.frontmatter.title}</h4>
-                                    <ul style={{"margin-top" : "1em", "list-style": "none"}}>
-                                        {node.frontmatter.links.map((link, j) =>(
-                                            <li key={j}>
-                                              <a href={link.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer">
-                                                {link.name}
-                                              </a>
-                                            </li>
-                                        ))
-                                        }
-                                    </ul>
-                                </div>
+                                  <div key={i}>
+                                    <h4 style={{marginBottom: `.5rem`}}>{node.frontmatter.title}</h4>
+                                    <ResourceList 
+                                      resources={linksList} />
+                                  </div>
                                 )
                             }
-                            else return null
+                            else return null;
                         })
                     }
 
-                    {
-                      closedWorkshops.length >= 1 &&
+                    {closedWorkshops.length >= 1 &&
                         <>
-                          <h4>Extra Links</h4>
-                          <ul style={{"margin-top" : "1em", "list-style": "none"}}>
+                          <h4 style={{marginBottom: `.5rem`}}>Extra Links</h4>
                             {closedWorkshops.length >1 &&
-                              closedWorkshops.map(({node}) => {
+                              closedWorkshops.map(({node}, i) => {
                                 if(node.frontmatter.links){
+                                  const linksList = normalizeResourceList(node.frontmatter.links, "url")
                                   return(
-                                    <>
-                                      {
-                                        node.frontmatter.links.map((link, j) =>(
-                                          <li key={j}>
-                                            <a href={link.url}
-                                               target="_blank"
-                                               rel="noopener noreferrer">
-                                              {link.name}
-                                            </a>
-                                          </li>
-                                      ))
-                                      }
-                                    </>
+                                    <ResourceList key={i} resources={linksList}/>
                                   )
                                 }
-                                else return null
-                                
+                                else return null 
                               })
                             }
-                          </ul>
                         </>
                     }
                 </div>
