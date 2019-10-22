@@ -15,7 +15,7 @@ class WorkshopPage extends React.Component {
 
     return(
       <Layout bodyClass="orangeBody">
-        <SEO title="Workshops" />
+        <SEO title="Workshops" pageUrl="/workshops"/>
         {actualPosts.length === 0 &&
           <>
             <h1 style={{marginBottom: `1rem`, fontSize: `7vw`}}>WORKSHOPS</h1>

@@ -36,7 +36,7 @@ render() {
 
   return(
     <Layout bodyClass="greenBody">
-      <SEO title="Class Content" />
+      <SEO title="Lectures" pageUrl="/lectures"/>
 
       <div>
             <section className={componentStyles.grid}>

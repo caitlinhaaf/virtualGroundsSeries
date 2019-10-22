@@ -21,6 +21,9 @@ class WorkshopPostTemplate extends React.Component {
     const lectureLinks = post.frontmatter.lectureLinks ? normalizeResourceList(post.frontmatter.lectureLinks, "url") : []
     const allLectures = normalizeResourceList([...lectureFiles, ...lectureLinks], "linkPath")
 
+    console.log("TESTING")
+    console.log(post.id)
+
     return (
       <Layout 
         location={this.props.location} 
@@ -30,14 +33,18 @@ class WorkshopPostTemplate extends React.Component {
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
+          pageUrl="/"
         />
 
         <article>
           <header className={componentStyles.header}>
-            <h1 className={componentStyles.heading}>
+            {/* <h1 className={componentStyles.heading}>
               WORK<span className={componentStyles.light}>SHOP {post.frontmatter.workshopNum}</span>
-            </h1>
-
+            </h1> */}
+            <h1 className={componentStyles.heading}>
+              {post.frontmatter.title}
+            </h1> 
+            {/* <h2>{post.frontmatter.title}</h2> */}
             <p className={componentStyles.date}>
               {post.frontmatter.date}
             </p>
@@ -151,7 +158,7 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
+      excerpt
       html
       frontmatter {
         privacySetting

@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 
 const IndexPage = () => (
   <Layout bodyClass="greenBody">
-    <SEO title="About" />
+    <SEO title="About" pageUrl="/"/>
     <AboutGrid />
   </Layout>
 )

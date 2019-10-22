@@ -14,7 +14,7 @@ class ClosedWorkshopPage extends React.Component {
 
     return(
       <Layout bodyClass="orangeBody">
-        <SEO title="Workshops" />
+        <SEO title="Workshops" pageUrl="/closedworkshops"/>
 
         <div style={{"margin": "0em 0 2em 0"}}>
             <h2 style={{"font-size": "7vw"}}>CLOSED WORKSHOPS</h2>

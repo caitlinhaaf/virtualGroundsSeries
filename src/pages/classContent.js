@@ -11,7 +11,7 @@ const ClassContentPage = () => {
 
   return(
     <Layout bodyClass="greenBody">
-      <SEO title="Class Content" />
+      <SEO title="Class Content"  pageUrl="/classcontent"/>
 
       <div>
             <section className={componentStyles.grid}>

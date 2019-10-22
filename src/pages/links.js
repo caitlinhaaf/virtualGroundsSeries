@@ -27,7 +27,7 @@ render() {
 
   return(
     <Layout bodyClass="greenBody">
-      <SEO title="Class Content" />
+      <SEO title="Links" pageUrl="/links"/>
       <div>
             <section className={componentStyles.grid}>
                 <div className={`${componentStyles.gridSeciton} ${componentStyles.rightCol} ${componentStyles.links}`}>

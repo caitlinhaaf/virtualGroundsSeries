@@ -8,7 +8,7 @@ import componentStyles from "./404.module.scss"
 
 const NotFoundPage = () => (
   <Layout bodyClass="orangeBody">
-    <SEO title="404: Not found"/>
+    <SEO title="404: Not found" pageUrl="/404"/>
     
     <section className={componentStyles.block}>
       
