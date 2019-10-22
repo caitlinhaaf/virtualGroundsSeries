@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
-// import { rhythm, scale } from "../utils/typography"
+import {normalizeResourceList} from "../utils/helpers"
 
 import Lines from '../components/lines/lines'
 import componentStyles from "./workshopPost.module.scss"
@@ -12,6 +12,14 @@ class WorkshopPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
+
+    const readingFiles = post.frontmatter.readingFiles ? normalizeResourceList(post.frontmatter.readingFiles, "file") : []
+    const readingLinks = post.frontmatter.readingLinks ? normalizeResourceList(post.frontmatter.readingLinks, "url") : []
+    const allReadings = normalizeResourceList([...readingFiles, ...readingLinks], "linkPath")
+
+    const lectureFiles = post.frontmatter.lectureFiles ? normalizeResourceList(post.frontmatter.lectureFiles, "file") : []
+    const lectureLinks = post.frontmatter.lectureLinks ? normalizeResourceList(post.frontmatter.lectureLinks, "url") : []
+    const allLectures = normalizeResourceList([...lectureFiles, ...lectureLinks], "linkPath")
 
     return (
       <Layout 
@@ -50,75 +58,63 @@ class WorkshopPostTemplate extends React.Component {
               <Lines color="white" />
             </div>
            
-            <div style={{ "grid-area": "readings"}}>
-              <h4>Readings</h4>
-              <ul className={componentStyles.linkList}>
-                {post.frontmatter.readingFiles !== null &&
-                  post.frontmatter.readingFiles.map((reading, i)=>(
-                  <li className={componentStyles.link}>
-                    <a key={i} target="_blank" rel="noopener noreferrer" href={reading.file}>
-                      {reading.name}
-                    </a>
-                  </li>
-                ))}
+           {allReadings.length >= 1 &&
+              <div style={{ "grid-area": "readings"}}>
+                <h4>Readings</h4>
+                <ul className={componentStyles.linkList}>
+                  {allReadings.map((reading, i) => (
+                    <li className={componentStyles.link}>
+                      <a key={i} target="_blank" rel="noopener noreferrer" href={reading.linkPath}>
+                        {reading.name}
+                      </a>
+                    </li>
+                  ))}
+                  </ul>
+              </div>
+           }
 
-                {post.frontmatter.readingLinks !== null &&
-                  post.frontmatter.readingLinks.map((reading, i)=>(
-                  <li className={componentStyles.link}>
-                    <a key={i} target="_blank" rel="noopener noreferrer" href={reading.url}>
-                      {reading.name}
-                    </a>
-                  </li>
-                ))}
-                </ul>
-            </div>
+           {allLectures.length >= 1 &&
+              <div style={{ "grid-area": "lectures"}}>
+                <h4>Lectures</h4>
+                <ul className={componentStyles.linkList}>
 
-            <div style={{ "grid-area": "lectures"}}>
-              <h4>Lectures</h4>
-              <ul className={componentStyles.linkList}>
-                {post.frontmatter.lectureFiles !== null &&
-                  post.frontmatter.lectureFiles.map((lecture, i)=>(
-                  <li className={componentStyles.link}>
-                    <a key={i} target="_blank" rel="noopener noreferrer" href={lecture.file}>
-                      {lecture.name}
-                    </a>
-                  </li>
-                ))}
+                  {allLectures.map((lecture, i) => (
+                    <li className={componentStyles.link}>
+                      <a key={i} target="_blank" rel="noopener noreferrer" href={lecture.linkPath}>
+                        {lecture.name}
+                      </a>
+                    </li>
+                  ))}
+                  </ul>
+              </div>
+           }
 
-                {post.frontmatter.lectureLinks !== null &&
-                  post.frontmatter.lectureLinks.map((lecture, i)=>(
-                  <li className={componentStyles.link}>
-                    <a key={i} target="_blank" rel="noopener noreferrer" href={lecture.url}>
-                      {lecture.name}
-                    </a>
-                  </li>
-                ))}
-                </ul>
-            </div>
-
-            <div style={{ "grid-area": "gallery"}}>
+           {(post.frontmatter.galleryImages && post.frontmatter.galleryImages.length >=1) &&
+             <div style={{ "grid-area": "gallery"}}>
               <h4>Gallery</h4>
               <div style={{"margin-top": "1em"}}>
-                {post.frontmatter.galleryImages !== null  &&
-                  post.frontmatter.galleryImages.map((image, i)=>(
-                    <img className={componentStyles.galleryImg} src={image.image} alt={image.altText}/>
+                {post.frontmatter.galleryImages.map((image, i)=>(
+                    <img key={i} className={componentStyles.galleryImg} src={image.image} alt={image.altText}/>
                   ))}
               </div>
             </div>
+           }
 
-            <div style={{ "grid-area": "links"}}>
-              <h4>Links</h4>
-              <ul className={componentStyles.linkList}>
-                {post.frontmatter.links !== null  &&
-                  post.frontmatter.links.map((link, i)=>(
-                  <li className={componentStyles.link}>
-                    <a key={i} target="_blank" rel="noopener noreferrer" href={link.url}>
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-                </ul>
-            </div>
+           {(post.frontmatter.links && post.frontmatter.links.length >=1) &&
+              <div style={{ "grid-area": "links"}}>
+                <h4>Links</h4>
+                <ul className={componentStyles.linkList}>
+                  {post.frontmatter.links !== null  &&
+                    post.frontmatter.links.map((link, i)=>(
+                    <li className={componentStyles.link}>
+                      <a key={i} target="_blank" rel="noopener noreferrer" href={link.url}>
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                  </ul>
+              </div>
+           }
 
           </section>
 
@@ -137,36 +133,6 @@ class WorkshopPostTemplate extends React.Component {
           }
           
         </article>
-
-        {/* <nav>
-          <ul
-            style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
-              padding: 0,
-            }}
-          >
-
-            <li>
-              {previous && (
-                <Link to={previous.fields.slug} rel="prev">
-                  &lt; Previous Workshop
-                </Link>
-              )}
-            </li>
-            <li>
-              {next && (
-                <Link to={next.fields.slug} rel="next">
-                  Next Workshop &gt;
-                </Link>
-              )}
-            </li>
-
-          </ul>
-        </nav> */}
-
 
       </Layout>
     )
