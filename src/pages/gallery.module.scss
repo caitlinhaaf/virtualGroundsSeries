@@ -1,7 +1,6 @@
 @import '../styles/variables';
 
 .grid{
-    // display: grid;
     display: inline-grid;   
     width: auto;
     margin: 0 auto;
@@ -12,7 +11,7 @@
     grid-template-areas: 
       "gl list"
       "gl list"
-      ". list";
+      "listCntd listCntd";
 
     h2{
         font-size: 15vw;
@@ -22,7 +21,8 @@
     @include lg {
         grid-template-areas: 
         "gl"
-        "list";
+        "list"
+        "listCntd";
         grid-template-columns: repeat(1, 1fr);
     }
 }
@@ -30,11 +30,9 @@
 .gridSeciton{
     padding: 0 .8em;
 }
-
 .leftCol{
     text-align: right;
 }
-
 
 .gallery{
     grid-area: gl;
@@ -48,5 +46,27 @@
 }
 
 .list{
+    padding: 0;
     grid-area: list;
+}
+
+.listContinued{
+    padding: 0;
+    grid-area: listCntd;
+    display: flex;
+    flex-wrap: wrap;
+    > *{
+        width: calc(50% - 1em);
+        margin-bottom: .25em;
+    }
+    > :nth-child(odd){
+        margin-right: .25em;
+    }
+    @include lg {
+        > *{
+            width: 100%;
+            margin-bottom: .25em;
+            margin-right: 0;
+        }
+    }
 }

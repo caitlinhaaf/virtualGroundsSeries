@@ -10,17 +10,21 @@ import WorkshopBlock from '../components/workshopBlock/workshopBlock'
 class WorkshopPage extends React.Component {
   render() {
     const { data } = this.props
-    // const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-
-    console.log(posts)
+    const actualPosts = posts.filter(({node}) => (!node.frontmatter.placeholder))
 
     return(
       <Layout bodyClass="orangeBody">
         <SEO title="Workshops" />
+        {actualPosts.length === 0 &&
+          <>
+            <h1 style={{marginBottom: `1rem`, fontSize: `7vw`}}>WORKSHOPS</h1>
+            <p style={{fontStyle: `italic`}}>No open workshops have been posted yet.</p>
+          </>
+        }
 
-        {
-          posts.map(({node}, i) => (
+        {actualPosts.length >=1 &&
+          actualPosts.map(({node}, i) => (
             <WorkshopBlock 
               key={i}
               workshopNum={node.frontmatter.workshopNum}
@@ -49,7 +53,11 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, filter: {frontmatter: {privacySetting: {eq: "open"}}}) {
+    allMarkdownRemark(
+      filter: {frontmatter: {privacySetting: {eq: "open"}}},
+      sort: { fields: [frontmatter___date], order: DESC }
+      
+    ) {
       edges {
         node {
           excerpt
@@ -57,6 +65,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            placeholder
             workshopNum
             date(formatString: "MMMM, YYYY")
             title

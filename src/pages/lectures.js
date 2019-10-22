@@ -16,6 +16,24 @@ render() {
   const openWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "open"))
   const closedWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "closed"))
 
+  const allClosedFiles = ( closedWorkshops.length >=1 ) ? (
+    closedWorkshops
+      .filter(({node}) => (node.frontmatter.lectureFiles))
+      .reduce((acc, {node}) => {
+        const normalizedLinks = normalizeResourceList(node.frontmatter.lectureFiles, "file");
+        return [...normalizedLinks, ...acc]
+      }, [])
+  ):([])
+  const allClosedUrls = ( closedWorkshops.length >=1 ) ? (
+    closedWorkshops
+      .filter(({node}) => (node.frontmatter.lectureLinks))
+      .reduce((acc, {node}) => {
+        const normalizedLinks = normalizeResourceList(node.frontmatter.lectureLinks, "url");
+        return [...normalizedLinks, ...acc]
+      }, [])
+  ):([])
+  const allClosedLinks = normalizeResourceList([...allClosedFiles, ...allClosedUrls], "linkPath")
+
   return(
     <Layout bodyClass="greenBody">
       <SEO title="Class Content" />
@@ -32,9 +50,12 @@ render() {
                 </div>
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
+                    { (openWorkshops.length === 0 && allClosedLinks.length === 0) &&
+                      <p style={{fontStyle: `italic`}}>No workshop lectures have been posted yet.</p>
+                    }
+
                     { openWorkshops.length >= 1 &&
                         openWorkshops.map(({node}, i) => {
-
                             const lectureFiles = node.frontmatter.lectureFiles ? (
                               normalizeResourceList(node.frontmatter.lectureFiles, "file")
                             ) : ([])
@@ -46,31 +67,16 @@ render() {
                             return(
                               <div key={i}>
                                   <h4 style={{marginBottom: `.5em`}}>{node.frontmatter.title}</h4>
-                                  <ResourceList resources={allLectures} />
+                                  <ResourceList resources={normalizeResourceList(allLectures, "linkPath")} />
                               </div>
                             )
                         })
                     }
 
-                    {
-                      closedWorkshops.length >= 1 &&
+                    {allClosedLinks.length >= 1 &&
                         <>
                           <h4 style={{marginBottom: `.5em`}}>Extra Lectures</h4>
-                          <ul style={{"listStyle": "none"}}>
-                            {
-                              closedWorkshops.map(({node}, i) => {
-                                const lectureFiles = node.frontmatter.lectureFiles ? (
-                                  normalizeResourceList(node.frontmatter.lectureFiles, "file")
-                                ) : ([])
-                                const lectureLinks = node.frontmatter.lectureLinks ? (
-                                  normalizeResourceList(node.frontmatter.lectureLinks, "url")
-                                ) : ([])
-                                const allLectures = [...lectureFiles, ...lectureLinks] 
-
-                                return <ResourceList key={i} resources={allLectures} />
-                              })
-                            }
-                          </ul>
+                          <ResourceList resources={normalizeResourceList(allClosedLinks, "linkPath")} />
                         </>
                     }
                 </div>
@@ -89,9 +95,10 @@ export default LecturesPage
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { 
-        fields: [frontmatter___date], 
-        order: ASC 
+    allMarkdownRemark(
+      filter: {frontmatter: {placeholder: {eq: false}}},
+      sort: { fields: [frontmatter___date], 
+      order: ASC 
       }) {
       edges {
         node {

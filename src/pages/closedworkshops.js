@@ -9,9 +9,8 @@ import WorkshopBlock from '../components/workshopBlock/workshopBlock'
 class ClosedWorkshopPage extends React.Component {
   render() {
     const { data } = this.props
-    // const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-    // console.log(posts)
+    const actualPosts = posts.filter(({node}) => (!node.frontmatter.placeholder))
 
     return(
       <Layout bodyClass="orangeBody">
@@ -20,26 +19,29 @@ class ClosedWorkshopPage extends React.Component {
         <div style={{"margin": "0em 0 2em 0"}}>
             <h2 style={{"font-size": "7vw"}}>CLOSED WORKSHOPS</h2>
             <h5 style={{"font-size":"1.25em"}}>Note that the workshops listed here are closed to the public.</h5>
+            {actualPosts.length === 0 &&
+              <p style={{fontStyle: `italic`}}>No open workshops have been posted yet.</p>
+            }
         </div>
 
         <div>
-            {
-            posts.map(({node}, i) => (
-                <WorkshopBlock 
-                key={i}
-                workshopNum={i+1} 
-                pageLink={node.fields.slug}
-                date={node.frontmatter.date}
-                thumbnailSrc={node.frontmatter.thumbnail}>
-                <p
-                    style={{
-                    "max-height": "200px;",
-                    "overflow": "hidden",
-                    }}>
-                    {node.frontmatter.description}
-                </p>
-                </WorkshopBlock>
-            ))
+            {actualPosts.length >=1 &&
+              actualPosts.map(({node}, i) => (
+                  <WorkshopBlock 
+                  key={i}
+                  workshopNum={i+1} 
+                  pageLink={node.fields.slug}
+                  date={node.frontmatter.date}
+                  thumbnailSrc={node.frontmatter.thumbnail}>
+                  <p
+                      style={{
+                      "max-height": "200px;",
+                      "overflow": "hidden",
+                      }}>
+                      {node.frontmatter.description}
+                  </p>
+                  </WorkshopBlock>
+              ))
             }
         </div>
 
@@ -66,6 +68,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            placeholder
             workshopNum
             date(formatString: "MMMM, YYYY")
             title

@@ -61,19 +61,6 @@ render() {
                         <>
                           <h4 style={{marginBottom: `.5rem`}}>Extra Links</h4>
                           <ResourceList resources={ allClosedWorkshopLinks }/>
-                          
-                            {/* {closedWorkshops.length >1 &&
-                              closedWorkshops.map(({node}, i) => {
-                                if(node.frontmatter.links){
-                                  const linksList = normalizeResourceList(node.frontmatter.links, "url")
-                                  return(
-                                    <ResourceList key={i} resources={linksList}/>
-                                  )
-                                }
-                                else return null 
-                              })
-                            } */}
-
                         </>
                     }
                 </div>

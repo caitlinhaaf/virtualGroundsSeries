@@ -10,7 +10,13 @@ class GalleryPage extends React.Component {
 
 render() {
   const {data} = this.props;
-  const workshops = data.allMarkdownRemark.edges
+  const workshops = data.allMarkdownRemark.edges;
+
+  const allGalleryImgs = workshops
+    .filter(({node}) => (node.frontmatter.galleryImages))
+    .reduce((acc, {node}) => ([...acc, ...node.frontmatter.galleryImages]), [])
+
+  console.log(allGalleryImgs)
 
   return(
     <Layout bodyClass="greenBody">
@@ -24,21 +30,27 @@ render() {
                       <h2>GALL<br/>ERY</h2>
                     </Link>
                 </div>
+                {allGalleryImgs.length === 0 &&
+                  <p style={{fontStyle: `italic`}}>No workshop images have been posted yet.</p>
+                }
 
-                <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
-                    {workshops.map(({node}) => {
-                        return(
-                          (node.frontmatter.galleryImages) ? (
-                            node.frontmatter.galleryImages.map((image, j) => (
-                              <img key={j} src={image.image} alt={image.altText}/>
-                            ))
-                          ):(
-                            null
-                          )
-                        )
-                      })
+                {allGalleryImgs.length >=1 &&
+                  <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
+                    {allGalleryImgs.slice(0,2).map((image, i) => (
+                        <img key={i} src={image.image} alt={image.altText}/>
+                      ))
                     }
-                </div>
+                  </div>
+                }
+                
+                {allGalleryImgs.length > 2 &&
+                  <div className={`${componentStyles.listContinued} ${componentStyles.gridSeciton}`}>
+                    {allGalleryImgs.slice(3).map((image, i) => (
+                        <img key={i} src={image.image} alt={image.altText}/>
+                      ))
+                    }
+                  </div>
+                }
 
             </section>
         </div>
@@ -53,7 +65,11 @@ export default GalleryPage
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+    allMarkdownRemark(
+      filter: {frontmatter: {placeholder: {eq: false}}},
+      sort: { fields: [frontmatter___date], 
+      order: ASC 
+    }) {
       edges {
         node {
           excerpt

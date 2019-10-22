@@ -12,9 +12,6 @@ class WorkshopPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
-    // const { previous, next } = this.props.pageContext
-
-    console.log(post)
 
     return (
       <Layout 
@@ -48,7 +45,6 @@ class WorkshopPostTemplate extends React.Component {
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
           </section>
           
-
           <section className={componentStyles.resourcesGrid}>
             <div style={{ "grid-area": "lines", "width": "100px"}}>
               <Lines color="white" />
