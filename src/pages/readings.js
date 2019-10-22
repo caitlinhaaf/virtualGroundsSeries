@@ -35,7 +35,7 @@ render() {
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
                     { (openWorkshops.length === 0 && closedWorkshops.length === 0) &&
-                      <p>No workshop links have been posted yet.</p>
+                      <p>No workshop readings have been posted yet.</p>
                     }
                   
                     { openWorkshops.length >= 1 &&

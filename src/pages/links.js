@@ -16,6 +16,15 @@ render() {
   const openWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "open"))
   const closedWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "closed"))
 
+  const allClosedWorkshopLinks = ( closedWorkshops.length >=1 ) ? (
+    closedWorkshops
+      .filter(({node}) => (node.frontmatter.links))
+      .reduce((acc, {node}) => {
+        const normalizedLinks = normalizeResourceList(node.frontmatter.links, "url");
+        return [...normalizedLinks, ...acc]
+      }, [])
+  ):([])
+
   return(
     <Layout bodyClass="greenBody">
       <SEO title="Class Content" />
@@ -28,6 +37,10 @@ render() {
                 </div>
 
                 <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
+                    {(openWorkshops.length === 0 && allClosedWorkshopLinks.length === 0) &&
+                      <p style={{fontStyle: `italic`}}>No workshop links have been posted yet.</p>
+                    }
+
                     {openWorkshops.length >= 1 &&
                         openWorkshops.map(({node}, i) => {
                             if(node.frontmatter.links) {
@@ -44,10 +57,12 @@ render() {
                         })
                     }
 
-                    {closedWorkshops.length >= 1 &&
+                    {allClosedWorkshopLinks.length >= 1 &&
                         <>
                           <h4 style={{marginBottom: `.5rem`}}>Extra Links</h4>
-                            {closedWorkshops.length >1 &&
+                          <ResourceList resources={ allClosedWorkshopLinks }/>
+                          
+                            {/* {closedWorkshops.length >1 &&
                               closedWorkshops.map(({node}, i) => {
                                 if(node.frontmatter.links){
                                   const linksList = normalizeResourceList(node.frontmatter.links, "url")
@@ -57,7 +72,8 @@ render() {
                                 }
                                 else return null 
                               })
-                            }
+                            } */}
+
                         </>
                     }
                 </div>
@@ -73,10 +89,14 @@ render() {
 
 export default LinksPage
 
-
+// filter: {frontmatter: {placeholder: {eq: false}}},
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+    allMarkdownRemark(
+        filter: {frontmatter: {placeholder: {eq: false}}},
+        sort: { fields: [frontmatter___date], 
+        order: ASC })
+    {
       edges {
         node {
           excerpt
