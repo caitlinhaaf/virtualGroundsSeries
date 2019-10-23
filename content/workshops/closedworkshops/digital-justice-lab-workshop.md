@@ -1,6 +1,7 @@
 ---
 privacySetting: closed
 placeholder: false
+workshopNum: '1'
 title: 'Digital Justice Lab Workshop '
 date: 2019-10-15T20:37:35.587Z
 thumbnail: /img/a-group-of-friends-of-varying-genders-taking-selfies-1-.jpg

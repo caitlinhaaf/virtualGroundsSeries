@@ -1,5 +1,6 @@
 ---
 privacySetting: closed
+workshopNum: '0'
 title: PLACEHOLDER CLOSED WORKSHOP *DO NOT DELETE*
 date: 2019-09-27T18:24:19.385Z
 thumbnail: /img/kendra-kamp-26m4hgggtkc-unsplash.jpg
