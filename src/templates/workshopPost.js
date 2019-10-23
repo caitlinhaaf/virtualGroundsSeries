@@ -38,16 +38,13 @@ class WorkshopPostTemplate extends React.Component {
 
         <article>
           <header className={componentStyles.header}>
-            {/* <h1 className={componentStyles.heading}>
-              WORK<span className={componentStyles.light}>SHOP {post.frontmatter.workshopNum}</span>
-            </h1> */}
             <h1 className={componentStyles.heading}>
-              {post.frontmatter.title}
-            </h1> 
-            {/* <h2>{post.frontmatter.title}</h2> */}
-            <p className={componentStyles.date}>
-              {post.frontmatter.date}
-            </p>
+              WORK<span className={componentStyles.light}>SHOP {post.frontmatter.workshopNum}</span>
+            </h1>
+            <h2 className={componentStyles.subHeading}>
+              {post.frontmatter.title} | {post.frontmatter.date}
+            </h2> 
+           
           </header>
 
           <section style={{"margin-bottom": "1em"}}>

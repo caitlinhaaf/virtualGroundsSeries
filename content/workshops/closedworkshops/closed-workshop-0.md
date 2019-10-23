@@ -1,4 +1,5 @@
 ---
+placeholder: true
 privacySetting: closed
 workshopNum: '0'
 title: PLACEHOLDER CLOSED WORKSHOP *DO NOT DELETE*
