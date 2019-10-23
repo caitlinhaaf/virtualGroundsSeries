@@ -1,8 +1,8 @@
 ---
-privacySetting: open
 placeholder: true
+privacySetting: open
 workshopNum: '0'
-title: Workshop 0
+title: PLACEHOLDER OPEN WORKSHOP *DO NOT DELETE*
 date: 2019-09-24T10:33:42.216Z
 thumbnail: /img/a-group-of-friends-of-varying-genders-taking-selfies-1-.jpg
 description: >-
