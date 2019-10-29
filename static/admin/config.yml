@@ -16,7 +16,7 @@ collections:
     editor:
      preview: false
     fields:
-      - { label: "Placeholder", name: "placeholder", widget: "hidden", default: "false" }
+      - { label: "Placeholder", name: "placeholder", widget: "hidden", default: false }
       - { label: "Privacy Setting", name: "privacySetting", widget: "hidden", default: "open" }
       - { label: "Workshop Number", name: "workshopNum", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }
@@ -82,6 +82,7 @@ collections:
     editor:
      preview: false
     fields:
+      - { label: "Placeholder", name: "placeholder", widget: "hidden", default: false }
       - { label: "Privacy Setting", name: "privacySetting", widget: "hidden", default: "closed" }
       - { label: "Workshop Number", name: "workshopNum", widget: "string" }
       - { label: "Title", name: "title", widget: "string" }

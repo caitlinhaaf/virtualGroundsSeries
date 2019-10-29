@@ -1,5 +1,5 @@
 ---
-placeholder: 'false'
+placeholder: false
 privacySetting: open
 workshopNum: WORKSHOP ONE
 title: Imagining Feminist Interfaces
