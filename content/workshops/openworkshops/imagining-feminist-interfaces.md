@@ -8,6 +8,8 @@ thumbnail: /img/imagining-feminist-interfaces.jpg
 description: 'What does it mean to imagine a feminist digital voice interface? '
 ---
 Imagining Feminist Interfaces with tendernet\
+Thursday, November 14 | 6–7PM\
+MOCA Toronto, 158 Sterling Road\
 \
 What does it mean to imagine a feminist digital voice interface? Through a series of speculative design exercises, we will prototype and discuss what voice technologies might look like if we designed them in line with the central commitments of feminism: participation, agency, embodiment, equity, empowerment, plurality and justice. Participants will learn the basics of designing a conversational UI but no prior coding skills are needed.\
 \
