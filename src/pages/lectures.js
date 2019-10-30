@@ -13,7 +13,11 @@ class LecturesPage extends React.Component {
 render() {
   const {data} = this.props;
   const workshops = data.allMarkdownRemark.edges
-  const openWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "open"))
+  const openWorkshops = workshops.filter(({node}) => (
+    node.frontmatter.privacySetting === "open"
+    &&
+    node.frontmatter.lectureFiles
+  ))
   const closedWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "closed"))
 
   const allClosedFiles = ( closedWorkshops.length >=1 ) ? (
@@ -64,12 +68,14 @@ render() {
                             ) : ([])
                             const allLectures = [...lectureFiles, ...lectureLinks] 
 
-                            return(
-                              <div key={i}>
-                                  <h4 style={{marginBottom: `.5em`}}>{node.frontmatter.title}</h4>
-                                  <ResourceList resources={normalizeResourceList(allLectures, "linkPath")} />
-                              </div>
-                            )
+                            if(allLectures.length >=1){
+                              return(
+                                <div key={i}>
+                                    <h4 style={{marginBottom: `.5em`}}>{node.frontmatter.title}</h4>
+                                    <ResourceList resources={normalizeResourceList(allLectures, "linkPath")} />
+                                </div>
+                              )
+                            }else return null
                         })
                     }
 

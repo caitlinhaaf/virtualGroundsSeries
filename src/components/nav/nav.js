@@ -9,7 +9,10 @@ const Nav = ({altBorder}) => {
 
   return(
     <nav className={classes}>
-      <h1>VIRTUAL GROUNDS</h1>
+      <Link to="/">
+        <h1>VIRTUAL GROUNDS</h1>
+      </Link>
+      
 
       <div>
         <Link to="/" className={componentStyles.link} activeClassName={componentStyles.active}>

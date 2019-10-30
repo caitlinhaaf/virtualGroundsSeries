@@ -13,7 +13,11 @@ class LinksPage extends React.Component {
 render() {
   const {data} = this.props;
   const workshops = data.allMarkdownRemark.edges
-  const openWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "open"))
+  const openWorkshops = workshops.filter(({node}) => (
+    node.frontmatter.privacySetting === "open"
+    &&
+    node.frontmatter.links
+  ))
   const closedWorkshops = workshops.filter(({node}) => (node.frontmatter.privacySetting === "closed"))
 
   const allClosedWorkshopLinks = ( closedWorkshops.length >=1 ) ? (
@@ -24,6 +28,7 @@ render() {
         return [...normalizedLinks, ...acc]
       }, [])
   ):([])
+  
 
   return(
     <Layout bodyClass="greenBody">

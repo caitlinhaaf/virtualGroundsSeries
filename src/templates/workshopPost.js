@@ -21,9 +21,6 @@ class WorkshopPostTemplate extends React.Component {
     const lectureLinks = post.frontmatter.lectureLinks ? normalizeResourceList(post.frontmatter.lectureLinks, "url") : []
     const allLectures = normalizeResourceList([...lectureFiles, ...lectureLinks], "linkPath")
 
-    console.log("TESTING")
-    console.log(post.id)
-
     return (
       <Layout 
         location={this.props.location} 
@@ -57,70 +54,87 @@ class WorkshopPostTemplate extends React.Component {
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
           </section>
           
-          <section className={componentStyles.resourcesGrid}>
-            <div style={{ "grid-area": "lines", "width": "100px"}}>
-              <Lines color="white" />
-            </div>
-           
-           {allReadings.length >= 1 &&
+          <h4 style={{"margin-bottom": ".25em"}}>RESOURCES</h4>
+
+          {(allReadings.length===0 
+              && allLectures.length ===0
+              && !post.frontmatter.galleryImages
+              && !post.frontmatter.links
+             ) ? (
               <div style={{ "grid-area": "readings"}}>
-                <h4>Readings</h4>
-                <ul className={componentStyles.linkList}>
-                  {allReadings.map((reading, i) => (
-                    <li className={componentStyles.link}>
-                      <a key={i} target="_blank" rel="noopener noreferrer" href={reading.linkPath}>
-                        {reading.name}
-                      </a>
-                    </li>
-                  ))}
-                  </ul>
+                <p style={{fontStyle: `italic`}}>
+                  No workshop resources posted yet.
+                </p>
               </div>
-           }
+             ): (
+              <section className={componentStyles.resourcesGrid}>
+                <div style={{ "grid-area": "lines", "width": "100px"}}>
+                  <Lines color="white" />
+                </div>
+              
+              {allReadings.length >= 1 &&
+                  <div style={{ "grid-area": "readings"}}>
+                    <h4>Readings</h4>
+                    <ul className={componentStyles.linkList}>
+                      {allReadings.map((reading, i) => (
+                        <li className={componentStyles.link}>
+                          <a key={i} target="_blank" rel="noopener noreferrer" href={reading.linkPath}>
+                            {reading.name}
+                          </a>
+                        </li>
+                      ))}
+                      </ul>
+                  </div>
+              }
+    
+              {allLectures.length >= 1 &&
+                  <div style={{ "grid-area": "lectures"}}>
+                    <h4>Lectures</h4>
+                    <ul className={componentStyles.linkList}>
+    
+                      {allLectures.map((lecture, i) => (
+                        <li className={componentStyles.link}>
+                          <a key={i} target="_blank" rel="noopener noreferrer" href={lecture.linkPath}>
+                            {lecture.name}
+                          </a>
+                        </li>
+                      ))}
+                      </ul>
+                  </div>
+              }
+    
+              {(post.frontmatter.galleryImages && post.frontmatter.galleryImages.length >=1) &&
+                <div style={{ "grid-area": "gallery"}}>
+                  <h4>Gallery</h4>
+                  <div style={{"margin-top": "1em"}}>
+                    {post.frontmatter.galleryImages.map((image, i)=>(
+                        <img key={i} className={componentStyles.galleryImg} src={image.image} alt={image.altText}/>
+                      ))}
+                  </div>
+                </div>
+              }
+    
+              {(post.frontmatter.links && post.frontmatter.links.length >=1) &&
+                  <div style={{ "grid-area": "links"}}>
+                    <h4>Links</h4>
+                    <ul className={componentStyles.linkList}>
+                      {post.frontmatter.links !== null  &&
+                        post.frontmatter.links.map((link, i)=>(
+                        <li className={componentStyles.link}>
+                          <a key={i} target="_blank" rel="noopener noreferrer" href={link.url}>
+                            {link.name}
+                          </a>
+                        </li>
+                      ))}
+                      </ul>
+                  </div>
+              }
+    
+              </section>
+             )
+             
+            }
 
-           {allLectures.length >= 1 &&
-              <div style={{ "grid-area": "lectures"}}>
-                <h4>Lectures</h4>
-                <ul className={componentStyles.linkList}>
-
-                  {allLectures.map((lecture, i) => (
-                    <li className={componentStyles.link}>
-                      <a key={i} target="_blank" rel="noopener noreferrer" href={lecture.linkPath}>
-                        {lecture.name}
-                      </a>
-                    </li>
-                  ))}
-                  </ul>
-              </div>
-           }
-
-           {(post.frontmatter.galleryImages && post.frontmatter.galleryImages.length >=1) &&
-             <div style={{ "grid-area": "gallery"}}>
-              <h4>Gallery</h4>
-              <div style={{"margin-top": "1em"}}>
-                {post.frontmatter.galleryImages.map((image, i)=>(
-                    <img key={i} className={componentStyles.galleryImg} src={image.image} alt={image.altText}/>
-                  ))}
-              </div>
-            </div>
-           }
-
-           {(post.frontmatter.links && post.frontmatter.links.length >=1) &&
-              <div style={{ "grid-area": "links"}}>
-                <h4>Links</h4>
-                <ul className={componentStyles.linkList}>
-                  {post.frontmatter.links !== null  &&
-                    post.frontmatter.links.map((link, i)=>(
-                    <li className={componentStyles.link}>
-                      <a key={i} target="_blank" rel="noopener noreferrer" href={link.url}>
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                  </ul>
-              </div>
-           }
-
-          </section>
 
           <hr className={componentStyles.rule}/>
 

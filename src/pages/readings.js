@@ -56,6 +56,7 @@ render() {
                     }
                   
                     { openWorkshops.length >= 1 &&
+
                         openWorkshops.map(({node}, i) => {
                             const fileLinks = node.frontmatter.readingFiles ? (
                               normalizeResourceList(node.frontmatter.readingFiles, "file")
@@ -65,13 +66,16 @@ render() {
                             ) : ([])
                             const allReadings = [...fileLinks, ...urlLinks] 
 
-                            return(
-                            <div key={i}>
-                                <h4 style={{marginBottom: `.5em`}}>{node.frontmatter.title}</h4>
-                                <ResourceList resources={normalizeResourceList(allReadings, "linkPath")} />
-                            </div>
-                            )
+                            if(allReadings.length >=1){
+                              return(
+                                <div key={i}>
+                                    <h4 style={{marginBottom: `.5em`}}>{node.frontmatter.title}</h4>
+                                    <ResourceList resources={normalizeResourceList(allReadings, "linkPath")} />
+                                </div>
+                                )
+                            }else return null
                         })     
+
                     }
 
                     {allClosedLinks.length >= 1 &&
