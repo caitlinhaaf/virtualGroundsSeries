@@ -6,6 +6,9 @@ title: Imagining Feminist Interfaces
 date: 2019-10-29T16:47:45.864Z
 thumbnail: /img/imagining-feminist-interfaces.jpg
 description: 'What does it mean to imagine a feminist digital voice interface? '
+links:
+  - name: Tendernet project and zine
+    url: 'https://tendernet.us/Imagining-Feminist-Interfaces'
 ---
 Imagining Feminist Interfaces with tendernet\
 Thursday, November 14 | 6–7PM\
