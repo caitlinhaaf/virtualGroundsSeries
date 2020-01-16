@@ -1,7 +1,7 @@
 ---
 placeholder: false
 privacySetting: open
-workshopNum: WORKSHOP ONE
+workshopNum: '1'
 title: Imagining Feminist Interfaces
 date: 2019-10-29T16:47:45.864Z
 thumbnail: /img/imagining-feminist-interfaces.jpg
