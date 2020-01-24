@@ -6,7 +6,13 @@ title: Towards Environmental Justice with Michelle Murphy
 date: 2020-01-16T22:41:40.150Z
 thumbnail: /img/640px-antarctica-_pollution-_environment-_russia-_bellingshausen_4.jpg
 description: Towards Environmental Justice with Michelle Murphy
-links: []
+readings:
+  - name: Towards Environmental Justice syllabus
+    url: >-
+      https://docs.google.com/document/d/1O7ytnzXWFkluiYE4Pulo_mCHs9jdNpPm8hw83aLU2pg
+links:
+  - name: Technoscience Research Unit
+    url: 'https://technoscienceunit.org/'
 ---
 **From the** [**EDGI** ](https://envirodatagov.org/environmental-data-justice/)**website:** 
 
