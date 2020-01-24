@@ -1,7 +1,7 @@
 ---
 placeholder: false
 privacySetting: closed
-workshopNum: Two
+workshopNum: '2'
 title: Writing for the Internet with Jennifer Chan
 date: 2019-12-12T15:49:15.055Z
 thumbnail: /img/jc.jpg
