@@ -3,7 +3,7 @@ placeholder: false
 privacySetting: closed
 workshopNum: '8'
 title: Approaching community building with care
-date: 2020-01-23T23:55:01.374Z
+date: 2020-01-27T23:55:01.374Z
 thumbnail: /img/1500x500.jpg
 description: >-
   In this workshop, we’ll explore care-based approaches to community building.
@@ -13,23 +13,21 @@ description: >-
   context of their art practice or research project for the Virtual Grounds
   program.
 ---
+Date: January 28th, 2020
+
+Location: OCAD U 
+
 \--
 
 ## Bios
-
-
 
 **About IntersectTO** 
 
 IntersectTO is a Toronto-based community group for people who identify as Black, Indigenous, and people of colour (BIPOC), who are interested in technology. Our vision is to create an online and in-person space where BIPOCs can learn tech skills, find collaborators, and hold critical discussions on how technology affects communities of colour.
 
-
-
 **Melissa Haughton**
 
 Melissa Haughton is a storyteller of Jamaican descent based in Toronto. She is particularly interested in exploring ideas that centre the Black diaspora, the arts and community building, both on and offline. She currently works at CBC in Communications.
-
-
 
 **Jennifer Cao**
 
