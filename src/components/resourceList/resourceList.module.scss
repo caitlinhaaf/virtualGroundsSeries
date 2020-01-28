@@ -1,0 +1,20 @@
+@import "../../styles/_variables";
+
+.list{
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    a{
+        text-decoration: underline;
+    }
+
+    a:focus{
+        color: $yellow;
+        outline: none;
+    }
+}
+
+.listItem{
+    margin-bottom: 1rem;
+}

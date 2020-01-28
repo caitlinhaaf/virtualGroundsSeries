@@ -1,7 +1,6 @@
 @import '../styles/variables';
 
 .grid{
-    // display: grid;
     display: inline-grid;   
     width: auto;
     margin: 0 auto;
@@ -45,8 +44,14 @@
        -2px 2px 0 white,
         2px 2px 0 white;
     }
+    a:focus, a:hover,
+    a:focus *, a:hover *{
+        outline: none; 
+        color: $yellow;
+    }
 }
 
 .list{
     grid-area: list;
+    
 }

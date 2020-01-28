@@ -9,7 +9,7 @@ body{
     font: $bodyFont;
     font-size: .9rem;
     line-height: 1.25;
-    transition: .4s background-color;
+    transition: all .4s ease-in-out;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -18,6 +18,10 @@ h1 *, h2 *, h3 *, h4 *, h5 *, h6 *{
     font-size: 2em;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+h4{
+    margin-bottom: .5em;
 }
 
 a{

@@ -1,7 +1,6 @@
 @import '../styles/variables';
 
 .grid{
-    // display: grid;
     display: inline-grid;   
     width: auto;
     margin: 0 auto;
@@ -30,8 +29,6 @@
     text-align: right;
 }
 
-
-
 .readings{
     grid-area: rd;
 }
@@ -54,6 +51,11 @@
     h2{
         color: $yellow;
     }
+    a:focus, a:hover,
+    a:focus *, a:hover *{
+        outline: none; 
+        color: white;
+    }
 }
 
 .links{
@@ -66,5 +68,13 @@
        2px -2px 0 white,
        -2px 2px 0 white,
         2px 2px 0 white;
+    }       
+}
+
+.links, .lectures, .readings{
+    a:focus, a:hover,
+    a:focus *, a:hover *{
+        outline: none; 
+        color: $yellow;
     }
 }

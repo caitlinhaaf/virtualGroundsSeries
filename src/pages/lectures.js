@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 import ResourceList from "../components/resourceList/resourceList"
-import {normalizeResourceList} from "../utils/helpers"
+import {normalizeResourceList,sortResourcesAlphabetically} from "../utils/helpers"
 
 import componentStyles from "./lectures.module.scss"
 
@@ -36,7 +36,7 @@ render() {
         return [...normalizedLinks, ...acc]
       }, [])
   ):([])
-  const allClosedLinks = normalizeResourceList([...allClosedFiles, ...allClosedUrls], "linkPath")
+  const allClosedLinks = sortResourcesAlphabetically([...allClosedFiles, ...allClosedUrls])
 
   return(
     <Layout bodyClass="greenBody">
@@ -71,8 +71,8 @@ render() {
                             if(allLectures.length >=1){
                               return(
                                 <div key={i}>
-                                    <h4 style={{marginBottom: `.5em`}}>{node.frontmatter.title}</h4>
-                                    <ResourceList resources={normalizeResourceList(allLectures, "linkPath")} />
+                                    <h4>{node.frontmatter.title}</h4>
+                                    <ResourceList resources={sortResourcesAlphabetically(allLectures)} />
                                 </div>
                               )
                             }else return null
@@ -81,8 +81,8 @@ render() {
 
                     {allClosedLinks.length >= 1 &&
                         <>
-                          <h4 style={{marginBottom: `.5em`}}>Extra Lectures</h4>
-                          <ResourceList resources={normalizeResourceList(allClosedLinks, "linkPath")} />
+                          <h4>Extra Lectures</h4>
+                          <ResourceList resources={sortResourcesAlphabetically(allClosedLinks)} />
                         </>
                     }
                 </div>

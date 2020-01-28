@@ -27,6 +27,7 @@ const Nav = ({altBorder}) => {
           CLASS CONTENT
         </Link>
 
+        {/* TODO: page to be added by client later */}
         {/* <Link to="/publication" className={componentStyles.link} activeClassName={componentStyles.active}>
           PUBLICATION
         </Link> */}

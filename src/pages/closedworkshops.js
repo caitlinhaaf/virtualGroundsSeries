@@ -29,7 +29,7 @@ class ClosedWorkshopPage extends React.Component {
               actualPosts.map(({node}, i) => (
                   <WorkshopBlock 
                   key={i}
-                  workshopNum={i+1} 
+                  workshopNum={node.frontmatter.workshopNum}
                   pageLink={node.fields.slug}
                   date={node.frontmatter.date}
                   thumbnailSrc={node.frontmatter.thumbnail}>

@@ -17,10 +17,6 @@
         letter-spacing: .05em;
     }
 
-    li a{
-        text-decoration: underline;
-    }
-
     @include md {
         grid-template-areas: 
         "rd"
@@ -37,11 +33,14 @@
     text-align: right;
 }
 
-
 .readings{
     grid-area: rd;
+    a:focus, a:hover,
+    a:focus *, a:hover *{
+        outline: none; 
+        color: $yellow;
+    }
 }
-
 
 .list{
     grid-area: list;

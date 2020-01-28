@@ -38,7 +38,6 @@
     text-align: right;
 }
 
-
 .lectures{
     grid-area: lc;
     h2{
@@ -50,8 +49,12 @@
        -2px 2px 0 $yellow,
         2px 2px 0 $yellow;
     }
+    a:focus, a:hover,
+    a:focus *, a:hover *{
+        outline: none; 
+        color: $yellow;
+    }
 }
-
 
 .list{
     grid-area: list;
