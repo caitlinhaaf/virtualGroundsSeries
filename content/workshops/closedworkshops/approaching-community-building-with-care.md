@@ -12,6 +12,9 @@ description: >-
   encourages participants to reflect on what community care looks like in the
   context of their art practice or research project for the Virtual Grounds
   program.
+lectureLinks:
+  - name: Presentation slides
+    url: 'https://drive.google.com/file/d/1z7aghpyNEwpeXWoiFFZQXSwjFyTD7Pad/view'
 ---
 Date: January 28th, 2020
 
