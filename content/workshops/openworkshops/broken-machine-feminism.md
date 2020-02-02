@@ -4,7 +4,7 @@ privacySetting: open
 workshopNum: '9'
 title: Broken Machine Feminism
 date: 2019-10-29T16:56:41.078Z
-thumbnail: /img/image.png
+thumbnail: /img/brokenmachine_square.jpg
 description: >-
   A short lecture on the topic of feminist/critical race approaches to
   technology
