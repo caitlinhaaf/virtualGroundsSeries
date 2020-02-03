@@ -3,7 +3,7 @@ placeholder: 'false'
 privacySetting: open
 workshopNum: '9'
 title: Broken Machine Feminism
-date: 2020-02-03T17:56:41.078Z
+date: 2020-02-02T17:56:41.078Z
 thumbnail: /img/brokenmachine_square.jpg
 description: >-
   A short lecture on the topic of feminist/critical race approaches to
