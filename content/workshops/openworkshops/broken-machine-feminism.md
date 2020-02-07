@@ -1,7 +1,7 @@
 ---
 placeholder: 'false'
 privacySetting: open
-workshopNum: '2'
+workshopNum: '9'
 title: Broken Machine Feminism
 date: 2020-02-02T17:56:41.078Z
 thumbnail: /img/brokenmachine_square.jpg
