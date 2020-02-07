@@ -11,20 +11,19 @@ class WorkshopPage extends React.Component {
   render() {
     const { data } = this.props
     const posts = data.allMarkdownRemark.edges
-    const actualPosts = posts.filter(({node}) => (!node.frontmatter.placeholder))
 
     return(
       <Layout bodyClass="orangeBody">
         <SEO title="Workshops" pageUrl="/workshops"/>
-        {actualPosts.length === 0 &&
+        {posts.length === 0 &&
           <>
             <h1 style={{marginBottom: `1rem`, fontSize: `7vw`}}>WORKSHOPS</h1>
             <p style={{fontStyle: `italic`}}>No open workshops have been posted yet.</p>
           </>
         }
 
-        {actualPosts.length >=1 &&
-          actualPosts.map(({node}, i) => (
+        {posts.length >=1 &&
+          posts.map(({node}, i) => (
             <WorkshopBlock 
               key={i}
               workshopNum={node.frontmatter.workshopNum}
@@ -54,9 +53,8 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: {frontmatter: {privacySetting: {eq: "open"}}},
+      filter: {frontmatter: {privacySetting: {eq: "open"}, placeholder: {nin: true}}},
       sort: { fields: [frontmatter___date], order: DESC }
-      
     ) {
       edges {
         node {
