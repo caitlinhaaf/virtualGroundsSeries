@@ -63,7 +63,6 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            placeholder
             workshopNum
             date(formatString: "MMMM, YYYY")
             title
