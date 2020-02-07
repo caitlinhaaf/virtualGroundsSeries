@@ -1,5 +1,5 @@
 ---
-placeholder: 'false'
+placeholder: false
 privacySetting: open
 workshopNum: '9'
 title: Broken Machine Feminism
