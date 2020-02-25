@@ -21,39 +21,39 @@ render() {
   return(
     <Layout bodyClass="greenBody">
       <SEO title="Class Content" pageUrl="/gallery"/>
+      <section className={componentStyles.container}>
 
-      <div>
-            <section className={componentStyles.grid}>
+          <div className={componentStyles.gallery}>
+              <Link to="/classContent" aria-label="class content page">
+                <h2 className={componentStyles.pageLink}>GALL<br/>ERY</h2>
+              </Link>
+          </div>
 
-                <div className={`${componentStyles.gridSeciton} ${componentStyles.leftCol} ${componentStyles.gallery}`}>
-                    <Link to="/classContent">
-                      <h2>GALL<br/>ERY</h2>
-                    </Link>
-                </div>
-                {allGalleryImgs.length === 0 &&
-                  <p style={{fontStyle: `italic`}}>No workshop images have been posted yet.</p>
-                }
+          {/* If there are no images from any workshops, display this message */}
+          {allGalleryImgs.length === 0 &&
+            <p style={{fontStyle: `italic`}}>No workshop images have been posted yet.</p>
+          }
 
-                {allGalleryImgs.length >=1 &&
-                  <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
-                    {allGalleryImgs.slice(0,2).map((image, i) => (
-                        <img key={i} src={image.image} alt={image.altText}/>
-                      ))
-                    }
-                  </div>
-                }
-                
-                {allGalleryImgs.length > 2 &&
-                  <div className={`${componentStyles.listContinued} ${componentStyles.gridSeciton}`}>
-                    {allGalleryImgs.slice(3).map((image, i) => (
-                        <img key={i} src={image.image} alt={image.altText}/>
-                      ))
-                    }
-                  </div>
-                }
+          {/* Add first two images into a separate container, next to page header... */}
+          {allGalleryImgs.length >=1 &&
+            <div className={componentStyles.list}>
+              {allGalleryImgs.slice(0,2).map((image, i) => (
+                  <img key={i} src={image.image} alt={image.altText}/>
+                ))
+              }
+            </div>
+          }
+          {/* ...add the remaining images to a container below the header */}
+          {allGalleryImgs.length > 2 &&
+            <div className={componentStyles.listContinued}>
+              {allGalleryImgs.slice(3).map((image, i) => (
+                  <img key={i} src={image.image} alt={image.altText}/>
+                ))
+              }
+            </div>
+          }
 
-            </section>
-        </div>
+      </section>
     </Layout>
   )
 }
@@ -61,7 +61,6 @@ render() {
 }
 
 export default GalleryPage
-
 
 export const pageQuery = graphql`
   query {

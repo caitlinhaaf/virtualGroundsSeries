@@ -5,49 +5,48 @@ import Layout from "../components/layout/layout"
 import SEO from "../components/seo"
 
 import componentStyles from "./classContent.module.scss"
-// import ClassLinksGrid from "../components/classLinksGrid/classLinksGrid"
 
 const ClassContentPage = () => {
 
   return(
     <Layout bodyClass="greenBody">
       <SEO title="Class Content"  pageUrl="/classcontent"/>
-
-      <div>
-            <section className={componentStyles.grid}>
-
+        <section className={componentStyles.container}>
+            <div>
                 <div 
-                    className={`${componentStyles.gridSeciton} ${componentStyles.leftCol} ${componentStyles.readings}`}
+                    className={componentStyles.readings}
                 >
-                    <Link to="/readings">
-                      <h2>READI<br/>NGS</h2>
+                    <Link to="/readings" aria-label="readings">
+                        <h2 className={componentStyles.pageLink}>READI<br/>NGS</h2>
                     </Link>
                 </div>
 
                 <div 
-                    className={`${componentStyles.gridSeciton} ${componentStyles.rightCol} ${componentStyles.lectures}`}
+                    className={componentStyles.lectures}
                 >
-                    <Link to="/lectures">
-                         <h2>LECTU<br/>RES</h2>
+                    <Link to="/lectures" aria-label="lectures">
+                        <h2 className={componentStyles.pageLink}>LECTU<br/>RES</h2>
                     </Link>
                     
                 </div>
+            </div>
 
-                <div className={`${componentStyles.gridSeciton} ${componentStyles.leftCol} ${componentStyles.gallery}`}>
-                    <Link to="/gallery">
-                        <h2>GALL<br/>ERY</h2>
+            
+            <div>
+                <div className={componentStyles.gallery}>
+                    <Link to="/gallery" aria-label="image gallery">
+                        <h2 className={componentStyles.pageLink}>GALL<br/>ERY</h2>
                     </Link>
                 </div>
 
-                <div className={`${componentStyles.gridSeciton} ${componentStyles.rightCol} ${componentStyles.links}`}>
-                    <Link to="/links">
-                        <h2>LIN<br/>KS</h2>
+                <div className={componentStyles.links}>
+                    <Link to="/links" aria-label="links">
+                        <h2 className={componentStyles.pageLink}>LIN<br/>KS</h2>
                     </Link>
                 </div>
+            </div>
 
-            </section>
-        </div>
-      
+        </section>
     </Layout>
   )
   

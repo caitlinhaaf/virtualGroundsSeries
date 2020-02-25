@@ -53,22 +53,19 @@
     background: white;
     margin: 2em 0;
 }
-
 .linkList,
 .linkList *{
     color: $green;
     list-style: none
 }
-
 .linkList{
     margin: .5em 0;
+    padding-inline-start: 0;
 }
-
 .backLink,
 .link{
     color: $green;
 }
-
 .link{
     text-decoration: underline;
     padding: .25em 0;
@@ -79,11 +76,9 @@
         margin-bottom: 0;
     }
 }
-
 .backLink{
     font-weight: bold;
 }
-
 .galleryImg{
     max-height: 200px;
     max-width: 100%;

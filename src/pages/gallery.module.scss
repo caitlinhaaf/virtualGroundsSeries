@@ -1,66 +1,60 @@
 @import '../styles/variables';
 
-.grid{
-    display: inline-grid;   
-    width: auto;
+.container{
     margin: 0 auto;
-
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-
-    grid-template-areas: 
-      "gl list"
-      "gl list"
-      "listCntd listCntd";
-
-    h2{
-        font-size: 15vw;
-        letter-spacing: .05em;
-    }
-
-    @include lg {
-        grid-template-areas: 
-        "gl"
-        "list"
-        "listCntd";
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-
-.gridSeciton{
-    padding: 0 .8em;
-}
-.leftCol{
-    text-align: right;
-}
-
-.gallery{
-    grid-area: gl;
-    h2{
-        color: $yellow;
-    }
-}
-
-.galleryImage{
-    margin: .25em 0;
-}
-
-.list{
-    padding: 0;
-    grid-area: list;
-}
-
-.listContinued{
-    padding: 0;
-    grid-area: listCntd;
     display: flex;
     flex-wrap: wrap;
     > *{
-        width: calc(50% - 1em);
+        flex-basis: 50%;
+        max-width: 50%;
+        // &:first-child, &:first-child *{
+        //     text-align: right;
+        // }
+    }
+}
+.pageLink{
+    font-size: 15vw;
+    letter-spacing: .05em;
+    padding: 0 .5rem;
+}
+
+.gallery{
+    order: 2;
+    padding: 15vw 0 0 0;
+    h2{
+        color: $yellow;
+
+    }
+}
+
+.list{
+    order: 1;
+    padding: 0;
+    padding-right: 1.5rem;
+
+    > *{
+        width: 100%;
+    }
+}
+
+.listContinued{
+    order: 3;
+    flex-basis: 100%;
+    min-width: 100%;
+
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    > *{
+        width: calc(50% - .15em);
         margin-bottom: .25em;
     }
     > :nth-child(odd){
         margin-right: .25em;
+    }
+    > :last-child:nth-child(odd){
+        width: 100%;
+        margin-right: 0;
     }
     @include lg {
         > *{

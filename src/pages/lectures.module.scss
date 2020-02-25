@@ -1,45 +1,26 @@
 @import '../styles/variables';
 
-.grid{
-    display: inline-grid;   
-    width: auto;
+.container{
     margin: 0 auto;
-
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-
-    grid-template-areas: 
-      "list ."
-      "list lc"
-      "list lc";
-
-    h2{
-        font-size: 15vw;
-        letter-spacing: .05em;
-    }
-
-    li a{
-        text-decoration: underline;
-    }
-
-    @include md {
-        grid-template-areas: 
-        "lc"
-        "list";
-        grid-template-columns: repeat(1, 1fr);
+    display: flex;
+    > *{
+        flex: 50%;
+        &:first-child, &:first-child *{
+            text-align: right;
+        }
+        &:last-child{
+            margin-top: 15vw;
+        }
     }
 }
 
-.gridSeciton{
-    padding: 0 .8em;
-}
-
-.leftCol{
-    text-align: right;
+.pageLink{
+    font-size: 15vw;
+    letter-spacing: .05em;
+    padding: 0 .5rem;
 }
 
 .lectures{
-    grid-area: lc;
     h2{
         color: $green;
         text-shadow:
@@ -54,10 +35,6 @@
         outline: none; 
         color: $yellow;
     }
-}
-
-.list{
-    grid-area: list;
 }
 
 

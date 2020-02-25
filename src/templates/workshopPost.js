@@ -44,17 +44,17 @@ class WorkshopPostTemplate extends React.Component {
            
           </header>
 
-          <section style={{"margin-bottom": "1em"}}>
-            <h4 style={{"margin-bottom": ".25em"}}>DESCRIPTION</h4>
+          <section style={{marginBottom: `1em`}}>
+            <h4 style={{marginBottom: `.25em`}}>DESCRIPTION</h4>
             <p>{post.frontmatter.description}</p>
           </section>
 
-          <section  style={{"margin-bottom": "1em"}}>
-            <h4 style={{"margin-bottom": ".25em"}}>SUMMARY</h4>
+          <section  style={{marginBottom: `1em`}}>
+            <h4 style={{marginBottom: `.25em`}}>SUMMARY</h4>
             <section dangerouslySetInnerHTML={{ __html: post.html }} />
           </section>
           
-          <h4 style={{"margin-bottom": ".25em"}}>RESOURCES</h4>
+          <h4 style={{marginBottom: `.25em`}}>RESOURCES</h4>
 
           {(allReadings.length===0 
               && allLectures.length ===0

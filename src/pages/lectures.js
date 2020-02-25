@@ -41,55 +41,61 @@ render() {
   return(
     <Layout bodyClass="greenBody">
       <SEO title="Lectures" pageUrl="/lectures"/>
+      <section className={componentStyles.container}>
 
-      <div>
-            <section className={componentStyles.grid}>
+          <div 
+              className={componentStyles.lectures}
+          >   
+              <Link to="/classContent" aria-label="class content page">
+                  <h2 className={componentStyles.pageLink}>LECTU<br/>RES</h2>
+              </Link>
+          </div>
 
-                <div 
-                    className={`${componentStyles.gridSeciton} ${componentStyles.rightCol} ${componentStyles.lectures}`}
-                >   
-                    <Link to="/classContent">
-                        <h2>LECTU<br/>RES</h2>
-                    </Link>
-                </div>
+          <div>
+              {/* If there are no resources from either closed or open workshops, display this message */}
+              { (openWorkshops.length === 0 && allClosedLinks.length === 0) &&
+                <p style={{fontStyle: `italic`}}>No workshop lectures have been posted yet.</p>
+              }
 
-                <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
-                    { (openWorkshops.length === 0 && allClosedLinks.length === 0) &&
-                      <p style={{fontStyle: `italic`}}>No workshop lectures have been posted yet.</p>
-                    }
+              {/* 
+                ADDING OPEN WORKSHOP LINKS
+                - sort by workshop
+                - include workshop title above list
+              */}
+              { openWorkshops.length >= 1 &&
+                  openWorkshops.map(({node}, i) => {
+                      const lectureFiles = node.frontmatter.lectureFiles ? (
+                        normalizeResourceList(node.frontmatter.lectureFiles, "file")
+                      ) : ([])
+                      const lectureLinks = node.frontmatter.lectureLinks ? (
+                        normalizeResourceList(node.frontmatter.lectureLinks, "url")
+                      ) : ([])
+                      const allLectures = [...lectureFiles, ...lectureLinks] 
 
-                    { openWorkshops.length >= 1 &&
-                        openWorkshops.map(({node}, i) => {
-                            const lectureFiles = node.frontmatter.lectureFiles ? (
-                              normalizeResourceList(node.frontmatter.lectureFiles, "file")
-                            ) : ([])
-                            const lectureLinks = node.frontmatter.lectureLinks ? (
-                              normalizeResourceList(node.frontmatter.lectureLinks, "url")
-                            ) : ([])
-                            const allLectures = [...lectureFiles, ...lectureLinks] 
+                      if(allLectures.length >=1){
+                        return(
+                          <div key={i}>
+                              <h4>{node.frontmatter.title}</h4>
+                              <ResourceList resources={sortResourcesAlphabetically(allLectures)} />
+                          </div>
+                        )
+                      }else return null
+                  })
+              }
 
-                            if(allLectures.length >=1){
-                              return(
-                                <div key={i}>
-                                    <h4>{node.frontmatter.title}</h4>
-                                    <ResourceList resources={sortResourcesAlphabetically(allLectures)} />
-                                </div>
-                              )
-                            }else return null
-                        })
-                    }
+              {/*   
+                ADD CLOSED WORKSHOP LINKS
+                - collect all links under common header
+              */}
+              {allClosedLinks.length >= 1 &&
+                  <>
+                    <h4>Extra Lectures</h4>
+                    <ResourceList resources={sortResourcesAlphabetically(allClosedLinks)} />
+                  </>
+              }
+          </div>
 
-                    {allClosedLinks.length >= 1 &&
-                        <>
-                          <h4>Extra Lectures</h4>
-                          <ResourceList resources={sortResourcesAlphabetically(allClosedLinks)} />
-                        </>
-                    }
-                </div>
-
-            </section>
-        </div>
-      
+      </section>      
     </Layout>
   )
 }

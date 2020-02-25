@@ -2,6 +2,8 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
+import componentStyles from './logos.module.scss';
+
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
  * images with lazy loading and reduced file sizes. The image is loaded using a
@@ -13,7 +15,7 @@ import Img from "gatsby-image"
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-const FemmeUsingPhone = () => {
+const PartnerLogos = () => {
   const data = useStaticQuery(graphql`
     query {
       djlLogo: file(relativePath: { eq: "logo_DJI-text_DJI-text-white.png" }) {
@@ -41,13 +43,12 @@ const FemmeUsingPhone = () => {
   `)
 
   return (
-    <div style={{"width":"70%", "margin": "0 auto"}}>
-        <Img style={{"margin-bottom": "1.5em"}} fluid={data.djlLogo.childImageSharp.fluid} objectFit="cover" alt="Digital Justice Labs logo."/>
-        <Img style={{"margin-bottom": "1.5em"}} fluid={data.tsvLogo.childImageSharp.fluid} objectFit="cover" alt="Trinity Square Video logo."/>
+    <div className={componentStyles.container}>
+        <Img fluid={data.djlLogo.childImageSharp.fluid} objectFit="cover" alt="Digital Justice Labs logo."/>
+        <Img fluid={data.tsvLogo.childImageSharp.fluid} objectFit="cover" alt="Trinity Square Video logo."/>
         <Img fluid={data.ccfaLogo.childImageSharp.fluid} objectFit="cover" alt="Canada Council for the Arts logo."/>
-    </div>
-    
+    </div> 
   )
 }
 
-export default FemmeUsingPhone
+export default PartnerLogos;

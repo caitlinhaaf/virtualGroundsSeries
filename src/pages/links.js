@@ -28,19 +28,18 @@ class LinksPage extends React.Component {
     return(
       <Layout bodyClass="greenBody">
         <SEO title="Links" pageUrl="/links"/>
-        <div>
-          <section className={componentStyles.grid}>
-              <div className={`${componentStyles.gridSeciton} ${componentStyles.rightCol} ${componentStyles.links}`}>
-                  <Link to="/classContent">
-                    <h2>LIN<br/>KS</h2>
-                  </Link>
-              </div>
-
-              <div className={`${componentStyles.list} ${componentStyles.gridSeciton}`}>
+          <section className={componentStyles.container}>
+              <div className={componentStyles.list}>
+                  {/* If there are no resources from either closed or open workshops, display this message */}
                   {(openWorkshops.length === 0 && allClosedWorkshopLinks.length === 0) &&
                     <p style={{fontStyle: `italic`}}>No workshop links have been posted yet.</p>
                   }
 
+                  {/* 
+                    ADDING OPEN WORKSHOP LINKS
+                    - sort by workshop
+                    - include workshop title above list
+                  */}
                   {openWorkshops.length >= 1 &&
                       openWorkshops.map(({node}, i) => {
                           if(node.frontmatter.links) {
@@ -57,6 +56,10 @@ class LinksPage extends React.Component {
                       })
                   }
 
+                  {/*   
+                    ADD CLOSED WORKSHOP LINKS
+                    - collect all links under common header
+                  */}
                   {allClosedWorkshopLinks.length >= 1 &&
                       <>
                         <h4 style={{marginBottom: `.5rem`}}>Extra Links</h4>
@@ -65,8 +68,13 @@ class LinksPage extends React.Component {
                   }
               </div>
 
+              <div className={componentStyles.links}>
+                  <Link to="/classContent" aria-label="class content page">
+                    <h2 className={componentStyles.pageLink}>LIN<br/>KS</h2>
+                  </Link>
+              </div>
+
           </section>
-        </div>
       </Layout>
     )
   }
