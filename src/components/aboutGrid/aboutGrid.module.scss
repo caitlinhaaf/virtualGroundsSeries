@@ -1,26 +1,28 @@
 @import '../../styles/variables';
 
-.grid{
-    display: grid;
-    border-top: $whiteBorder;
-    border-left: $whiteBorder;
-    justify-items: stretch;
+.columnContainer{
+    // display: grid;
+    // justify-items: stretch;
 
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: 
-      "about wrkshps stripes1"
-      "classCnt img stripes1"
-      "stripes2 img partners"
-      "contact img partners";
+    // grid-template-columns: repeat(3, 1fr);
+    // grid-template-areas: 
+    //   "about wrkshps stripes1"
+    //   "classCnt img stripes1"
+    //   "stripes2 img partners"
+    //   "contact img partners";
 
-    > *{
-        border-bottom: $whiteBorder;
-        border-right: $whiteBorder;
+    // border-top: $whiteBorder;
+    // border-left: $whiteBorder;
 
-        padding: 1rem 0;
-        text-decoration: none;
-    }
-    .centered{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    border: $whiteBorder;
+
+    a{
+        padding: 1rem;
+        flex: auto 1 1;
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -45,21 +47,23 @@
             font: $hdrLight;
             font-size: 3.5vw;
         }
-
-        // 7vw
-        // 4vw
     }
 
     @include md {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: 
-        "about about"
-        "wrkshps img"
-        "stripes1 img"
-        "partners classCnt"
-        "partners stripes2"
-        "contact contact";
+        // grid-template-columns: repeat(2, 1fr);
+        // grid-template-areas: 
+        // "about about"
+        // "wrkshps img"
+        // "stripes1 img"
+        // "partners classCnt"
+        // "partners stripes2"
+        // "contact contact"; 
+
+        flex-wrap: wrap;
         
+        a, > *{
+            flex: 100% 0 0;
+        }
         h3, h4{
             padding: .25em 1em;
             font-size: 5vw;
@@ -67,13 +71,14 @@
         .light{
             font-size: 5.5vw;
         }
-      }
+    }
 
     
     // LINK STYLES
     .yellow *,
     .white *{
         color: $green; 
+        // transition: background-color .3s ease-in-out;
     }
     .yellow{
         background-color: $yellow;
@@ -120,27 +125,52 @@
 
     .lines{
         padding: 0;
-        display: flex;
+        flex: auto 1 1;
+        // display: flex;
         > *{
             width: 100%;
         }
     }
 
     .image{
+        flex: auto 1 1;
         padding: 0;
         > *{
             height: 100%;
         }
     }
     .content{
-        margin: 2em 2em 1em 2em;
+        margin: 2em;
     }
-    .logosCol{
-        width: 90%;
+}
 
-        img{
-            display: block;
-            width: 100%;
+
+.column{
+    flex: calc(100% / 3) 0 0;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    &:not(:last-child){
+        border-right: $whiteBorder;
+    }
+    > *:not(:last-child){
+        border-bottom: $whiteBorder;
+    }
+
+    @include md {
+        flex: 100% 0 0;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        &:not(:last-child){
+            border-right: 0px;
+        }
+
+        > *{
+            flex: 100% 1 0;
+        }
+        > .halfWidth{
+            flex: 50% 0 0;
         }
     }
 }
