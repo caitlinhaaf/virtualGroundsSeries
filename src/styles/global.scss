@@ -20,6 +20,17 @@ h1 *, h2 *, h3 *, h4 *, h5 *, h6 *{
     margin-bottom: 0;
 }
 
+h1.alt, h1.alt *{
+    font: $hdrAltFont;
+    margin-bottom: 2rem;
+}
+h2.alt, h3.alt, h4.alt, h5.alt, h6.alt,
+h2.alt *, h3.alt *, h4.alt *, h5.alt *, h6.alt *{
+    font: $subHdrAltFont;
+    margin-bottom: 1rem;
+}
+
+
 h4{
     margin-bottom: .5em;
 }
@@ -48,5 +59,12 @@ img{
     h1, h2, h3, h4, h5, h6,
     h1 *, h2 *, h3 *, h4 *, h5 *, h6 *{
         color: $green;
+    }
+}
+
+.pageContentBody{
+    margin-top: 3rem;
+    p{
+        margin-bottom: 2rem;
     }
 }

@@ -15,9 +15,12 @@ FONT
 */
 @import url("https://use.typekit.net/vbk0jgb.css");
 $bodyFont: normal 400 1rem/1em fira-sans, sans-serif;
-$hdrFont: normal 800 1rem/1em atrament-web, sans-serif;
+$hdrFont: normal 800 2rem/1em atrament-web, sans-serif;
 $hdrLight: normal 300 1rem/1em atrament-web, sans-serif;
 $hdrLarge: normal 800 5rem/1em atrament-web, sans-serif;
+
+$hdrAltFont: normal 700 2.5rem/1em fira-sans, sans-serif;
+$subHdrAltFont: normal 400 1.8rem/1em fira-sans, sans-serif;
 
 /*
 BREAKPOINTS
