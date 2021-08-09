@@ -25,9 +25,18 @@ const AboutGrid = () => {
                 to="/workshops" 
                 className={`${componentStyles.yellow} ${componentStyles.centered}`}>
                 <h3>
-                    <span style={{"font-size": "7vw"}}>OPEN</span>
+                    <span className={componentStyles.xl}>OPEN</span>
                     <br/>
                     <span className={componentStyles.light}>WORKSHOPS</span>
+                </h3>
+            </Link>
+
+            <Link style={{ "grid-area": "apps"}} to="/call-for-applications" className={`${componentStyles.centered} ${componentStyles.green}`}>
+                <span className={componentStyles.largeTxt}>We are accepting applications for Virtual Grounds 2021-2022. For more info see our</span>
+                <h3>
+                    <span className={componentStyles.med}>CALL FOR</span>
+                    <br/>
+                    <span className={componentStyles.lg} className={componentStyles.light}>APPLICATIONS</span>
                 </h3>
             </Link>
 
@@ -43,7 +52,7 @@ const AboutGrid = () => {
                 style={{ "grid-area": "classCnt"}}>
                 <div>
                     <h3>
-                        <span style={{"font-size": "4vw"}}>CLASS</span>
+                        <span className={componentStyles.med}>CLASS</span>
                         <br/>
                         <span className={componentStyles.light}>CONTENT</span>
                     </h3>
@@ -73,12 +82,17 @@ const AboutGrid = () => {
                 <Logos className={componentStyles.logosCol}/>
             </div>
 
-            <div 
+            {/* <div 
                 style={{ "grid-area": "stripes2"}}
                 className={componentStyles.lines}
                 >
                 <Lines color="yellow"/>
-            </div>
+            </div> */}
+
+            <Link to="https://www.showcase.virtualgrounds.zone/" style={{ "grid-area": "stripes2"}} className={`${componentStyles.yellow} ${componentStyles.centered}`}>
+                <span className={componentStyles.largeTxt}>Check out the projects from our first cohort at our</span>
+                <h3 className={componentStyles.med}>SHOWCASE</h3>
+            </Link>
 
             <a 
                 style={{ "grid-area": "contact"}}
