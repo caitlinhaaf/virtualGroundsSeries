@@ -8,7 +8,7 @@
 
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas: 
-      "about wrkshps apps"
+      "about wrkshps stripes1"
       "classCnt img stripes1"
       "stripes2 img partners"
       "contact img partners";
@@ -22,19 +22,8 @@
     }
     .centered{
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        // padding: 1rem;
-    }
-
-    .largeTxt{
-        font-size: 1.2rem;
-        text-align: center;
-        margin: 0 1rem;
-        @include md {
-            font-size: 1rem;
-        }
     }
 
     h3, h4{
@@ -52,38 +41,19 @@
         &.underline{
             border-bottom: $whiteBorder; 
         }
-        .light, &.light{
+        .light{
             font: $hdrLight;
             font-size: 3.5vw;
-            @include md {
-                font-size: 2rem;
-            }
         }
-        .med, &.med{
-            font-size: 4vw;
-            @include md {
-                font-size: 2rem;
-            }
-        }
-        .lg, &.lg{
-            font-size: 5vw;
-            @include md {
-                font-size: 4rem;
-            }
-        }
-        .xl, &.xl{
-            font-size: 7vw;
-            @include md {
-                font-size: 5rem;
-            }
-        }
+
+        // 7vw
+        // 4vw
     }
 
     @include md {
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas: 
         "about about"
-        "apps apps"
         "wrkshps img"
         "stripes1 img"
         "partners classCnt"
