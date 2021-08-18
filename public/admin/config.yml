@@ -140,3 +140,14 @@ collections:
             { label: Image, name: image, required: true, widget: image },
             { label: Alt Text, name: altText, required: true, widget: string}
           ]}
+  - name: "Call for Applications Page"
+    label: "Call for Applications Page"
+    folder: "content/pages/callforapplications"
+    description: "Edit the content of the call for applications page."
+    editor:
+     preview: false
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
