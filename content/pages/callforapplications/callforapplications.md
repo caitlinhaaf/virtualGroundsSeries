@@ -3,13 +3,13 @@ title: Call for Applications
 subtitle: 'Virtual Grounds: Platforms'
 date: 2021-09-01T17:56:41.078Z
 ---
-We’re excited to announce the second year of Virtual Grounds program, a series dedicated to feminist perspectives on digital sustainability and survival. Virtual Grounds is a 2-part training and research initiative that considers how we navigate the future, protect our virtual selves, and shape digital landscapes. Over the course of a year, we will survey how technology continues to grow and impact our lives in different ways through a series of workshops led by practicing creative technologists, scholars, and artists. 
+We’re excited to announce the second year of the Virtual Grounds program, a series dedicated to how we navigate the future, protect our virtual selves, and shape digital landscapes. Over the course of a year, we will survey how technology continues to grow and impact our lives in different ways through a series of workshops led by practicing creative technologists, scholars, and artists.
 
 This year we will be focusing on the theme of Platforms. We understand that everyone has a different interpretation of platforms and what it means to them. We will be focusing on social/technology based platforms, how they shape our lives, our imagination and how we move through virtual spaces. Our themes are used as guideposts on how you build your project and what questions you want to explore, it is adaptable to your own explorations and experiences. Over the course of this program we will be expanding our ideas of ‘platforms’ through workshops, readings and building together. 
 
-**The call for applications will open August 10th, 2021 until September 17th. Successful applicants will be notified by September 20th. The program will begin October 2021 through to the end of 2022. This year, our program will be entirely remote. As such we welcome applications from anywhere in Canada.** 
+**The call for applications will open August 20th, 2021 until September 17th. Successful applicants will be notified by September 30th. The program will begin October 2021 through to the end of 2022. This year, our program will be entirely remote – we welcome applications from anywhere in Canada.**
 
-When we began this initiative in 2019 we wanted to create a space for artists and researchers to explore their relationship with technology and how it shaped our urban and rural environments. Through a series of in-person and virtual workshops participants were able to expand their knowledge about the everyday intersections with technology. With the support of their mentors and staff, each participant was able to build out a project that helped them answer a set of questions around their relationship to technology. The amazing projects can be found here.  
+When we began this initiative in 2019 we wanted to create a space for artists and researchers to explore their relationship with technology and how it shaped our urban and rural environments. Through a series of in-person and virtual workshops participants were able to expand their knowledge about the everyday intersections with technology. With the support of their mentors and staff, each participant was able to build out a project that helped them answer a set of questions around their relationship to technology. Check out their amazing projects  [here](showcase.virtualgrounds.zone).  
 
 ## 
 
@@ -17,7 +17,7 @@ When we began this initiative in 2019 we wanted to create a space for artists an
 
 "Virtual Grounds: Platforms” is a 3 part online training and remote research initiative dedicated to navigating our experiences within virtual spaces and our relationship to surveillance and privacy. This program will support the study and dissemination of our understanding of digital rights within virtual spaces and how that intersects with the arts. 
 
-Training phase will include a 12-week co-created online curriculum, when the participants have access to technical capacity building opportunities and professional mentorship. During the research phase, participants will conduct focused research on the topic of their choosing, working towards a publication. The last phase will be the knowledge dissemination component which will support increasing broader digital literacy through the research interventions provided by participants.
+The training phase will include a 12-week co-created online curriculum, when the participants have access to technical capacity building opportunities and professional mentorship. During the research phase, participants will conduct focused research on the topic of their choosing, working towards a publication. The last phase will be the knowledge dissemination component which will support increasing broader digital literacy through the research interventions provided by participants.
 
 **Objectives**
 
@@ -44,8 +44,6 @@ The criteria for applying are the following:
 * This project requires a considerable time investment from the participants. In total, participants should plan at least 5-10 hours a month.
 * Have the motivation to take back the learning experience to their community.
 * We will be prioritizing Black, Indigenous and Folks of Colour
-
-
 
 ## Application Process
 
