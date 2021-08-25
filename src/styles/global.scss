@@ -64,8 +64,14 @@ img{
 
 .pageContentBody{
     margin-top: 3rem;
-    p{
-        margin-bottom: 2rem;
+    h1, h2, h3, h4, h5, h6{
+        margin-bottom: 1rem;
+    }
+    strong{
+        font-weight: bold;
+    }
+    ul, p{
+        margin-bottom: 1rem;
     }
     a{
         text-decoration: underline;
