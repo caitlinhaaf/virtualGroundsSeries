@@ -11,8 +11,6 @@ This year we will be focusing on the theme of Platforms. We understand that ever
 
 When we began this initiative in 2019 we wanted to create a space for artists and researchers to explore their relationship with technology and how it shaped our urban and rural environments. Through a series of in-person and virtual workshops participants were able to expand their knowledge about the everyday intersections with technology. With the support of their mentors and staff, each participant was able to build out a project that helped them answer a set of questions around their relationship to technology. Check out their amazing projects [here](showcase.virtualgrounds.zone).  
 
-## 
-
 ## About this program
 
 "Virtual Grounds: Platforms” is a three-part online training and remote research initiative dedicated to navigating our experiences within virtual spaces and our relationship to surveillance and privacy. This program will support the study and dissemination of our understanding of digital rights within virtual spaces and how that intersects with the arts. 
