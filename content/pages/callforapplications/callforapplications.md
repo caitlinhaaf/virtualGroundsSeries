@@ -7,7 +7,7 @@ We’re excited to announce the second year of Virtual Grounds program, a series
 
 **The call for applications will open August 10th, 2021 until September 17th. Successful applicants will be notified by September 20th. The program will begin October 2021 through to the end of 2022. This year, our program will be entirely remote. As such we welcome applications from anywhere in Canada.** 
 
-When we began this initiative in 2019 we wanted to create a space for artists and researchers to explore their relationship with technology and how it shaped our urban and rural environments. Through a series of in-person and virtual workshops participants were able to expand their knowledge about the everyday intersections with technology. With the support of their mentors and staff, each participant was able to build out a project that helped them answer a set of questions around their relationship to technology. The amazing projects can be found [here](https://www.showcase.virtualgrounds.zone/).  
+When we began this initiative in 2019 we wanted to create a space for artists and researchers to explore their relationship with technology and how it shaped our urban and rural environments. Through a series of in-person and virtual workshops participants were able to expand their knowledge about the everyday intersections with technology. With the support of their mentors and staff, each participant was able to build out a project that helped them answer a set of questions around their relationship to technology. The amazing projects can be found at https://www.showcase.virtualgrounds.zone/.  
 
 ## 
 
