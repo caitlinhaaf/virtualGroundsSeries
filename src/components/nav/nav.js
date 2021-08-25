@@ -27,9 +27,9 @@ const Nav = ({altBorder}) => {
           CLASS CONTENT
         </Link>
 
-        {/* <Link to="/call-for-applications" className={componentStyles.link} activeClassName={componentStyles.active}>
+        <Link to="/call-for-applications" className={componentStyles.link} activeClassName={componentStyles.active}>
           CALL FOR APPLICATIONS
-        </Link> */}
+        </Link>
 
         {/* TODO: page to be added by client later */}
         {/* <Link to="/publication" className={componentStyles.link} activeClassName={componentStyles.active}>

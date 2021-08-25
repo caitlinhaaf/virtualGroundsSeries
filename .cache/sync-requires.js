@@ -7,6 +7,7 @@ const preferDefault = m => (m && m.default) || m
 exports.components = {
   "component---cache-caches-gatsby-plugin-offline-app-shell-js": hot(preferDefault(require("C:\\www\\virtualGroundsSeries\\.cache\\caches\\gatsby-plugin-offline\\app-shell.js"))),
   "component---src-pages-404-js": hot(preferDefault(require("C:\\www\\virtualGroundsSeries\\src\\pages\\404.js"))),
+  "component---src-pages-call-for-applications-js": hot(preferDefault(require("C:\\www\\virtualGroundsSeries\\src\\pages\\call-for-applications.js"))),
   "component---src-pages-class-content-js": hot(preferDefault(require("C:\\www\\virtualGroundsSeries\\src\\pages\\classContent.js"))),
   "component---src-pages-closedworkshops-js": hot(preferDefault(require("C:\\www\\virtualGroundsSeries\\src\\pages\\closedworkshops.js"))),
   "component---src-pages-gallery-js": hot(preferDefault(require("C:\\www\\virtualGroundsSeries\\src\\pages\\gallery.js"))),
