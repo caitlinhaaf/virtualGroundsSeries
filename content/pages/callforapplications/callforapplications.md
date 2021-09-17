@@ -5,7 +5,7 @@ date: 2021-09-01T17:56:41.078Z
 ---
 We’re excited to announce the second year of Virtual Grounds program, a series dedicated to feminist perspectives on digital sustainability and survival. Virtual Grounds is a three-part training and research initiative that considers how we navigate the future, protect our virtual selves, and shape digital landscapes. Over the course of a year, we will survey how technology continues to grow and impact our lives in different ways through a series of workshops led by practicing creative technologists, scholars, and artists. 
 
-**The call for applications will open until September 17th. Successful applicants will be notified by September 20th. The program will begin October 2021 through to the end of 2022. This year, our program will be entirely remote. As such we welcome applications from anywhere in Canada.** 
+**The call for applications will open until September 21th. Successful applicants will be notified by September 20th. The program will begin October 2021 through to the end of 2022. This year, our program will be entirely remote. As such we welcome applications from anywhere in Canada.** 
 
 When we began this initiative in 2019 we wanted to create a space for artists and researchers to explore their relationship with technology and how it shaped our urban and rural environments. Through a series of in-person and virtual workshops participants were able to expand their knowledge about the everyday intersections with technology. With the support of their mentors and staff, each participant was able to build out a project that helped them answer a set of questions around their relationship to technology. The amazing projects can be found at https://www.showcase.virtualgrounds.zone/.   
 
@@ -47,7 +47,7 @@ The criteria for applying are the following:
 
 ## Application Process
 
-Please fill out this [form](https://forms.gle/kCsPhhnzW87c8S6N9) by September 17th 2021. If you have any questions don’t hesitate to ask, Emily: emily@trinitysquarevideo.ca
+Please fill out this [form](https://forms.gle/kCsPhhnzW87c8S6N9) by September 21, 2021. If you have any questions don’t hesitate to ask, Emily: emily@trinitysquarevideo.ca
 
 **Selection Process**
 
