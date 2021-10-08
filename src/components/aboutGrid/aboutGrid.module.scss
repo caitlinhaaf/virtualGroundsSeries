@@ -84,10 +84,12 @@
         grid-template-areas: 
         "about about"
         "apps apps"
-        "wrkshps img"
-        "stripes1 img"
-        "partners classCnt"
-        "partners stripes2"
+        "wrkshps wrkshps"
+        "stripes1 stripes1"
+        "img img"
+        "partners partners"
+        "classCnt classCnt"
+        "stripes2 stripes2"
         "contact contact";
         
         h3, h4{
@@ -154,6 +156,10 @@
         > *{
             width: 100%;
         }
+
+        @include md {
+            display: none;
+        }
     }
 
     .image{
@@ -168,9 +174,14 @@
     .logosCol{
         width: 90%;
 
+        > *{
+            max-width: 10rem;
+        }
+
         img{
             display: block;
             width: 100%;
+            max-width: 15rem;
         }
     }
 }
